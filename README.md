@@ -4,4 +4,4 @@ Nazvy appky: Food Ordering
 <img src="https://github.com/filipsupolik/SOC---navrh-appky-restauracie/blob/master/Návrh SOČ stránky.png">
 
 2. Pokračovanie úvodnej časti
-<img src="https://github.com/filipsupolik/SOC---navrh-appky-restauracie/blob/master/2. časť hlavnej stránky.png.png">
+<img src="https://github.com/filipsupolik/SOC---navrh-appky-restauracie/blob/master/2. časť hlavnej stránky.png">
