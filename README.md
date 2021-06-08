@@ -11,3 +11,6 @@ Nazvy appky: Food Ordering
 
 Detaily reštaurácie
 <img src="https://github.com/filipsupolik/SOC---navrh-appky-restauracie/blob/master/Detail reštaurácie-1.png">
+
+Profilová stránka
+<img src="https://github.com/filipsupolik/SOC---navrh-appky-restauracie/blob/master/Profilová stránka.png">
