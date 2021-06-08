@@ -8,3 +8,6 @@ Nazvy appky: Food Ordering
 
 3. Hľadanie reštaurácie v okolí zvoleného mesta
 <img src="https://github.com/filipsupolik/SOC---navrh-appky-restauracie/blob/master/Obrázok appky.png">
+
+Detaily reštaurácie
+<img src="https://github.com/filipsupolik/SOC---navrh-appky-restauracie/blob/master/Detail reštaurácie-1.png">
