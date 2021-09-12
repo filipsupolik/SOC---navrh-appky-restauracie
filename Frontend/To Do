@@ -1,0 +1,5 @@
+Práca na Frontend:
+- Hlavná stránka, zobrazuje ponuku, kategórie reštaurácií a pod.
+- Kliknem na reštauráciu, zobrazí sa jej ponuka jedál
+- profilová stránka, s formulárom
+- Formulár, ktorý bude odosielať do databázy, ak zákazník bdue mať nejaký problém s Appkou/reštauráciou 
