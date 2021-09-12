@@ -1,0 +1,10 @@
+Backend
+Tabulky:
+-restauracie
+-uzivatelia
+-ponuky restauracii
+
+-one to many relationship medzi restauraciami a ich ponukami
+
+Requesty:
+-podla potreby
