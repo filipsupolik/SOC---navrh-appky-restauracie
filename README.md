@@ -16,4 +16,4 @@ Profilová stránka
 <img src="https://github.com/filipsupolik/SOC---navrh-appky-restauracie/blob/master/Profilová stránka.png">
 
 Nahlásenie chyby
-<img src="https://github.com/filipsupolik/SOC---navrh-appky-restauracie/blob/master/Formulár hlásenia chýb.png">
+<img src="https://github.com/filipsupolik/SOC---navrh-appky-restauracie/blob/master/Formulár hlásenia problémov.png">
