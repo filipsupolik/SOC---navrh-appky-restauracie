@@ -19,13 +19,6 @@ Funkcionalita:
 -	Vlastný profil
 
 Milníky
-1.	Štvrťrok -
-2.	Štvrťrok -
-3.	Štvrťrok -
-4.	Štvrťrok –
-
-Graf:
-
-
-
-
+1.	Štvrťrok - Vyhľadávanie reštaurácií, úvodná stánka
+2.	Štvrťrok - Spraviť ponuku reštaurácií
+3.	Štvrťrok - Profilová stránka a chybový formulár
