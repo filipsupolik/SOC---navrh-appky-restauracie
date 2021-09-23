@@ -1,0 +1,31 @@
+Bistro app
+
+Popis: 
+Aplikácia vďaka ktorej si môžte vyhladať reštaurácie v okolí, jedlá ktoré reštaurácia ponúka, fotografie reštaurácií. Taktiež budú reštaurácie rozdelené do kategórií a používateľ bude schopný si pridať rešturácie do obľúbených.
+
+Tím: 
+Martin Štrbánik – backend
+Filip Šupolík – frontend
+
+Objectives:
+Cieľom nášho projektu je zjednodušiť hľadanie reštaurácií pre používateľa, a tým pádom zlepšiť, uľahčiť jeho život. Taktiež by naša appka mohla pomôcť menej známym podnikom priniesť zákazníkov.
+
+Funkcionalita:
+-	Vyhľadanie reštaurácie podľa názvu
+-	Vyhľadanie reštaurácie podľa GPS
+-	Doporučené reštaurácie
+-	Kategórie reštaurácií
+-	Detaily reštaurácie
+-	Vlastný profil
+
+Milníky
+1.	Štvrťrok -
+2.	Štvrťrok -
+3.	Štvrťrok -
+4.	Štvrťrok –
+
+Graf:
+
+
+
+
