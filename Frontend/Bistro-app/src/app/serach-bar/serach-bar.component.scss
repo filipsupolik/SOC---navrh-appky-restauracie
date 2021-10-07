@@ -1,84 +1,149 @@
-/*-----------------------------------------------
-|   Backgrounds
------------------------------------------------*/
-.bg-holder {
-    position: absolute;
-    width: 100%;
-    min-height: 100%;
-    top: 0;
-    left: 0;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    will-change: transform, opacity, filter;
-    backface-visibility: hidden;
-    background-repeat: no-repeat;
-    z-index: 0;
-  
-    &.bg-right {
-      left: auto;
-      right: 0;
-    }
-  
-    &.overlay:before {
-      position: absolute;
-      content: "";
-      background: rgba(#000, 0.25);
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-    &.overlay-0:before {
-      background: rgba(#000, 0.7);
-    }
-    &.overlay-1:before {
-      background: rgba(#000, 0.55);
-    }
-    &.overlay-2:before {
-      background: rgba(#000, 0.4);
-    }
-    &.overlay-light:before {
-      background: rgba(#fff, 0.8);
-    }
-  
-    .bg-video {
-      position: absolute;
-      display: block;
-      z-index: -1;
-      top: 0;
-      left: 0;
-      object-fit: cover;
-      height: 100%;
-      min-width: 100%;
-    }
-  
-    .bg-youtube {
-      position: absolute !important;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-    }
-  }
-  
-  //- testimonial background
-  
-  .bg-light-gradient{
-    background: #ffffff;
-    opacity: 0.85;
-  }
-  
-  .bg-primary-gradient{
-    background: linear-gradient(180deg, rgba(255, 206, 103, 0.22) -42.47%, rgba(253, 237, 202, 0) 100%);;
-  }
-  
-  .bg-dark-gradient {
-    background: linear-gradient(0deg, rgba(33, 33, 33, 0.411) 0%, rgba(33, 33, 33, 0)100%);
-  }
-  
-  // .bg-light-gradient{
-  //   background: linear-gradient(181deg, rgba(113, 110, 110, 0) 35%, rgba(30, 45, 70, 0.93) 94.07%);
-  // }
-  
-  
+.bg-light {
+  background-color: #F9FAFD;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: .5rem;
+  padding-right: 1rem;
+  padding-bottom: .5rem;
+  padding-left: 1rem;
+  font-family: "Source Sans Pro","Open Sans",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+.navbar>.container {
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  padding-right: var(1rem);
+  padding-left: var(1rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+body {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #424242;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+div .navbar {
+  font-family:"Source Sans Pro","Open Sans",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+.navbar-light .navbar-brand {
+  color: #212121;
+}
+
+.navbar-light .navbar-toggler {
+  color: rgba(0,0,0,0.95);
+  border-color: rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+  margin-right: 1rem;
+  font-size: calc(1.2978rem + .5736vw);
+  white-space: nowrap;
+}
+
+.navbar-toggler {
+  padding: .25rem .75rem;
+  font-size: 1.2rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: .2rem;
+  transition: box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out; 
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+.d-line-flex {
+  display: inline-flex;
+}
+
+.d-line-block {
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:-webkit-any-link {
+  cursor: pointer;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.text-gradient {
+  background: linear-gradient(50deg, #fb3c00, #ffb800);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.text-1000 {
+  color: #212121;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+.fs-3 {
+  font-size: 1.728rem;
+}
+
+.ms-2 {
+  margin-left: .5rem;
+}
+
+button:not(disabled), [type="button"]:not(disabled) {
+  cursor: pointer;
+}
+
+button, [type="button"] {
+  -webkit-appearance: button;
+}
+
+button {
+  font-family: "Source Sans Pro","Open Sans",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  text-transform: none;
+  margin: 0;
+}
