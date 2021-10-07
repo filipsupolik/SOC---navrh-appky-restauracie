@@ -1,7 +1,5 @@
 package com.appslab.restaurantapp.user;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +17,16 @@ public class UserController {
     @PostMapping(value = "/createUser")
     public void createUser(@RequestBody User user){
         userService.createUser(user);
+    }
+
+    @PostMapping(value = "/assignFavRestaurantsToUser")
+    public void assignFavRestaurantsToUser(@RequestParam long userId, @RequestParam long restaurantId){
+        userService.assignFavRestaurantToUser(userId, restaurantId);
+    }
+
+    @PostMapping(value = "/removeFavRestaurantsFromUser")
+    public void removeFavRestaurantsFromUser(@RequestParam long userId, @RequestParam long restaurantId){
+        userService.removeFavRestaurantFromUser(userId, restaurantId);
     }
 
 }

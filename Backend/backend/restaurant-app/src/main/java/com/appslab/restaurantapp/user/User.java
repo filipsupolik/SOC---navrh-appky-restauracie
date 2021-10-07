@@ -1,13 +1,12 @@
 package com.appslab.restaurantapp.user;
 
+import com.appslab.restaurantapp.restaurant.Restaurant;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
@@ -18,6 +17,14 @@ public class User {
     private long id;
     private String username;
     private String password;
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "FavouriteRestaurantsOfUser",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "restaurant_id"))
+    Set<Restaurant> favRestaurants;
 
 
     public User() {
@@ -51,4 +58,13 @@ public class User {
     public void setId(long id) {
         this.id = id;
     }
+
+    public Set<Restaurant> getFavRestaurants() {
+        return favRestaurants;
+    }
+
+    public void setFavRestaurants(Set<Restaurant> favRestaurants) {
+        this.favRestaurants = favRestaurants;
+    }
+
 }

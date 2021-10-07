@@ -8,7 +8,7 @@ public class RestaurantAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RestaurantAppApplication.class, args);
-		System.out.println("Hello world");
+		System.out.println("App is running");
 	}
 
 }
