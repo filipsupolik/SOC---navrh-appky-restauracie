@@ -9,8 +9,25 @@
     <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top bg-white shadow-transition" data-navbar-on-scroll="data-navbar-on-scroll" style="background-image: none; background-color: rgba(255, 255, 255, 0); transition: none 0s ease 0s;">
-      <div class="container"><a class="navbar-brand d-inline-flex" routerLink="/serach-bar" ><img class="d-inline-block" src="assets/img/gallery/logo.svg" alt="logo" /><span class="text-1000 fs-3 fw-bold ms-2 text-gradient">OurBistro</span></a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
+      <div class="container"><a class="navbar-brand d-inline-flex" routerLink="/serach-bar"><img class="d-inline-block" src="assets/img/gallery/logo.svg" alt="logo" /><span class="text-1000 fs-3 fw-bold ms-2 text-gradient">OurBistro</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse border-top border-lg-0 my-2 mt-lg-0" id="navbarSupportedContent">
+          <div class="mx-auto pt-5 pt-lg-0 d-block d-lg-none d-xl-block">
+            <p class="mb-0 fw-bold text-lg-center">
+              Deliver to:
+              <svg class="svg-inline--fa fa-map-marker-alt fa-w-12 text-warning mx-2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-alt" role="img" xmlns="https://w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg>
+                <path fill="currentColor" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path>
+              </svg>
+              <span class="fw-normal">Current Location </span><span>Na Rybník 760/19, Teplička nad Váhom</span>
+            </p>
+          </div>
+          <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0">
+            <div class="input-group-icon pe-2">
+              <input class="form-control border-0 input-box bg-100" type="search" placeholder="Search Food" aria-label="Search" />
+            </div>
+            <button></button>
+          </form>
+        </div>
       </div>
-    </nav>
+    </nav>   

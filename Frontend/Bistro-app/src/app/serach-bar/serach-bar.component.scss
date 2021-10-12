@@ -92,6 +92,45 @@ div .navbar {
   background-size: 100%;
 }
 
+.navbar-collapse {
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+
+@media (min-width: 992px) {
+  .navbar-collapse .navbar-expand-lg {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-basis: auto;
+  }
+}
+
+@media (min-width: 992px){
+  .mt-lg-0 {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 992px){
+  .border-lg-0 {
+    border: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .text-lg-center {
+    text-align: center;
+  }
+}
+
+.collapse:not(.show) {
+  display: none;
+}
+
 .d-line-flex {
   display: inline-flex;
 }
@@ -134,6 +173,14 @@ img {
   margin-left: .5rem;
 }
 
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.my-2 {
+  margin-bottom: .5rem;
+}
+
 button:not(disabled), [type="button"]:not(disabled) {
   cursor: pointer;
 }
@@ -147,3 +194,37 @@ button {
   text-transform: none;
   margin: 0;
 }
+
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+svg:not(:root).svg-inline--fa {
+  overflow: visible;
+}
+
+.svg-inline--fa.fa-w-12 {
+  width: .75em;
+}
+
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  vertical-align: -.125em;
+}
+
+
+.text-warning {
+  color: #ffb30e;
+}
+
+.mx-2 {
+  margin-right: .5rem;
+  margin-left: .5rem;
+}
+
