@@ -211,6 +211,10 @@ svg:not(:root).svg-inline--fa {
   width: .75em;
 }
 
+.svg-inline--fa.fa-w-16 {
+  width: 1em;
+}
+
 .svg-inline--fa {
   display: inline-block;
   font-size: inherit;
@@ -223,8 +227,18 @@ svg:not(:root).svg-inline--fa {
   color: #ffb30e;
 }
 
+.text-primary {
+  color: #ffb30e;
+}
+
 .mx-2 {
   margin-right: .5rem;
   margin-left: .5rem;
 }
 
+.input-group-icon .input-box-icon {
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  transform: translateY(-50%);
+}
