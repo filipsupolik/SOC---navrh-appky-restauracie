@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { SerachBarComponent } from './serach-bar/serach-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SearchRestaurantComponent } from './searching_restaurants/search-restaurant/search-restaurant.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SerachBarComponent
+    SerachBarComponent,
+    SearchRestaurantComponent
   ],
   imports: [
     BrowserModule,
