@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SerachBarComponent } from './serach-bar/serach-bar.component';
-
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 const routes: Routes = [
-  {path: 'serach-bar', component: SerachBarComponent}
+  {path: 'serach-bar', component: NavBarComponent}
 ];
 
 @NgModule({

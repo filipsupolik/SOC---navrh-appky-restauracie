@@ -1,0 +1,57 @@
+.bg-primary {
+    background-color: #ffb30e;
+}
+
+.py-5 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+@media (min-width: 992px) {
+    section {
+        padding-top: 7.5rem;
+        padding-bottom: 7.5rem;
+    }
+}
+
+section {
+    position: relative;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative;
+    max-width: 960px;
+    width: 100%;
+    padding-right: var(1rem);
+    padding-left: var(1rem);
+    margin-right: auto;
+    margin-right: auto;
+}
+
+.flex-center {
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.row {
+    --bs-gutter-x: 2rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y)* -1);
+    margin-right: calc(var(--bs-gutter-x)/ -2);
+    margin-left: calc(var(--bs-gutter-x)/ -2);
+}
+
