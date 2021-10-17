@@ -22,6 +22,10 @@
         flex: 0 0 auto;
         width: 50%;
     }
+
+    .fs-lg-6 {
+        font-size: 2.98598rem;
+    }
 }
 
 @media (min-width: 768) {
@@ -33,12 +37,29 @@
         -webkit-box-ordinal-group: 2;
         order: 1;
     }
+
+    .text-md-start{
+        text-align: left;
+    }
+
+    .col-md-7 {
+        -webkit-box-flex: 0;
+        flex: 0 0 auto;
+        width: 58.33333%;
+    }
+
+    .fs-md-5 {
+        font-size: 2.48832rem;
+    }
 }
 
 .row>* {
+    flex-shrink: 0;
+    width: 100%;
     max-width: 100%;
     padding-right: calc(var(--bs-gutter-x) / 2);
     padding-left: calc(var(--bs-gutter-x) / 2);
+    margin-top: var(--bs-gutter-y);
 }
 
 section {
@@ -104,4 +125,52 @@ img {
     vertical-align: middle;
 }
 
+.text-center {
+    text-align: center;
+}
 
+.py-8 {
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
+}
+
+.text-light {
+    color: #f9fafd;
+}
+
+.display-1 {
+    font-weight: 900;
+    line-height: 1;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-family: "Source Sans Pro","Open Sans",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+:-webkit-any(article, aside, nav, section) h1 {
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+}
+
+.text-800 {
+    color: #616161;
+}
+
+.fs-4 {
+    font-size: 2.0736rem;
+}
+
+.mb-5 {
+    margin-bottom: 3rem;
+}
