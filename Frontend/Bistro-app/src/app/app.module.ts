@@ -7,12 +7,14 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SearchRestaurantComponent } from './searching_restaurants/search-restaurant/search-restaurant.component';
+import { SpecialOfferComponent } from './special-offer/special-offer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    SearchRestaurantComponent
+    SearchRestaurantComponent,
+    SpecialOfferComponent
   ],
   imports: [
     BrowserModule,
