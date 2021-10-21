@@ -8,13 +8,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SearchRestaurantComponent } from './searching_restaurants/search-restaurant/search-restaurant.component';
 import { SpecialOfferComponent } from './special-offer/special-offer.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     SearchRestaurantComponent,
-    SpecialOfferComponent
+    SpecialOfferComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
