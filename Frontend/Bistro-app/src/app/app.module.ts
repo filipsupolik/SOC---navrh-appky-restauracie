@@ -9,6 +9,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SearchRestaurantComponent } from './searching_restaurants/search-restaurant/search-restaurant.component';
 import { SpecialOfferComponent } from './special-offer/special-offer.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BoardUserComponent } from './board-user/board-user.component';
+import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { authInterceptorProvider } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -16,15 +23,21 @@ import { LoginComponent } from './login/login.component';
     NavBarComponent,
     SearchRestaurantComponent,
     SpecialOfferComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
+    BoardUserComponent,
+    BoardModeratorComponent,
+    BoardAdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [authInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
