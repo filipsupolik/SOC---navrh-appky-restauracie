@@ -8,14 +8,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SearchRestaurantComponent } from './searching_restaurants/search-restaurant/search-restaurant.component';
 import { SpecialOfferComponent } from './special-offer/special-offer.component';
-import { LoginComponent } from './login/login.component';
-import { ProfileComponent } from './profile/profile.component';
-import { BoardUserComponent } from './board-user/board-user.component';
-import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
-import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { authInterceptorProvider } from './auth.interceptor';
+import { LoginComponent } from './login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -24,10 +20,6 @@ import { authInterceptorProvider } from './auth.interceptor';
     SearchRestaurantComponent,
     SpecialOfferComponent,
     LoginComponent,
-    ProfileComponent,
-    BoardUserComponent,
-    BoardModeratorComponent,
-    BoardAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +29,7 @@ import { authInterceptorProvider } from './auth.interceptor';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [authInterceptorProvider],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
