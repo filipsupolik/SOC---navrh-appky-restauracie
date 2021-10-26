@@ -1,12 +1,11 @@
 package com.appslab.restaurantapp.food;
 
+import com.appslab.restaurantapp.user.User;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
@@ -16,6 +15,8 @@ public class Food {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
     private String foodName;
+
+
 
     public Food() {
     }

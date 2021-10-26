@@ -1,6 +1,7 @@
 package com.appslab.restaurantapp.restaurant;
 
 
+import com.appslab.restaurantapp.food.Food;
 import com.appslab.restaurantapp.user.User;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -20,6 +21,8 @@ public class Restaurant {
 
     @ManyToMany(mappedBy = "favRestaurants", cascade = CascadeType.ALL)
     Set<User> usersFav;
+
+
 
 
     public Restaurant() {
