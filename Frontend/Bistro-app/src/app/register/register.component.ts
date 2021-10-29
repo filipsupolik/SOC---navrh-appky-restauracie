@@ -5,21 +5,21 @@ import { first } from 'rxjs/operators';
 
 import { AlertService } from '../services/alert.service';
 import { AuthenticationService } from '../services/authentication.service';
+import { UserService } from '../services/user.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
+export class RegisterComponent implements OnInit {
+  registerForm!: FormGroup;
   loading = false;
   submitted = false;
-  returnUrl!: string;
-  
+    
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
+    private userService: UserService,
     private router: Router,
     private authenticationService: AuthenticationService,
     private alertService: AlertService
@@ -32,32 +32,34 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
+    this.registerForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
+      password: ['', [Validators.required, Validators.minLength(6)]]
 
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    });
   }
 
+
   // convenience getter for easy access to form fields
-  get f() { return this.loginForm.controls; }
+  get f() { return this.registerForm.controls; }
 
   onSubmit() {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.loginForm.invalid) {
+    if (this.registerForm.invalid) {
       return;
     }
 
     this.loading = true;
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
+    this.userService.register(this.registerForm.value)
         .pipe(first())
         .subscribe(
           (data: any) => {
-            this.router.navigate([this.returnUrl]);
+            this.alertService.success('Registration successful', true);
+            this.router.navigate(['/login']);
           },
           (error: any) => {
             this.alertService.error(error);
