@@ -20,11 +20,6 @@ public class DefaultInitialization implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        if (userRepository.findByUsername("admin").isPresent()==false){
-            User user = new User("admin", "admin");
-            userService.createUser(user);
-        }
-
 
     }
 }
