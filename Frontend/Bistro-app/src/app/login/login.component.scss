@@ -1,0 +1,8 @@
+.modal {
+    scale: (0);
+    position: fixed;
+}
+
+.modal.active {
+    scale: (1);
+}

@@ -8,6 +8,9 @@
 
 .svg-inline--fa.fa-w-14 {
     width: .875em;
+    position: absolute;
+    height: 2.6em;
+    
 }
 
 .svg-inline--fa.fa-w-16 {
@@ -19,7 +22,7 @@
 }
 
 .svg-inline--fa {
-    display: inline-block;
+    display: inline-flex;
     font-size: inherit;
     height: 1em;
     vertical-align: -.125em;
@@ -125,4 +128,8 @@ h1 {
 .col {
     -webkit-box-flex: 1;
     flex: 1 0 0%;
+}
+
+.btn {
+    display: inline-flex;
 }

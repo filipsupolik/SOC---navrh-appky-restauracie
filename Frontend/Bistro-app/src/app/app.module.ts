@@ -7,26 +7,34 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SearchRestaurantComponent } from './searching_restaurants/search-restaurant/search-restaurant.component';
-import { SpecialOfferComponent } from './special-offer/special-offer.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AlertComponent } from './alert/alert.component';
-import { ErrorInterceptor } from './helpers/error.interceptor';
-import { JwtInterceptor } from './helpers/jwt.interceptor';
-import { fakeBackendProvider } from './helpers/fake-backend';
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
+import { BoardUserComponent } from './board-user/board-user.component';
 
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { SearchFoodComponent } from './search-food/search-food.component';
+import { LastPageComponent } from './last-page/last-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     SearchRestaurantComponent,
-    SpecialOfferComponent,
     LoginComponent,
     RegisterComponent,
-    AlertComponent,
+    HomeComponent,
+    ProfileComponent,
+    BoardAdminComponent,
+    BoardModeratorComponent,
+    BoardUserComponent,
+    SearchFoodComponent,
+    LastPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,13 +44,7 @@ import { fakeBackendProvider } from './helpers/fake-backend';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
-    // provider used to create fake backend
-    fakeBackendProvider
-  ],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
