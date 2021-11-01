@@ -22,7 +22,8 @@ public class Restaurant {
     @ManyToMany(mappedBy = "favRestaurants", cascade = CascadeType.ALL)
     Set<User> usersFav;
 
-
+    @OneToMany(mappedBy="restaurant")
+    private Set<Food> food;
 
 
     public Restaurant() {

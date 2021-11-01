@@ -1,5 +1,6 @@
 package com.appslab.restaurantapp.food;
 
+import com.appslab.restaurantapp.restaurant.Restaurant;
 import com.appslab.restaurantapp.user.User;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -16,13 +17,20 @@ public class Food {
     private long id;
     private String foodName;
 
+    @ManyToOne
+    @JoinColumn(name="restaurant_id", nullable=false, insertable = false, updatable = false)
+    private Restaurant restaurant;
+
+    @Column(name = "restaurant_id")
+    private long restaurantId;
 
 
     public Food() {
     }
 
-    public Food(String foodName) {
+    public Food(String foodName, long restaurantId) {
         this.foodName = foodName;
+        this.restaurantId = restaurantId;
     }
 
     public long getId() {
@@ -39,5 +47,13 @@ public class Food {
 
     public void setFoodName(String foodName) {
         this.foodName = foodName;
+    }
+
+    public long getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(long restaurantId) {
+        this.restaurantId = restaurantId;
     }
 }
