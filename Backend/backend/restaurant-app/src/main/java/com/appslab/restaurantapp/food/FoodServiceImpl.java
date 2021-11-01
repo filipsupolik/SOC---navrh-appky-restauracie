@@ -15,4 +15,9 @@ public class FoodServiceImpl implements FoodService{
     public void addFood(Food food) {
         foodRepository.save(food);
     }
+
+    @Override
+    public void removeFood(String foodName) {
+        foodRepository.delete(foodRepository.findFoodByFoodName(foodName));
+    }
 }

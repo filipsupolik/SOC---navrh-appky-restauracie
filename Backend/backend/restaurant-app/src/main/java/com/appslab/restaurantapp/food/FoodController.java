@@ -20,5 +20,9 @@ public class FoodController {
         foodService.addFood(food);
     }
 
+    @PostMapping(value = "/deleteFood")
+    public void deleteFood(@RequestParam String foodName){
+        foodService.removeFood(foodName);
+    }
 
 }
