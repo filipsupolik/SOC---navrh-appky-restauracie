@@ -13,6 +13,7 @@ import { SearchRestaurantComponent } from './searching_restaurants/search-restau
 
 const routes: Routes = [
   {path: '', component: SearchRestaurantComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'user', component: BoardUserComponent},

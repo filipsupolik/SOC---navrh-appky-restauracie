@@ -1,4 +1,4 @@
-<div class="col-md-12 modal" id="modal">
+<div class="col-md-12">
     <div class="card card-container">
       <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <div class="form-group">
@@ -19,7 +19,7 @@
           </div>
         </div>
         <div class="form-group">
-          <button class="btn btn-primary btn-block">
+          <button data-modal-target="#modal" class="btn btn-primary btn-block">
             Login
           </button>
         </div>

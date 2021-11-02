@@ -1,8 +1,18 @@
 .modal {
-    scale: (0);
     position: fixed;
-}
-
-.modal.active {
-    scale: (1);
-}
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: var(--border-radius);
+    z-index: 10;
+    background-color: var(--color-back);
+    width: auto;
+    transition: all 0.35s;
+    padding: 4rem 2rem;
+  }
+  .modal.active {
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 0.35s;
+  }
