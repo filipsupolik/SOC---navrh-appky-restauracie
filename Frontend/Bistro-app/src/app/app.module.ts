@@ -20,6 +20,7 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { SearchFoodComponent } from './search-food/search-food.component';
 import { LastPageComponent } from './last-page/last-page.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { LastPageComponent } from './last-page/last-page.component';
     BoardUserComponent,
     SearchFoodComponent,
     LastPageComponent,
+    MainPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,10 +10,12 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { SearchRestaurantComponent } from './searching_restaurants/search-restaurant/search-restaurant.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 const routes: Routes = [
-  {path: '', component: SearchRestaurantComponent},
-  {path: 'login', component: LoginComponent},
+  {path: '', component: MainPageComponent},
+  {path: 'login', component: LoginComponent },
+  {path: 'register', component: RegisterComponent},
   {path: 'home', component: HomeComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'user', component: BoardUserComponent},
