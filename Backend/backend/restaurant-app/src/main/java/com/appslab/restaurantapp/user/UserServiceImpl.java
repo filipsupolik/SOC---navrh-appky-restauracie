@@ -5,6 +5,8 @@ import com.appslab.restaurantapp.restaurant.RestaurantRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements UserService{
 
@@ -47,6 +49,11 @@ public class UserServiceImpl implements UserService{
 
         userRepository.save(user);
         restaurantRepository.save(restaurant);
+    }
+
+    @Override
+    public Optional<User> getUserByUsername(String username){
+        return userRepository.findByUsername(username);
     }
 }
 
