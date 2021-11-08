@@ -1,4 +1,4 @@
-package com.appslab.restaurantapp.security;
+package com.appslab.restaurantapp.securityOLD;
 
 import com.appslab.restaurantapp.user.User;
 import org.springframework.security.core.GrantedAuthority;
