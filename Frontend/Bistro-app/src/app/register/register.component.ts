@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 
 @Component({
@@ -7,33 +9,27 @@ import { AuthService } from '../_services/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  form: any = {
-    username: null,
-    email: null,
-    password: null,
-  };
-  isSuccessful = false;
-  isSignUpFailed = false;
-  errorMessage = '';
 
-  constructor(private authService: AuthService) { }
+  registerGroup = new FormGroup({
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+  })
+  
+  constructor(private authService: AuthService, private readonly router: Router) {}
+
+  register(): void {
+    if (this.registerGroup.valid) {
+      const username = this.registerGroup.value.username;
+      const password = this.registerGroup.value.username;
+      this.authService.register(username, password)
+        .subscribe(() => {
+          this.authService.login(username, password)
+            .subscribe(() => this.router.navigateByUrl('/main-page'));
+        });
+    }
+  }
 
   ngOnInit(): void {
-  }
-
-  onSubmit(): void {
-    const { username, email,password } = this.form;
-
-    this.authService.register(username, email,password).subscribe(
-      data => {
-        console.log(data);
-        this.isSuccessful = true;
-        this.isSignUpFailed = false;
-      },
-      err => {
-        this.errorMessage = err.error.message;
-        this.isSignUpFailed = true;
-      }
-    );
-  }
+    
+  } 
 }

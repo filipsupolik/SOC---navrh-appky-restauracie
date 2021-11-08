@@ -1,31 +1,49 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 const AUTH_API = 'http://localhost:8080/api/auth/';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient) { }
+  token: string | undefined ;
+  user: string | undefined;
+  isLogged: boolean = false;
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post(AUTH_API + 'signin', {
-      username,
-      password
-    }, httpOptions);
+  constructor(private readonly http: HttpClient) { }
+
+  getToke(): string | undefined {
+    return this.token;
   }
 
-  register(username: string, email: string, password: string): Observable<any> {
-    return this.http.post(AUTH_API + 'signup', {
-      username,
-      email,
-      password
-    }, httpOptions);
+  isLoggedIn(): boolean {
+    return !!this.token;
+  }
+
+  login(username: string, password: string): Observable<any> {
+    const info = btoa(`${username}:${password}`);
+    const token = `Basic ${info}`;
+    const options = {
+      headers:new HttpHeaders({
+        Authorization: token,
+        'X-Request-With' : 'XMLHttpRequest'
+      }),
+      withCredentials: true
+    };
+    return this.http.get('http://localhost:8080/login', options).pipe(
+      tap(() => this.token = token)
+    );
+  }
+
+  register(username: string, password: string): Observable<any> {
+    const user = {username, password};
+    return this.http.post(`${"http://localhost:8080/postUser"}`, user);
+  }
+
+  logout() {
+    this.token = null!
   }
 }
