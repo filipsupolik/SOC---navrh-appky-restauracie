@@ -15,7 +15,7 @@ export class AuthService {
 
   constructor(private readonly http: HttpClient) { }
 
-  getToke(): string | undefined {
+  getToken(): string | undefined {
     return this.token;
   }
 

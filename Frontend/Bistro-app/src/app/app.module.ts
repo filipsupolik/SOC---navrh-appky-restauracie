@@ -9,13 +9,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SearchRestaurantComponent } from './searching_restaurants/search-restaurant/search-restaurant.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 
-import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { AuthInterceptor } from './_helpers/auth.interceptor';
 import { SearchFoodComponent } from './search-food/search-food.component';
 import { LastPageComponent } from './last-page/last-page.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -42,7 +42,13 @@ import { MainPageComponent } from './main-page/main-page.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [authInterceptorProviders],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: AuthInterceptor,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

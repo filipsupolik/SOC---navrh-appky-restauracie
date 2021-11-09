@@ -1,26 +1,44 @@
-import { HTTP_INTERCEPTORS, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
-
-import { TokenStorageService } from '../_services/token-storage.service';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor,
+  HttpHeaders,
+  HttpErrorResponse
+} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthService } from '../_services/auth.service';
+import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
-const TOKEN_HEADER_KEY = 'Authorization';       // for Spring Boot back-end
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private token: TokenStorageService) { }
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let authReq = req;
-    const token = this.token.getToken();
-    if (token != null) {
-      authReq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token) });
+  constructor(
+    private readonly authService: AuthService,
+    private readonly router: Router,
+  ) {}
+
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    if(this.authService.isLoggedIn()) {
+      request = request.clone( {
+        headers: new HttpHeaders( {
+          Authorization: this.authService.getToken()!
+        })
+      });
     }
-    return next.handle(authReq);
-  }
-}
 
-export const authInterceptorProviders = [
-  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
-];
+    return next.handle(request).pipe(
+      catchError((err: HttpErrorResponse) => {
+        if (this.authService.isLoggedIn() && err.status === 401 ) {
+          this.authService.logout();
+          this.router.navigateByUrl('/');
+        }
+        throw err;
+      })
+    );
+  }
+
+}
