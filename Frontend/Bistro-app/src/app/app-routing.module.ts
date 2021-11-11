@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchRestaurantComponent } from './searching_restaurants/search-restaurant/search-restaurant.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { AllRestaurantsComponent } from './all-restaurants/all-restaurants.component';
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'main-page', component: MainPageComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'restaurants', component: AllRestaurantsComponent},
 ];
 
 @NgModule({

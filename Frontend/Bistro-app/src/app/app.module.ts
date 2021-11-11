@@ -19,6 +19,9 @@ import { AuthInterceptor } from './_helpers/auth.interceptor';
 import { SearchFoodComponent } from './search-food/search-food.component';
 import { LastPageComponent } from './last-page/last-page.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { AllRestaurantsComponent } from './all-restaurants/all-restaurants.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,7 @@ import { MainPageComponent } from './main-page/main-page.component';
     SearchFoodComponent,
     LastPageComponent,
     MainPageComponent,
+    AllRestaurantsComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,8 @@ import { MainPageComponent } from './main-page/main-page.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [
     {
