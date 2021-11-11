@@ -16,6 +16,7 @@ public class Food {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
     private String foodName;
+    private String category;
 
     @ManyToOne
     @JoinColumn(name="restaurant_id", nullable=false, insertable = false, updatable = false)
@@ -26,6 +27,12 @@ public class Food {
 
 
     public Food() {
+    }
+
+    public Food(String foodName, String category, Restaurant restaurant) {
+        this.foodName = foodName;
+        this.category = category;
+        this.restaurant = restaurant;
     }
 
     public Food(String foodName, long restaurantId) {
@@ -55,5 +62,13 @@ public class Food {
 
     public void setRestaurantId(long restaurantId) {
         this.restaurantId = restaurantId;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

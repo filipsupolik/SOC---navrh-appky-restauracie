@@ -1,11 +1,15 @@
 package com.appslab.restaurantapp;
 
+import com.appslab.restaurantapp.food.Food;
+import com.appslab.restaurantapp.food.FoodRepository;
 import com.appslab.restaurantapp.user.User;
 import com.appslab.restaurantapp.user.UserRepository;
 import com.appslab.restaurantapp.user.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class DefaultInitialization implements CommandLineRunner {
@@ -29,5 +33,6 @@ public class DefaultInitialization implements CommandLineRunner {
         if (userService.getUserByUsername("admin").isEmpty()==true) {
             userService.createUser(user);
         }
+
     }
 }
