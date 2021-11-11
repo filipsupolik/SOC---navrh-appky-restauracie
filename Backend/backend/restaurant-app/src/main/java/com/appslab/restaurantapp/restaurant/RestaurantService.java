@@ -1,7 +1,10 @@
 package com.appslab.restaurantapp.restaurant;
 
 
+import java.util.List;
+
 public interface RestaurantService {
 
-    public void createRestaurant(Restaurant restaurant);
+    void createRestaurant(Restaurant restaurant);
+    List<Restaurant> getRestaurantsByCategory(String category);
 }

@@ -1,8 +1,8 @@
 package com.appslab.restaurantapp.restaurant;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class RestaurantController {
@@ -16,5 +16,10 @@ public class RestaurantController {
     @PostMapping(value = "/createRestaurant")
     public void createRestaurant(@RequestBody Restaurant restaurant){
         restaurantService.createRestaurant(restaurant);
+    }
+
+    @GetMapping(value = "/getRestaurantsByCategory")
+    public List<Restaurant> getRestaurantsByCategory(@RequestParam String category){
+        return restaurantService.getRestaurantsByCategory(category);
     }
 }

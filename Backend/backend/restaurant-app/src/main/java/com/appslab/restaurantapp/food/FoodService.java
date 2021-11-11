@@ -4,6 +4,6 @@ import com.appslab.restaurantapp.exception.GenericException;
 
 public interface FoodService {
 
-    public void addFood(Food food) throws GenericException;
-    public void removeFood(String foodName);
+    void addFood(Food food) throws GenericException;
+    void removeFood(String foodName);
 }
