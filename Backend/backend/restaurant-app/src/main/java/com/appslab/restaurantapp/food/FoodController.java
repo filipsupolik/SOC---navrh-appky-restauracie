@@ -1,6 +1,7 @@
 package com.appslab.restaurantapp.food;
 
 
+import com.appslab.restaurantapp.exception.GenericException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +17,7 @@ public class FoodController {
     }
 
     @PostMapping(value = "/addFood")
-    public void addFood(@RequestBody Food food){
+    public void addFood(@RequestBody Food food)throws GenericException {
         foodService.addFood(food);
     }
 
