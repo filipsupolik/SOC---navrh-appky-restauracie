@@ -1,5 +1,6 @@
 package com.appslab.restaurantapp.user;
 
+import com.appslab.restaurantapp.securityOLD.UserDetailsServiceImpl;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,10 +12,12 @@ public class UserController {
 
     UserService userService;
     PasswordEncoder passwordEncoder;
+    UserDetailsServiceImpl userDetailsService;
 
-    public UserController(UserService userService, PasswordEncoder passwordEncoder) {
+    public UserController(UserService userService, PasswordEncoder passwordEncoder, UserDetailsServiceImpl userDetailsService) {
         this.userService = userService;
         this.passwordEncoder = passwordEncoder;
+        this.userDetailsService = userDetailsService;
     }
 
     @PostMapping(value = "/register")
@@ -32,5 +35,6 @@ public class UserController {
     public void removeFavRestaurantsFromUser(@RequestParam long userId, @RequestParam long restaurantId){
         userService.removeFavRestaurantFromUser(userId, restaurantId);
     }
+
 
 }

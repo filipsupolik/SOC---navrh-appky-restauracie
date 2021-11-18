@@ -21,19 +21,19 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "index", "/css/*", "/js/*", "/api/auth/signin" ,"/api/auth/signup")
+                .antMatchers("/", "index", "/css/*", "/js/*", "/postUser", "/login")
                 .permitAll()
 
                 .anyRequest().authenticated()
                 .and()
-                .httpBasic()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll();
+                .httpBasic();
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .permitAll();
 
     }
 
