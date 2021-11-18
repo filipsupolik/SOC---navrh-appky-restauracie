@@ -26,8 +26,15 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .anyRequest().authenticated()
                 .and()
-                .httpBasic();
-//, "/api/auth/signin" ,"/api/auth/signup"
+                .httpBasic()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll();
+
     }
 
     @Bean
