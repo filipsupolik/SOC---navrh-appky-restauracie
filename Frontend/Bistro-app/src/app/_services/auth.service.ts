@@ -40,7 +40,7 @@ export class AuthService {
 
   register(username: string, password: string): Observable<any> {
     const user = {username, password};
-    return this.http.post(`${"http://localhost:8080/postUser"}`, user);
+    return this.http.post(`${"http://localhost:8080/register"}`, user);
   }
 
   logout() {
