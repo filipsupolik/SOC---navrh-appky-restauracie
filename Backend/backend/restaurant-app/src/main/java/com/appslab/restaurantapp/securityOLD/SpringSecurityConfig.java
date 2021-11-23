@@ -21,26 +21,24 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "index", "/css/*", "/js/*", "/postUser", "/login")
-                .permitAll()
-
-                .anyRequest().authenticated()
-                .and()
-                .httpBasic();
-//                .and()
-//                .formLogin()
-//                .loginPage("/login")
+//                .antMatchers("/", "index", "/css/*", "/js/*", "/postUser", "/login")
 //                .permitAll()
 //                .and()
-//                .logout()
-//                .permitAll();
+//                .httpBasic()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll();
 
     }
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
-
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
@@ -48,7 +46,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                         .allowedMethods("*")
                         .allowCredentials(true);
             }
-
         };
     }
 

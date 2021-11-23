@@ -2,6 +2,7 @@ package com.appslab.restaurantapp.user;
 
 import com.appslab.restaurantapp.restaurant.Restaurant;
 import com.appslab.restaurantapp.restaurant.RestaurantRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -54,6 +55,12 @@ public class UserServiceImpl implements UserService{
     @Override
     public Optional<User> getUserByUsername(String username){
         return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public User getCurrentUser() {
+        String name = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userRepository.findByUsername(name).orElseThrow();
     }
 }
 

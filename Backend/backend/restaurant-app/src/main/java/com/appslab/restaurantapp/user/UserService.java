@@ -10,4 +10,5 @@ public interface UserService {
     void assignFavRestaurantToUser(long userId, long restaurantId);
     void removeFavRestaurantFromUser(long userId, long restaurantId);
     Optional<User> getUserByUsername(String username);
+    User getCurrentUser();
 }

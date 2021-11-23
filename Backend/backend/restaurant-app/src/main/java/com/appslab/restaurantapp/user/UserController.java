@@ -2,10 +2,7 @@ package com.appslab.restaurantapp.user;
 
 import com.appslab.restaurantapp.securityOLD.UserDetailsServiceImpl;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -36,5 +33,9 @@ public class UserController {
         userService.removeFavRestaurantFromUser(userId, restaurantId);
     }
 
+    @GetMapping(value = "/login")
+    public void login(){
+        userService.getCurrentUser();
+    }
 
 }
