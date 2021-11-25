@@ -22,6 +22,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { AllRestaurantsComponent } from './all-restaurants/all-restaurants.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { RestaurantPageComponent } from './restaurant-page/restaurant-page.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { MaterialModule } from './material.module';
     LastPageComponent,
     MainPageComponent,
     AllRestaurantsComponent,
+    RestaurantPageComponent,
   ],
   imports: [
     BrowserModule,
