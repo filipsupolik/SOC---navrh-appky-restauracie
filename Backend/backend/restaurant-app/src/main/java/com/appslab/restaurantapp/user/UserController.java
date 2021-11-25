@@ -34,8 +34,8 @@ public class UserController {
     }
 
     @GetMapping(value = "/login")
-    public void login(){
-        userService.getCurrentUser();
+    public User login(){
+        return userService.getCurrentUser();
     }
 
 }
