@@ -15,7 +15,7 @@
 
 
       <div class="login-btn">
-        <button class="btn">Register</button>
+        <button class="btn" [disabled]="!registerGroup.valid">Register</button>
         <p class="signup">Already have and account ? <span>Log in</span></p>
       </div>
     </form>
