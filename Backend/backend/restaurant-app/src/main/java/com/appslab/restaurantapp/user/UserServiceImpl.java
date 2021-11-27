@@ -52,15 +52,11 @@ public class UserServiceImpl implements UserService{
         restaurantRepository.save(restaurant);
     }
 
-    @Override
-    public Optional<User> getUserByUsername(String username){
-        return userRepository.findByUsername(username);
-    }
 
     @Override
     public User getCurrentUser() {
         String name = SecurityContextHolder.getContext().getAuthentication().getName();
-        return getUserByUsername(name).orElseThrow();
+        return userRepository.findByUsername(name);
     }
 }
 

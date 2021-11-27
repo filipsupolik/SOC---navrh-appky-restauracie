@@ -1,6 +1,6 @@
 package com.appslab.restaurantapp.user;
 
-import com.appslab.restaurantapp.securityOLD.UserDetailsServiceImpl;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,12 +12,11 @@ public class UserController {
 
     UserService userService;
     PasswordEncoder passwordEncoder;
-    UserDetailsServiceImpl userDetailsService;
 
-    public UserController(UserService userService, PasswordEncoder passwordEncoder, UserDetailsServiceImpl userDetailsService) {
+
+    public UserController(UserService userService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.passwordEncoder = passwordEncoder;
-        this.userDetailsService = userDetailsService;
     }
 
     @PostMapping(value = "/register")
