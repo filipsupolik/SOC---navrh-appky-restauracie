@@ -27,7 +27,7 @@ public class DefaultInitialization implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        User user = new User("admin","password");
+        User user = new User("admin","password", "ROLE_ADMIN");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         if (userRepository.findByUsername("admin")==null) {

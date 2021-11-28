@@ -17,6 +17,8 @@ public class User {
     private long id;
     private String username;
     private String password;
+    private Boolean active;
+    private String roles;
 
 
     @ManyToMany(cascade = CascadeType.ALL)
@@ -30,9 +32,11 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password) {
+
+    public User(String username, String password, String roles) {
         this.username = username;
         this.password = password;
+        this.roles = roles;
     }
 
     public String getUsername() {
@@ -67,4 +71,19 @@ public class User {
         this.favRestaurants = favRestaurants;
     }
 
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
 }

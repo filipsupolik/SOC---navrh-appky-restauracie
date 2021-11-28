@@ -35,9 +35,5 @@ public class UserController {
         userService.removeFavRestaurantFromUser(userId, restaurantId);
     }
 
-    @GetMapping(value = "/login")
-    public User login(){
-        return userService.getCurrentUser();
-    }
 
 }
