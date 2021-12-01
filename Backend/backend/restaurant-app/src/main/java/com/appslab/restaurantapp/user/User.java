@@ -1,24 +1,38 @@
 package com.appslab.restaurantapp.user;
 
 import com.appslab.restaurantapp.restaurant.Restaurant;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Set;
 
+@Getter
+@Setter
+@EqualsAndHashCode
+@NoArgsConstructor
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
-public class User {
+public class User implements UserDetails{
+
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String username;
+    private String email;
     private String password;
-    private Boolean active;
-    private String roles;
+    @Enumerated(EnumType.STRING)
+    private AppUserRole appUserRole;
+    private Boolean locked = false;
+    private Boolean enabled = true;
 
 
     @ManyToMany(cascade = CascadeType.ALL)
@@ -29,61 +43,46 @@ public class User {
     Set<Restaurant> favRestaurants;
 
 
-    public User() {
-    }
-
-
-    public User(String username, String password, String roles) {
+    public User(String username, String email, String password, AppUserRole appUserRole) {
         this.username = username;
+        this.email = email;
         this.password = password;
-        this.roles = roles;
+        this.appUserRole = appUserRole;
     }
 
-    public String getUsername() {
-        return username;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(appUserRole.name());
+        return Collections.singleton(authority);
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
+    @Override
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    @Override
+    public String getUsername() {
+        return username;
     }
 
-    public long getId() {
-        return id;
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    @Override
+    public boolean isAccountNonLocked() {
+        return !locked;
     }
 
-    public Set<Restaurant> getFavRestaurants() {
-        return favRestaurants;
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
     }
 
-    public void setFavRestaurants(Set<Restaurant> favRestaurants) {
-        this.favRestaurants = favRestaurants;
-    }
-
-    public Boolean getActive() {
-        return active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public String getRoles() {
-        return roles;
-    }
-
-    public void setRoles(String roles) {
-        this.roles = roles;
+    @Override
+    public boolean isEnabled() {
+        return enabled;
     }
 }

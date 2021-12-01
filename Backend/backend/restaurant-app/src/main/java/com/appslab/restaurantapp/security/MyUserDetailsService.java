@@ -1,29 +1,36 @@
 package com.appslab.restaurantapp.security;
 
-
 import com.appslab.restaurantapp.user.User;
 import com.appslab.restaurantapp.user.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
-
 @Service
+@AllArgsConstructor
 public class MyUserDetailsService implements UserDetailsService {
 
-    @Autowired
-    UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> user = userRepository.findByUsername(username);
+        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+    }
 
-        user.orElseThrow(() -> new UsernameNotFoundException("Not found: " + username));
+    public String signUpUser(User user) {
 
-        return user.map(MyUserDetails::new).get();
+        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
+            throw new IllegalStateException("username already taken");
+        }
+
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+
+        userRepository.save(user);
+
+        return "works";
     }
 }

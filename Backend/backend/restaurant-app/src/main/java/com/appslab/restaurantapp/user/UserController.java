@@ -19,11 +19,6 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @PostMapping(value = "/register")
-    public void createUser(@RequestBody User user){
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userService.createUser(user);
-    }
 
     @PostMapping(value = "/assignFavRestaurantsToUser")
     public void assignFavRestaurantsToUser(@RequestParam long userId, @RequestParam long restaurantId){

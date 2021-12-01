@@ -21,13 +21,6 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void createUser(User user) {
-        userRepository.save(user);
-
-
-    }
-
-    @Override
     public void assignFavRestaurantToUser(long userId, long restaurantId) {
         User user = userRepository.findById(userId).get();
         Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
