@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
+import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
 
 
 @Component({
@@ -19,6 +21,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private http: HttpClient,
     private router: Router,) { }
 
     login(): void {
@@ -36,4 +39,12 @@ export class LoginComponent implements OnInit {
   reloadPage(): void {
     window.location.reload();
   }
-}  
+
+  test(): void {
+    this.http.get('http://localhost:8080/getRestaurantsByCategory?category=Burger').subscribe(data => {
+      console.log(data);
+      console.log("test");
+
+    })
+  }
+}
