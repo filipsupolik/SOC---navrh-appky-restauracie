@@ -29,6 +29,7 @@ public class UserController {
     public void removeFavRestaurantsFromUser(@RequestParam long userId, @RequestParam long restaurantId){
         userService.removeFavRestaurantFromUser(userId, restaurantId);
     }
+    
 
 
 }
