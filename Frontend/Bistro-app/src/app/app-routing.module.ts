@@ -6,7 +6,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MainPageComponent } from './main-page/main-page.component';
-import { AllRestaurantsComponent } from './all-restaurants/all-restaurants.component';
+import { PizzaRestaurantsComponent } from './Pizza_Restaurants/Pizza_Restaurants.component';
 import { RestaurantPageComponent } from './restaurant-page/restaurant-page.component';
 
 const routes: Routes = [
@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'main-page', component: MainPageComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'restaurants', component: AllRestaurantsComponent},
+  {path: 'pizzarestaurants', component: PizzaRestaurantsComponent},
   {path: 'restaurantpage', component: RestaurantPageComponent},
 ];
 
