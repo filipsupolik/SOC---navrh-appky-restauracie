@@ -22,6 +22,7 @@ import { PizzaRestaurantsComponent } from './Pizza_Restaurants/Pizza_Restaurants
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { RestaurantPageComponent } from './restaurant-page/restaurant-page.component';
+import { BurgerRestaurantsComponent } from './Burger-restaurants/burger-restaurants.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { RestaurantPageComponent } from './restaurant-page/restaurant-page.compo
     MainPageComponent,
     PizzaRestaurantsComponent,
     RestaurantPageComponent,
+    BurgerRestaurantsComponent,
   ],
   imports: [
     BrowserModule,
