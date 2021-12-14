@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 
+
 import { AuthInterceptor } from './_helpers/auth.interceptor';
 import { SearchFoodComponent } from './search-food/search-food.component';
 import { LastPageComponent } from './last-page/last-page.component';

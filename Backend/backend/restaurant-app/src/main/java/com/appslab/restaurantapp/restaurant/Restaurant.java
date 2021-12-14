@@ -33,6 +33,11 @@ public class Restaurant {
         this.restaurantName = restaurantName;
     }
 
+    public Restaurant(long id, String restaurantName) {
+        this.id = id;
+        this.restaurantName = restaurantName;
+    }
+
     public long getId() {
         return id;
     }

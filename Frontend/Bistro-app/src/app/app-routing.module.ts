@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: '', component: MainPageComponent},
   {path: 'login', component: LoginComponent },
   {path: 'register', component: RegisterComponent},
-  {path: 'main-page', component: MainPageComponent},
+  {path: 'home', component: MainPageComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'pizzarestaurants', component: PizzaRestaurantsComponent},
   {path: 'burgerrestaurants', component: BurgerRestaurantsComponent},
