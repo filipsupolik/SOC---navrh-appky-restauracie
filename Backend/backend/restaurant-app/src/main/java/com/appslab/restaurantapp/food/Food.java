@@ -29,14 +29,9 @@ public class Food {
     public Food() {
     }
 
-    public Food(String foodName, String category, Restaurant restaurant) {
+    public Food(String foodName, String category, long restaurantId) {
         this.foodName = foodName;
         this.category = category;
-        this.restaurant = restaurant;
-    }
-
-    public Food(String foodName, long restaurantId) {
-        this.foodName = foodName;
         this.restaurantId = restaurantId;
     }
 

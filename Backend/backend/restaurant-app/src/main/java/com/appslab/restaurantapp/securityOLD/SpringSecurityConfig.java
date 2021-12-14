@@ -11,29 +11,20 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@AllArgsConstructor
-@Configuration
 @EnableWebSecurity
-public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
+public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
+{
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and()
-                .csrf().disable()
-                .authorizeRequests()
-//                .antMatchers("/", "index", "/css/*", "/js/*", "/postUser", "/login")
-//                .permitAll()
-//                .and()
-//                .httpBasic()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll();
-
+    protected void configure(HttpSecurity http) throws Exception
+    {
+        http.cors().and().csrf().disable()
+            .authorizeRequests()
+            .antMatchers("/login", "/register").permitAll()
+            .anyRequest().authenticated()
+            .and() //Logout Form configuration
+            .logout().permitAll()
+            .and().httpBasic();
     }
 
     @Bean
@@ -50,7 +41,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    public PasswordEncoder passwordEncoder()
+    {
         return new BCryptPasswordEncoder(10);
     }
 }
