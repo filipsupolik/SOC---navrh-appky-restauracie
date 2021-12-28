@@ -76,4 +76,42 @@
      display: flex;
      background-color: rgb(255, 255, 255);
  }
-  
+ 
+ .Venue-module__container___vJcWL{
+   position: relative;
+   max-width: 1200px;
+   padding: 0 30px;
+   width: 100%;
+   display: grid;
+   grid-template-columns: 13.5% 4% 53.5% 4% 25%;
+ }
+
+ .Venue-module__container___vJcWL .Venue-module__left___l1XkR, .Venue-module__container___vJcWL .Venue-module__categories___Lp8Or{
+  grid-column: 1;
+  grid-column-start: 1;
+ }
+
+ .noRtl{
+  direction: ltr;
+ }
+
+ .Categories-module__root___qegos{
+  font-weight: 500;
+  margin-bottom: 1rem;
+  margin: 0;
+  position: sticky;
+  top: 140px;
+  max-height: calc(100vh - 140px);
+ }
+
+ .Categories-module__listItem___RjQkC{
+  list-style: none;
+  font-size: .875rem;
+ }
+
+ .Categories-module__categoryLink___WM_5v{
+   color: var(--cb-textSecondary);
+   cursor: pointer;
+   line-height: initial;
+   display: flex;
+ }
