@@ -11,6 +11,7 @@ import { RestaurantPageComponent } from './restaurant-page/restaurant-page.compo
 import { BurgerRestaurantsComponent } from './Burger-restaurants/burger-restaurants.component';
 import { NoodlesRestaurantsComponent } from './noodles-restaurants/noodles-restaurants.component';
 import { SandwichesComponent } from './sandwiches/sandwiches.component';
+import { BreakfastComponent } from './breakfast/breakfast.component';
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'noodlerestaurants', component: NoodlesRestaurantsComponent},
   {path: 'sandwichrestaurants', component: SandwichesComponent},
   {path: 'restaurantpage', component: RestaurantPageComponent},
+  {path: 'breakfast', component: BreakfastComponent},
 ];
 
 @NgModule({
