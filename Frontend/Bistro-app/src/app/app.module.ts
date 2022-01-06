@@ -14,7 +14,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 
-import { ModalModule } from './_modal';
 import { AuthInterceptor } from './_helpers/auth.interceptor';
 import { SearchFoodComponent } from './search-food/search-food.component';
 import { LastPageComponent } from './last-page/last-page.component';
@@ -56,7 +55,6 @@ import { BreakfastComponent } from './breakfast/breakfast.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ModalModule,
   ],
   providers: [
     {
