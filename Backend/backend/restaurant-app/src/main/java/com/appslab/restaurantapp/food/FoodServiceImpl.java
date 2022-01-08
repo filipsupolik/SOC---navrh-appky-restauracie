@@ -34,4 +34,9 @@ public class FoodServiceImpl implements FoodService{
     public void removeFood(String foodName) {
         foodRepository.delete(foodRepository.findFoodByFoodName(foodName));
     }
+
+    @Override
+    public List<Food> getMenu(Long restaurantId) {
+        return foodRepository.findAllFoodByRestaurantId(restaurantId);
+    }
 }

@@ -17,6 +17,10 @@ public class Restaurant {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
     private String restaurantName;
+    private String description;
+    private int deliveryTimeMinutes;
+    private String openingTime;
+    private String address;
 
 
     @ManyToMany(mappedBy = "favRestaurants", cascade = CascadeType.ALL)
@@ -29,13 +33,21 @@ public class Restaurant {
     public Restaurant() {
     }
 
-    public Restaurant(String restaurantName) {
-        this.restaurantName = restaurantName;
-    }
-
-    public Restaurant(long id, String restaurantName) {
+    public Restaurant(long id, String restaurantName, String description, int deliveryTime, String openingTime, String address) {
         this.id = id;
         this.restaurantName = restaurantName;
+        this.description = description;
+        this.deliveryTimeMinutes = deliveryTime;
+        this.openingTime = openingTime;
+        this.address = address;
+    }
+
+    public Restaurant(String restaurantName, String description, int deliveryTime, String openingTime, String address) {
+        this.restaurantName = restaurantName;
+        this.description = description;
+        this.deliveryTimeMinutes = deliveryTime;
+        this.openingTime = openingTime;
+        this.address = address;
     }
 
     public long getId() {
@@ -61,4 +73,38 @@ public class Restaurant {
     public void setUsers(Set<User> usersFav) {
         this.usersFav = usersFav;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getDeliveryTimeMinutes() {
+        return deliveryTimeMinutes;
+    }
+
+    public void setDeliveryTimeMinutes(int deliveryTimeMinutes) {
+        this.deliveryTimeMinutes = deliveryTimeMinutes;
+    }
+
+    public String getOpeningTime() {
+        return openingTime;
+    }
+
+    public void setOpeningTime(String openingTime) {
+        this.openingTime = openingTime;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
 }

@@ -2,10 +2,9 @@ package com.appslab.restaurantapp.food;
 
 
 import com.appslab.restaurantapp.exception.GenericException;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class FoodController {
@@ -24,6 +23,11 @@ public class FoodController {
     @PostMapping(value = "/deleteFood")
     public void deleteFood(@RequestParam String foodName){
         foodService.removeFood(foodName);
+    }
+
+    @GetMapping(value = "/getMenu")
+    public List<Food> getMenu(@RequestParam Long restaurantId){
+        return foodService.getMenu(restaurantId);
     }
 
 }

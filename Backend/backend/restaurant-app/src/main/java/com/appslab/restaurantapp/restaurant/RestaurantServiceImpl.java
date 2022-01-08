@@ -33,4 +33,9 @@ public class RestaurantServiceImpl implements RestaurantService{
         }
         return restaurants;
     }
+
+    @Override
+    public Restaurant getRestaurantInfo(Long restaurantId) {
+        return restaurantRepository.findRestaurantById(restaurantId);
+    }
 }
