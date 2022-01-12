@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RestaurantServiceImpl implements RestaurantService{
@@ -32,5 +33,10 @@ public class RestaurantServiceImpl implements RestaurantService{
             restaurants.add(restaurantRepository.findById(foods.get(i).getRestaurantId()).get());
         }
         return restaurants;
+    }
+
+    @Override
+    public Optional<Restaurant> getRestaurantById(long id) {
+        return this.restaurantRepository.findById(id);
     }
 }
