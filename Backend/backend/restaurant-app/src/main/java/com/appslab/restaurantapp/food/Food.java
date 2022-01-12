@@ -3,6 +3,7 @@ package com.appslab.restaurantapp.food;
 import com.appslab.restaurantapp.restaurant.Restaurant;
 import com.appslab.restaurantapp.user.User;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class Food {
     private String category;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name="restaurant_id", nullable=false, insertable = false, updatable = false)
     private Restaurant restaurant;
 

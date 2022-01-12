@@ -20,7 +20,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
     {
         http.cors().and().csrf().disable()
             .authorizeRequests()
-            .antMatchers("/login", "/register").permitAll()
+            .antMatchers("/login", "/register", "/getRestaurantsByCategory").permitAll()
             .anyRequest().authenticated()
             .and() //Logout Form configuration
             .logout().permitAll()
@@ -33,7 +33,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:8081")
+                        .allowedOrigins("http://localhost:4200")
                         .allowedMethods("*")
                         .allowCredentials(true);
             }

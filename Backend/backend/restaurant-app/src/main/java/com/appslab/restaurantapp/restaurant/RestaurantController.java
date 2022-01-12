@@ -3,6 +3,7 @@ package com.appslab.restaurantapp.restaurant;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class RestaurantController {
@@ -16,6 +17,11 @@ public class RestaurantController {
     @PostMapping(value = "/createRestaurant")
     public void createRestaurant(@RequestBody Restaurant restaurant){
         restaurantService.createRestaurant(restaurant);
+    }
+
+    @GetMapping("/restaurant/{id}")
+    public Optional<Restaurant> getRestaurantById(@PathVariable long id) {
+        return this.restaurantService.getRestaurantById(id);
     }
 
     @GetMapping(value = "/getRestaurantsByCategory")

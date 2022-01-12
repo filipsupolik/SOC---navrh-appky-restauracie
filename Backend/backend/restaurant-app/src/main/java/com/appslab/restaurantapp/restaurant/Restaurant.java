@@ -4,6 +4,7 @@ package com.appslab.restaurantapp.restaurant;
 import com.appslab.restaurantapp.food.Food;
 import com.appslab.restaurantapp.user.User;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
@@ -22,7 +23,7 @@ public class Restaurant {
     private String openingTime;
     private String address;
 
-
+    @JsonIgnore
     @ManyToMany(mappedBy = "favRestaurants", cascade = CascadeType.ALL)
     Set<User> usersFav;
 
