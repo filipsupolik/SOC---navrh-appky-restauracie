@@ -28,4 +28,9 @@ public class RestaurantController {
     public List<Restaurant> getRestaurantsByCategory(@RequestParam String category){
         return restaurantService.getRestaurantsByCategory(category);
     }
+
+    @GetMapping(value = "/getRestaurantInfo")
+    public Restaurant getRestaurantInfo(@RequestParam Long restaurantId){
+        return restaurantService.getRestaurantInfo(restaurantId);
+    }
 }

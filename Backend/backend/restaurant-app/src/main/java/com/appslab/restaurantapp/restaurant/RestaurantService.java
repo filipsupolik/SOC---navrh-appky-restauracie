@@ -9,4 +9,5 @@ public interface RestaurantService {
     void createRestaurant(Restaurant restaurant);
     List<Restaurant> getRestaurantsByCategory(String category);
     Optional<Restaurant> getRestaurantById(long id);
+    Restaurant getRestaurantInfo(Long restaurantId);
 }
