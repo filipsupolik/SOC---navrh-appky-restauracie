@@ -1,5 +1,6 @@
 package com.appslab.restaurantapp.user;
 
+import com.appslab.restaurantapp.exception.GenericException;
 import com.appslab.restaurantapp.restaurant.Restaurant;
 import com.appslab.restaurantapp.restaurant.RestaurantRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,9 +21,14 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void createUser(User user) {
-        userRepository.save(user);
+    public void createUser(User user) throws GenericException {
 
+        if(userRepository.findByUsername(user.getUsername()).isPresent()){
+            throw new GenericException("Username is already taken");
+        }
+        else{
+            userRepository.save(user);
+        }
 
     }
 
