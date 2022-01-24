@@ -1,5 +1,6 @@
 package com.appslab.restaurantapp.user;
 
+import com.appslab.restaurantapp.food.Food;
 import com.appslab.restaurantapp.restaurant.Restaurant;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -26,6 +27,9 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "restaurant_id"))
     Set<Restaurant> favRestaurants;
+
+    @OneToMany(mappedBy="adminUser")
+    private Set<Restaurant> restaurants;
 
 
     public User() {
@@ -75,5 +79,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<Restaurant> getRestaurants() {
+        return restaurants;
+    }
+
+    public void setRestaurants(Set<Restaurant> restaurants) {
+        this.restaurants = restaurants;
     }
 }

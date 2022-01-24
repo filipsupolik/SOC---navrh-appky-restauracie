@@ -1,7 +1,9 @@
 package com.appslab.restaurantapp.restaurant;
 
+import com.appslab.restaurantapp.exception.GenericException;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -14,8 +16,8 @@ public class RestaurantController {
     }
 
     @PostMapping(value = "/createRestaurant")
-    public void createRestaurant(@RequestBody Restaurant restaurant){
-        restaurantService.createRestaurant(restaurant);
+    public void createRestaurant(@RequestBody Restaurant restaurant, Principal principal)throws GenericException {
+        restaurantService.createRestaurant(restaurant, principal);
     }
 
     @GetMapping(value = "/getRestaurantsByCategory")

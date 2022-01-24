@@ -1,9 +1,13 @@
 package com.appslab.restaurantapp.restaurant;
 
+import com.appslab.restaurantapp.exception.GenericException;
 import com.appslab.restaurantapp.food.Food;
 import com.appslab.restaurantapp.food.FoodRepository;
+import com.appslab.restaurantapp.user.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,15 +16,23 @@ public class RestaurantServiceImpl implements RestaurantService{
 
     RestaurantRepository restaurantRepository;
     FoodRepository foodRepository;
+    UserRepository userRepository;
 
-    public RestaurantServiceImpl(RestaurantRepository restaurantRepository, FoodRepository foodRepository) {
+    public RestaurantServiceImpl(RestaurantRepository restaurantRepository, FoodRepository foodRepository, UserRepository userRepository) {
         this.restaurantRepository = restaurantRepository;
         this.foodRepository = foodRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
-    public void createRestaurant(Restaurant restaurant) {
+    public void createRestaurant(Restaurant restaurant, Principal principal) throws GenericException {
+        if(restaurantRepository.findByRestaurantName(restaurant.getRestaurantName()).isPresent()){
+            throw new GenericException("Restaurant name is already taken");
+        }
+        else{
+        restaurant.setAdminId(userRepository.findByUsername(principal.getName()).get().getId());
         restaurantRepository.save(restaurant);
+        }
     }
 
     @Override

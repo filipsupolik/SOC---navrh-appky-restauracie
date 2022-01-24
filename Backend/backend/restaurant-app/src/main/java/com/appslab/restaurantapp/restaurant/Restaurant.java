@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.Set;
+import java.security.Principal;
 
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
@@ -29,11 +30,17 @@ public class Restaurant {
     @OneToMany(mappedBy="restaurant")
     private Set<Food> food;
 
+    @ManyToOne
+    @JoinColumn(name="adminId", nullable=false, insertable = false, updatable = false)
+    private User adminUser;
+
+    @Column(name = "adminId")
+    private long adminId;
 
     public Restaurant() {
     }
 
-    public Restaurant(long id, String restaurantName, String description, int deliveryTime, String openingTime, String address) {
+    public Restaurant(long id, String restaurantName, String description, int deliveryTime, String openingTime, String address) {       //constructor for tests
         this.id = id;
         this.restaurantName = restaurantName;
         this.description = description;
@@ -42,12 +49,13 @@ public class Restaurant {
         this.address = address;
     }
 
-    public Restaurant(String restaurantName, String description, int deliveryTime, String openingTime, String address) {
+    public Restaurant(String restaurantName, String description, int deliveryTime, String openingTime, String address, Long adminId) {
         this.restaurantName = restaurantName;
         this.description = description;
         this.deliveryTimeMinutes = deliveryTime;
         this.openingTime = openingTime;
         this.address = address;
+        this.adminId = adminId;
     }
 
     public long getId() {
@@ -106,5 +114,11 @@ public class Restaurant {
         this.address = address;
     }
 
+    public long getAdminId() {
+        return adminId;
+    }
 
+    public void setAdminId(long adminId) {
+        this.adminId = adminId;
+    }
 }
