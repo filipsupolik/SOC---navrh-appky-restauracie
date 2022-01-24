@@ -7,6 +7,6 @@ import java.util.List;
 public interface FoodService {
 
     void addFood(Food food) throws GenericException;
-    void removeFood(String foodName);
+    void removeFood(Long foodId);
     List<Food> getMenu(Long restaurantId);
 }

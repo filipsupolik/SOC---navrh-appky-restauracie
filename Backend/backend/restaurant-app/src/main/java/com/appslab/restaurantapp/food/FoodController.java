@@ -21,8 +21,8 @@ public class FoodController {
     }
 
     @PostMapping(value = "/deleteFood")
-    public void deleteFood(@RequestParam String foodName){
-        foodService.removeFood(foodName);
+    public void deleteFood(@RequestParam Long foodId){
+        foodService.removeFood(foodId);
     }
 
     @GetMapping(value = "/getMenu")

@@ -1,5 +1,6 @@
 package com.appslab.restaurantapp.user;
 
+import com.appslab.restaurantapp.exception.GenericException;
 import com.appslab.restaurantapp.securityOLD.UserDetailsServiceImpl;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/register")
-    public void createUser(@RequestBody User user){
+    public void createUser(@RequestBody User user)throws GenericException {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.createUser(user);
     }

@@ -9,5 +9,6 @@ public interface FoodRepository extends CrudRepository <Food, Long> {
     Food findFoodByFoodName(String foodName);
     List<Food> findAllFoodByCategory(String category);
     List<Food> findAllFoodByRestaurantId(Long restaurantId);
+    Food findFoodById(Long foodId);
 
 }
