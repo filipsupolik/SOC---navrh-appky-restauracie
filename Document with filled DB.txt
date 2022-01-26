@@ -1,0 +1,19 @@
+11	Pizza	3	Pizza
+12	Quattro Formaggi	4	Pizza
+14	Šunkovo-šampiňónová	5	Pizza
+15	DOUBLE CHEESEBURGER	4	Burger
+16	Burger clasic	6	Burger
+17	Veggie burger	7	Burger
+18	Opekané ryžové rezance s kuracím mäsom	5	Noodles
+19	Opekané rezance s krevetami	7	Noodles
+20	Opekané rezance s tofu	8	Noodles
+
+
+3	LeTorri	Bajkalska 9 Tri veže, Bratislava 83104 Slovakia	25
+4	Basilico	Dunajska 25, Bratislava 81109 Slovakia	50
+5	Nervosa	Zamocka 30, Bratislava 811 01 Slovakia	30
+6	Geranium		0
+7	Asador Etxebarri		0
+8	Central		0
+9	Disfrutar		0
+10	Frantzén		0
