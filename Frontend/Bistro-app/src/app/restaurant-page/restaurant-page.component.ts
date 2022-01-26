@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { EMPTY, Observable } from 'rxjs';
+import { Restaurant } from '../restaurant.model';
+import { RestaurantService } from '../_services/restaurant.service';
 
 @Component({
   selector: 'app-restaurant-page',
@@ -10,7 +13,10 @@ export class RestaurantPageComponent implements OnInit {
 
   closeModal:string | undefined;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(
+    private modalService: NgbModal,
+    private restaurantService: RestaurantService,
+    ) { }
 
   triggerModal(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basi-title'}).result.then((res) => {
@@ -19,6 +25,8 @@ export class RestaurantPageComponent implements OnInit {
       this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
     });
   }
+
+  restaurants$: Observable<Restaurant> = EMPTY;
 
   ngOnInit(): void {
   }

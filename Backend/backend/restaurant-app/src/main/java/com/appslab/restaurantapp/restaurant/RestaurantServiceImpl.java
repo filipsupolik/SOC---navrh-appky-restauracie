@@ -44,4 +44,5 @@ public class RestaurantServiceImpl implements RestaurantService{
     public Restaurant getRestaurantInfo(Long restaurantId) {
         return restaurantRepository.findRestaurantById(restaurantId);
     }
+
 }

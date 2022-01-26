@@ -21,11 +21,11 @@
                                 <div class="VenueCard_Root flash">
                                     <div class="VenueCardBody_BodyStart action">
                                         <h3 aria-label="Domino's Pizza" class="VenueCardBody_Header pale">{{ restaurant.restaurantName }}</h3>
-                                        <p class="VenueCardBody_Description twisted">Najlepšia pizza v meste za prijateľnú cenu</p>
+                                        <p class="VenueCardBody_Description twisted">{{ restaurant.description}}</p>
                                     </div>
                                     <div class="VenueCardBody_BodyEnd story">
                                         <div class="VenueCardBody_BodyBoxContainer article">
-                                            <div class="VenueCardBody_BodyContent record">25-35</div>
+                                            <div class="VenueCardBody_BodyContent record">{{ restaurant.deliveryTimeMinutes}}</div>
                                             <div class="VenueCardBody_BodyContent loading">minut</div>
                                         </div>
                                     </div>
