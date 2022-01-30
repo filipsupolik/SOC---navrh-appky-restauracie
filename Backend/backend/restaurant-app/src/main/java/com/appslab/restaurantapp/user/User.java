@@ -31,6 +31,9 @@ public class User {
     @OneToMany(mappedBy="adminUser")
     private Set<Restaurant> restaurants;
 
+    @OneToMany(mappedBy="restaurantAdminUser")
+    private Set<Restaurant> restaurants2;
+
 
     public User() {
     }
