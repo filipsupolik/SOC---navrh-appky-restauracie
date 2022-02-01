@@ -29,6 +29,7 @@ export class RestaurantPageComponent implements OnInit {
   restaurants$: Observable<Restaurant> = EMPTY;
 
   ngOnInit(): void {
+    this.restaurants$ = this.restaurantService.getRestaurantInfo();
   }
 
   private getDismissReason(reason: any): string {
