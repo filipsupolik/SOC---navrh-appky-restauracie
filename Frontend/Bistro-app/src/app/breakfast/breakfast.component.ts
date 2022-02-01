@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EMPTY, Observable } from 'rxjs';
+import { Restaurant } from '../restaurant.model';
+import { RestaurantService } from '../_services/restaurant.service';
 
 @Component({
   selector: 'app-breakfast',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BreakfastComponent implements OnInit {
 
-  constructor() { }
+  restaurants$: Observable <Restaurant[]> = EMPTY;
+
+  constructor(private restaurantService: RestaurantService) { }
 
   ngOnInit(): void {
+    this.restaurants$ = this.restaurantService.getRestaurantsByCategory('Breakfast');
   }
 
 }
