@@ -27,7 +27,7 @@ public class DefaultInitialization implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        User user = new User("admin","password","admin@admin.admin");
+        User user = new User("admin","password","admin@admin.admin", "Adminova 11, Bratislava");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         if (userService.getUserByUsername("admin").isEmpty()==true) {

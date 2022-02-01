@@ -31,7 +31,7 @@ class FoodRepositoryTest {
         restaurantRepository.save(restaurant);
 
         String name = "Burger";
-        Food food = new Food(name, "Burger", 1);
+        Food food = new Food(name, "Burger", 1, 10.25);
         underTest.save(food);
 
         //when
@@ -48,8 +48,8 @@ class FoodRepositoryTest {
         restaurantRepository.save(restaurant);
 
         String category = "Burger";
-        Food food1 = new Food("Burger", category, 1);
-        Food food2 = new Food("ChickenBurger", category, 1);
+        Food food1 = new Food("Burger", category, 1, 10.25);
+        Food food2 = new Food("ChickenBurger", category, 1, 10.25);
         underTest.save(food1);
         underTest.save(food2);
 

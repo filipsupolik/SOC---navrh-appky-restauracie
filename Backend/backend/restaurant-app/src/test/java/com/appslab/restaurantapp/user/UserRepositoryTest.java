@@ -18,7 +18,7 @@ class UserRepositoryTest {
     void itShouldFindUserByUsername() {
         //given
         String username = "martin";
-        User user = new User(username, "password", "martin@martin.com");
+        User user = new User(username, "password", "martin@martin.com", "Adresa");
         underTest.save(user);
         Optional<User> optionalUser= Optional.of(user);
 

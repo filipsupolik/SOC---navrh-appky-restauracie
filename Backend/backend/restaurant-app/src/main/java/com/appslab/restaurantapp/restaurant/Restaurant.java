@@ -24,9 +24,6 @@ public class Restaurant {
     private String openingTime;
     private String address;
 
-    @JsonIgnore
-    @ManyToMany(mappedBy = "favRestaurants", cascade = CascadeType.ALL)
-    Set<User> usersFav;
 
     @OneToMany(mappedBy="restaurant")
     private Set<Food> food;
@@ -73,14 +70,6 @@ public class Restaurant {
 
     public void setRestaurantName(String restaurantName) {
         this.restaurantName = restaurantName;
-    }
-
-    public Set<User> getUsersFav() {
-        return usersFav;
-    }
-
-    public void setUsers(Set<User> usersFav) {
-        this.usersFav = usersFav;
     }
 
     public String getDescription() {
