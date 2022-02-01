@@ -1,6 +1,7 @@
 package com.appslab.restaurantapp.user;
 
 import com.appslab.restaurantapp.food.Food;
+import com.appslab.restaurantapp.order.Order;
 import com.appslab.restaurantapp.restaurant.Restaurant;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -19,29 +20,27 @@ public class User {
     private String username;
     private String password;
     private String email;
+    private String address;
 
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "FavouriteRestaurantsOfUser",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "restaurant_id"))
-    Set<Restaurant> favRestaurants;
 
     @OneToMany(mappedBy="adminUser")
     private Set<Restaurant> restaurants;
 
-    @OneToMany(mappedBy="restaurantAdminUser")
-    private Set<Restaurant> restaurants2;
+    @OneToMany(mappedBy="userAdmin")
+    private Set<Order> orders;
+
+    @OneToMany(mappedBy="customer")
+    private Set<Order> orders2;
 
 
     public User() {
     }
 
-    public User(String username, String password, String email) {
+    public User(String username, String password, String email, String address) {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.address = address;
     }
 
     public String getUsername() {
@@ -68,14 +67,6 @@ public class User {
         this.id = id;
     }
 
-    public Set<Restaurant> getFavRestaurants() {
-        return favRestaurants;
-    }
-
-    public void setFavRestaurants(Set<Restaurant> favRestaurants) {
-        this.favRestaurants = favRestaurants;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -90,5 +81,13 @@ public class User {
 
     public void setRestaurants(Set<Restaurant> restaurants) {
         this.restaurants = restaurants;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
