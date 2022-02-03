@@ -2,12 +2,11 @@ package com.appslab.restaurantapp.order;
 
 import com.appslab.restaurantapp.exception.GenericException;
 import com.appslab.restaurantapp.food.Food;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.aspectj.weaver.ast.Or;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 public class OrderController {
@@ -25,5 +24,10 @@ public class OrderController {
     @PostMapping(value = "/changeStateOfOrder")
     public void changeStateOfOrder(@RequestParam long orderId, @RequestParam boolean completed){
         orderService.changeStateOfOrder(orderId, completed);
+    }
+
+    @GetMapping(value = "/getOrdersByAdminId")
+    public List<Order> getOrdersByAdminId(@RequestParam long adminId){
+        return orderService.getOrdersByAdminId(adminId);
     }
 }

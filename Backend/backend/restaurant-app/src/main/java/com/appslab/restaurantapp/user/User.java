@@ -1,10 +1,8 @@
 package com.appslab.restaurantapp.user;
 
-import com.appslab.restaurantapp.food.Food;
 import com.appslab.restaurantapp.order.Order;
 import com.appslab.restaurantapp.restaurant.Restaurant;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
@@ -24,7 +22,7 @@ public class User {
 
 
     @OneToMany(mappedBy="adminUser")
-    private Set<Restaurant> restaurants;
+    private Set<Restaurant> adminOfRestaurants;
 
     @OneToMany(mappedBy="userAdmin")
     private Set<Order> orders;
@@ -75,12 +73,12 @@ public class User {
         this.email = email;
     }
 
-    public Set<Restaurant> getRestaurants() {
-        return restaurants;
+    public Set<Restaurant> getAdminOfRestaurants() {
+        return adminOfRestaurants;
     }
 
-    public void setRestaurants(Set<Restaurant> restaurants) {
-        this.restaurants = restaurants;
+    public void setAdminOfRestaurants(Set<Restaurant> adminOfRestaurants) {
+        this.adminOfRestaurants = adminOfRestaurants;
     }
 
     public String getAddress() {
