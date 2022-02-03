@@ -26,6 +26,7 @@ import { NoodlesRestaurantsComponent } from './noodles-restaurants/noodles-resta
 import { SandwichesComponent } from './sandwiches/sandwiches.component';
 import { BreakfastComponent } from './breakfast/breakfast.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AddingRestaurantComponent } from './adding-restaurant/adding-restaurant.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ProfileComponent } from './profile/profile.component';
     SandwichesComponent,
     BreakfastComponent,
     ProfileComponent,
+    AddingRestaurantComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ import { NoodlesRestaurantsComponent } from './noodles-restaurants/noodles-resta
 import { SandwichesComponent } from './sandwiches/sandwiches.component';
 import { BreakfastComponent } from './breakfast/breakfast.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AddingRestaurantComponent } from './adding-restaurant/adding-restaurant.component';
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'sandwichrestaurants', component: SandwichesComponent},
   {path: 'restaurantpage/:id', component: RestaurantPageComponent},
   {path: 'breakfast', component: BreakfastComponent},
+  {path: 'adding_restaurant', component: AddingRestaurantComponent},
 ];
 
 @NgModule({
