@@ -43,6 +43,9 @@ public class Order {
     @Column(name = "customerId")
     private long customerId;
 
+    public Order() {
+    }
+
     public Order(long restaurantAdminId, long orderedFoodId, long customerId) {
         this.restaurantAdminId = restaurantAdminId;
         this.orderedFoodId = orderedFoodId;
