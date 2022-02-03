@@ -12,7 +12,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { ProfileComponent } from './profile/profile.component';
 
 import { AuthInterceptor } from './_helpers/auth.interceptor';
 import { SearchFoodComponent } from './search-food/search-food.component';
@@ -26,6 +25,7 @@ import { BurgerRestaurantsComponent } from './Burger-restaurants/burger-restaura
 import { NoodlesRestaurantsComponent } from './noodles-restaurants/noodles-restaurants.component';
 import { SandwichesComponent } from './sandwiches/sandwiches.component';
 import { BreakfastComponent } from './breakfast/breakfast.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,6 @@ import { BreakfastComponent } from './breakfast/breakfast.component';
     SearchRestaurantComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent,
     SearchFoodComponent,
     LastPageComponent,
     MainPageComponent,
@@ -44,6 +43,7 @@ import { BreakfastComponent } from './breakfast/breakfast.component';
     NoodlesRestaurantsComponent,
     SandwichesComponent,
     BreakfastComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

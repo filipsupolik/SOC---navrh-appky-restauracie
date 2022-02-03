@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { User } from '../user';
 
 const AUTH_API = 'http://localhost:8080/api/auth/';
 
@@ -10,8 +11,8 @@ const AUTH_API = 'http://localhost:8080/api/auth/';
 })
 export class AuthService {
   token: string | undefined ;
-  user: string | undefined;
   isLogged: boolean = false;
+  user$ = new BehaviorSubject<User | null>(null);
 
   constructor(private readonly http: HttpClient) { }
 
@@ -33,8 +34,9 @@ export class AuthService {
       }),
       withCredentials: true
     };
-    return this.http.get('http://localhost:8080/login', options).pipe(
-      tap(() => this.token = token)
+    return this.http.get<User>('http://localhost:8080/login', options).pipe(
+      tap(() => this.token = token),
+      tap(user => this.user$.next(user)),
     );
   }
 

@@ -3,24 +3,24 @@
     <div class="Venue-module_menu pale">
    <section>
       <div>
-         <button (click)="triggerModal(modalData)">
-               <div class="main__card__padding">
-                  <div class="card__title">
-                     <div class="title__content">
-                        <b>Ahoj</b>
-                     </div>
-                  </div>
-                  <div class="card__photo">
-                     <div class="photo__content">
-                        <img src="assets/img/restaurants/toast-with-eggs.jpg">
-                     </div>
-                  </div>
-                  <div class="card__text">
-                     <div class="text__content">
-                        <b>ahoj</b>
-                     </div>
+         <button *ngFor="let food of menu$ | async" (click)="triggerModal(modalData)">
+            <div class="main__card__padding">
+               <div class="card__title">
+                  <div class="title__content">
+                     <b>{{ food.foodName }}</b>
                   </div>
                </div>
+               <div class="card__photo">
+                  <div class="photo__content">
+                     <img src="assets/img/restaurants/toast-with-eggs.jpg">
+                  </div>
+               </div>
+               <div class="card__text">
+                  <div class="text__content">
+                     <b>ahoj</b>
+                  </div>
+               </div>
+            </div>
          </button>
          <div class="main__card__padding">
             <div class="card__title">

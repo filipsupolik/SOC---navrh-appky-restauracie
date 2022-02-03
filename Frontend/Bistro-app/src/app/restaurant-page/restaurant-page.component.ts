@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EMPTY, Observable } from 'rxjs';
+import { Food } from '../food.model';
 import { Restaurant } from '../restaurant.model';
+import { FoodService } from '../_services/food.service';
 import { RestaurantService } from '../_services/restaurant.service';
 
 @Component({
@@ -11,11 +14,11 @@ import { RestaurantService } from '../_services/restaurant.service';
 })
 export class RestaurantPageComponent implements OnInit {
 
-  closeModal:string | undefined;
-
   constructor(
     private modalService: NgbModal,
     private restaurantService: RestaurantService,
+    private foodService: FoodService,
+    private route: ActivatedRoute,
     ) { }
 
   triggerModal(content: any) {
@@ -25,11 +28,14 @@ export class RestaurantPageComponent implements OnInit {
       this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
     });
   }
-
+  closeModal:string | undefined;
   restaurants$: Observable<Restaurant> = EMPTY;
+  menu$: Observable<Food[]> = EMPTY;
 
   ngOnInit(): void {
+    const id = +(this.route.snapshot.paramMap.get('id') ?? 1);
     this.restaurants$ = this.restaurantService.getRestaurantInfo();
+    this.menu$ = this.foodService.getMenu(id);
   }
 
   private getDismissReason(reason: any): string {
