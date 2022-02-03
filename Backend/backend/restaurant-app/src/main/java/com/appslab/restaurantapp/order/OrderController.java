@@ -4,6 +4,7 @@ import com.appslab.restaurantapp.exception.GenericException;
 import com.appslab.restaurantapp.food.Food;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
@@ -19,5 +20,10 @@ public class OrderController {
     @PostMapping(value = "/addOrder")
     public void addOrder(@RequestBody Order order) {
         orderService.addOrder(order);
+    }
+
+    @PostMapping(value = "/changeStateOfOrder")
+    public void changeStateOfOrder(@RequestParam long orderId, @RequestParam boolean completed){
+        orderService.changeStateOfOrder(orderId, completed);
     }
 }
