@@ -10,4 +10,5 @@ public interface UserService {
     void createUser(User user)throws GenericException;
     Optional<User> getUserByUsername(String username);
     User getCurrentUser();
+
 }

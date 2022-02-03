@@ -7,6 +7,8 @@ import com.appslab.restaurantapp.user.UserRepository;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -33,5 +35,10 @@ public class OrderServiceImpl implements OrderService {
         Order order = orderRepository.findOrderById(orderId);
         order.setCompleted(completed);
         orderRepository.save(order);
+    }
+
+    @Override
+    public List<Order> getOrdersByAdminId(long adminId) {
+        return orderRepository.findOrdersByRestaurantAdminId(adminId);
     }
 }
