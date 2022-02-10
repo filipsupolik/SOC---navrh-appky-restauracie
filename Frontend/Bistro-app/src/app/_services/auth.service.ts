@@ -32,7 +32,6 @@ export class AuthService {
         Authorization: token,
         'X-Request-With' : 'XMLHttpRequest'
       }),
-      withCredentials: true
     };
     return this.http.get<User>('http://localhost:8080/login', options).pipe(
       tap(() => this.token = token),

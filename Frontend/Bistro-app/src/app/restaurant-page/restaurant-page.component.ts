@@ -21,13 +21,7 @@ export class RestaurantPageComponent implements OnInit {
     private route: ActivatedRoute,
     ) { }
 
-  triggerModal(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basi-title'}).result.then((res) => {
-      this.closeModal = `Closed with ${res}`;
-    }, (res) => {
-      this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
-    });
-  }
+  
   closeModal:string | undefined;
   restaurants$: Observable<Restaurant> = EMPTY;
   menu$: Observable<Food[]> = EMPTY;
@@ -37,6 +31,14 @@ export class RestaurantPageComponent implements OnInit {
     this.restaurants$ = this.restaurantService.getRestaurantInfo();
     this.menu$ = this.foodService.getMenu(id);
   }
+  
+  triggerModal(content: any) {
+      this.modalService.open(content, {ariaLabelledBy: 'modal-basi-title'}).result.then((res) => {
+        this.closeModal = `Closed with ${res}`;
+      }, (res) => {
+        this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
+      });
+    }
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {

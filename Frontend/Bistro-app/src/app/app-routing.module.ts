@@ -15,8 +15,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { AddingRestaurantComponent } from './adding-restaurant/adding-restaurant.component';
 
 const routes: Routes = [
-  {path: '', component: MainPageComponent},
-  {path: 'login', component: LoginComponent },
+  {path: '',component: MainPageComponent},
+  {path: 'login', redirectTo: '', component: LoginComponent },
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'pizzarestaurants', component: PizzaRestaurantsComponent},

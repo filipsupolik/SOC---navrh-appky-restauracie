@@ -15,7 +15,6 @@ import { RegisterComponent } from './register/register.component';
 
 import { AuthInterceptor } from './_helpers/auth.interceptor';
 import { SearchFoodComponent } from './search-food/search-food.component';
-import { LastPageComponent } from './last-page/last-page.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PizzaRestaurantsComponent } from './Pizza_Restaurants/Pizza_Restaurants.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -36,7 +35,6 @@ import { AddingRestaurantComponent } from './adding-restaurant/adding-restaurant
     LoginComponent,
     RegisterComponent,
     SearchFoodComponent,
-    LastPageComponent,
     MainPageComponent,
     PizzaRestaurantsComponent,
     RestaurantPageComponent,

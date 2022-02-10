@@ -22,4 +22,8 @@ export class RestaurantService {
     return this.httpClient.get<Restaurant>(`http://localhost:8080/getRestaurantInfo?restaurantId`);
   }
 
+  createRestaurant(restaurant: Restaurant) {
+    return this.httpClient.post(`http://localhost:8080/createRestaurant`, restaurant);
+  }
+
 }

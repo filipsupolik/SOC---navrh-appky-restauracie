@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -8,10 +9,12 @@ import { MatIconModule } from '@angular/material/icon';
     imports: [
         MatCardModule,
         MatIconModule,
+        MatSelectModule,
     ],
     exports: [
         MatCardModule,
         MatIconModule,
+        MatSelectModule,
     ]
 })
 export class MaterialModule { }
