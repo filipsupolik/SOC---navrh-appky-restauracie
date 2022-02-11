@@ -31,4 +31,9 @@ public class FoodController {
         return foodService.getMenu(restaurantId);
     }
 
+    @GetMapping(value = "/getCategories")
+    public List<String> getCategories(){
+        return foodService.getCategories();
+    }
+
 }

@@ -67,4 +67,11 @@ public class FoodServiceImpl implements FoodService{
     public List<Food> getMenu(Long restaurantId) {
         return foodRepository.findAllFoodByRestaurantId(restaurantId);
     }
+
+    @Override
+    public List<String> getCategories() {
+        return categories;
+    }
+
+
 }
