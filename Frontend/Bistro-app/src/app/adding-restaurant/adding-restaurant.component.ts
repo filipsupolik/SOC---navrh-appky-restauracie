@@ -61,7 +61,8 @@ export class AddingRestaurantComponent implements OnInit {
 
   createRestaurant(): void {
     const restaurant = {
-      restaurantName: this.form.controls.restaurantName.value
+      restaurantName: this.form.controls.restaurantName.value,
+      address: this.form.controls.address.value,
     }
     this.restaurantService.createRestaurant(restaurant as Restaurant).subscribe();
   }

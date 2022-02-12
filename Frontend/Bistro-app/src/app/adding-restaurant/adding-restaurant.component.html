@@ -85,15 +85,13 @@
                       <mat-label></mat-label>
                       <mat-select>
                         <mat-option value="CATEGORY-VALUE">Hello!</mat-option>
-                        <!--<mat-option *ngFor="let category of categories">
-                          {{category.}}
-                        </mat-option> -->
-                      </mat-select>
+                        
+                        </mat-select>
                   </mat-form-field>
                   </div>
                 <div class="field padding-bottom--24">
-                  <button type="button" class="btn btn-success" (click)="createRestaurant()">Add restaurant</button><br>
-                  <button type="reset" (click)="onReset()" class="btn btn-warning">
+                  <button type="button" class="btn-add" (click)="createRestaurant()">Add restaurant</button><br>
+                  <button type="reset" (click)="onReset()" class="btn-reset">
                     Reset
                   </button>
                 </div>
