@@ -235,3 +235,41 @@
   .dropdown {
     width: 100%;
   }
+
+  .btn-add {
+    margin: 2rem;
+    margin-left: 30%;
+    margin-top: 0;
+    padding: 5%;
+    background-color: rgba(52, 255, 1, 0.288);
+    color: rgb(255, 138, 5);
+    border-radius: 10px;
+    border-color: white;
+  }
+
+  .btn-add:hover {
+    background-color: #036303;
+  }
+
+  .btn-add:active {
+    background-color: #057c05;
+  }
+
+  .btn-reset {
+    padding: 10px;
+    float: right;
+    text-decoration: line-through;
+    background: none;
+    border-radius: 10px;
+    border-color: #fff;
+  }
+
+  .btn-reset:hover {
+    text-decoration: none;
+    background-color: rgba(255, 0, 0, 0.680);
+  }
+
+  .btn-reset:active {
+    text-decoration: none;
+    background-color: rgba(255, 0, 0, 0.781);
+  }

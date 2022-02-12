@@ -11,6 +11,12 @@
   box-sizing: border-box;
 }
 .box {
+    display: flex;
+    align-content: stretch;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: flex-start;
     width: 350px;
     height: 460px;
     font-size: 16px;
@@ -18,8 +24,8 @@
     background-color: #ff8800;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 30px;
-    background-color: none;
 }
+
 
 .user {
     margin-top: 50px;
@@ -30,6 +36,7 @@
 }
 
 input {
+    padding: 0.5rem 1rem;
     width: 90%;
     margin-bottom: 25px;
     padding: 0px 30px 15px;
@@ -44,6 +51,9 @@ input {
     border-bottom: 1px solid #EEEEEE;
 }
 .login-btn {
+    width: max-content;
+    margin-inline: auto;
+    padding: 1.25rem 0;
     margin-top: 5px;
     display: flex;
     justify-content: center;
@@ -178,6 +188,16 @@ h1 {
     list-style: none;
 }
 
+nav.container{
+    display: inline-flex;
+    flex-wrap: inherit;
+    width: min(100vw, 100%);
+    align-items: center;
+    justify-content: space-between;
+    align-content: stretch;
+    flex-direction: row;
+}
+
 .tab-content>.active {
     display: block;
 }
@@ -197,5 +217,6 @@ h1 {
 
 .btn {
     display: inline-flex;
+    padding: 0.75rem 1.25rem;
+    font-size: 1.125rem;
 }
-
