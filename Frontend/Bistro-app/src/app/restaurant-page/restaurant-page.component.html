@@ -3,24 +3,24 @@
     <div class="Venue-module_menu pale">
    <section>
       <div>
-         <button (click)="triggerModal(modalData)">
-               <div class="main__card__padding">
-                  <div class="card__title">
-                     <div class="title__content">
-                        <b>Ahoj</b>
-                     </div>
-                  </div>
-                  <div class="card__photo">
-                     <div class="photo__content">
-                        <img src="assets/img/restaurants/toast-with-eggs.jpg">
-                     </div>
-                  </div>
-                  <div class="card__text">
-                     <div class="text__content">
-                        <b>ahoj</b>
-                     </div>
+         <button *ngFor="let food of menu$ | async" (click)="triggerModal(modalData)">
+            <div class="main__card__padding">
+               <div class="card__title">
+                  <div class="title__content">
+                     <b>{{ food.foodName }}</b>
                   </div>
                </div>
+               <div class="card__photo">
+                  <div class="photo__content">
+                     <img src="assets/img/restaurants/toast-with-eggs.jpg">
+                  </div>
+               </div>
+               <div class="card__text">
+                  <div class="text__content">
+                     <b>ahoj</b>
+                  </div>
+               </div>
+            </div>
          </button>
          <div class="main__card__padding">
             <div class="card__title">
@@ -82,14 +82,8 @@
       <h3 class="kqsQLn">
          <span>Adresa</span>
       </h3>
-      <div class="VenueSideInfo-module__venueInformation___GimMp VenueSideInfo-module__venueAddress___W71Q7">
-         <div class="VenueSideInfo-module__venueInformation___GimMp VenueSideInfo-module__primary___xK8q">P. O. Hviezdoslava 3915/55</div>
-         <div class="VenueSideInfo-module__venueInformation___GimMp VenueSideInfo-module__secondary___Kuira">
-            010 01
-            <!-- -->
-            <!-- -->
-            Žilina
-         </div>
+      <div class="VenueSideInfo-module__venueInformation___GimMp VenueSideInfo-module__venueAddress___W71Q7" ><!--*ngFor="let restaurant of restaurants$"-->>
+         <div class="VenueSideInfo-module__venueInformation___GimMp VenueSideInfo-module__primary___xK8q"><!--{{restaurant.address}}--></div>
          <a class="VenueSideInfo-module__venueInfoLink___jX82l" target="_blank" rel="noopener noreferrer" href="https://maps.google.com/?q=49.226500880579536,18.745835243386043">
             <span>
                <span>Prezrieť si mapu</span>

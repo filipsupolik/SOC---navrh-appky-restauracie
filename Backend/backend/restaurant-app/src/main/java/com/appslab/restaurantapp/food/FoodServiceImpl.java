@@ -20,7 +20,7 @@ public class FoodServiceImpl implements FoodService{
     UserRepository userRepository;
 
 
-    List<String> categories = Arrays.asList(new String[] {"Pizza", "Burger", "Noodles", "Sub-sandwiches", "Chowmein", "Steak"});
+    List<String> categories = Arrays.asList(new String[] {"Pizza", "Burger", "Noodles", "Sandwiches", "Breakfast", "Steak"});
 
     public FoodServiceImpl(FoodRepository foodRepository, RestaurantRepository restaurantRepository, UserRepository userRepository) {
         this.foodRepository = foodRepository;

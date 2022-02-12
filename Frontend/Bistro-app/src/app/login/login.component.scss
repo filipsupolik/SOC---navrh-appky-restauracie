@@ -25,7 +25,8 @@ h1 {
     height: 460px;
     font-size: 16px;
     padding: 40px 40px;
-    background-color: #ff8800;
+    background: rgb(255, 143, 18);
+    background: linear-gradient(from top left top bottom right), rgba(255, 143, 18, 1) 15%, rgba(253, 29, 29, 1) 58%, rgba(252, 176, 69, 1) 95%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 30px;
 }

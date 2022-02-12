@@ -1,3 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+*{
+    all:unset;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+.box {
+    width: 350px;
+    height: 460px;
+    font-size: 16px;
+    padding: 40px 40px;
+    background-color: #ff8800;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 30px;
+    background-color: none;
+}
+
+.user {
+    margin-top: 50px;
+}
+
+.fas {
+    position: absolute;
+}
+
+input {
+    width: 90%;
+    margin-bottom: 25px;
+    padding: 0px 30px 15px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    background-color: #ff8800;
+}
+
+.input:focus {
+    border-bottom: 1px solid #EEEEEE;
+}
+.login-btn {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+.signup span {
+    color: #7fb8e6;
+}
+
+.signup span:hover {
+    color: #3793df;
+}
+
 .svg:not(:root).svg-inline--fa {
     overflow: visible;
 }
@@ -133,3 +198,4 @@ h1 {
 .btn {
     display: inline-flex;
 }
+

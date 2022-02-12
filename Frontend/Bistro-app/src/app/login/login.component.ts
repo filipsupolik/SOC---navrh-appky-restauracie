@@ -36,10 +36,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  reloadPage(): void {
-    window.location.reload();
-  }
-
   test(): void {
     this.http.get('http://localhost:8080/getRestaurantsByCategory?category=Burger').subscribe(data => {
       console.log(data);

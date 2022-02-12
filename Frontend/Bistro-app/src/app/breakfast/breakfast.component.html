@@ -9,7 +9,7 @@
                 </div>
                 <div>
                     <div class="VenueVerticalList_Grid light">
-                        <a class="DiscoveryVenueListItem_StyledLink" routerLink="/restaurantpage">
+                        <a *ngFor = "let restaurant of restaurants$ | async" class="DiscoveryVenueListItem_StyledLink" [routerLink]="['/restaurantpage', restaurant.id]">
                             <mat-card class="VenueCard_Root inverse">
                                 <div class="VenueCardHeader_Root flash">
                                     <div class="BlurHashImage_Root badge media">
@@ -20,173 +20,12 @@
                                 </div>
                                 <div class="VenueCard_Root flash">
                                     <div class="VenueCardBody_BodyStart action">
-                                        <h3 aria-label="Domino's Pizza" class="VenueCardBody_Header pale">Guty Žilina</h3>
-                                        <p class="VenueCardBody_Description twisted">Moderná ázijská kuchyňa</p>
+                                        <h3 aria-label="Domino's Pizza" class="VenueCardBody_Header pale">{{ restaurant.restaurantName }}</h3>
+                                        <p class="VenueCardBody_Description twisted">{{ restaurant.description }}</p>
                                     </div>
                                     <div class="VenueCardBody_BodyEnd story">
                                         <div class="VenueCardBody_BodyBoxContainer article">
-                                            <div class="VenueCardBody_BodyContent record">50-60</div>
-                                            <div class="VenueCardBody_BodyContent loading">minut</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </mat-card>
-                        </a>
-                        <a class="DiscoveryVenueListItem_StyledLink" routerLink="/restaurantpage">
-                            <mat-card class="VenueCard_Root inverse">
-                                <div class="VenueCardHeader_Root flash">
-                                    <div class="BlurHashImage_Root badge media">
-                                        <canvas class="module"></canvas>
-                                        <div class="ImageWithTransition_Root notice default"></div>
-                                    </div>
-                                    <div class="VenueCardHeader_TagContainer aligned"></div>
-                                </div>
-                                <div class="VenueCard_Root flash">
-                                    <div class="VenueCardBody_BodyStart action">
-                                        <h3 aria-label="Domino's Pizza" class="VenueCardBody_Header pale">Guty Žilina</h3>
-                                        <p class="VenueCardBody_Description twisted">Moderná ázijská kuchyňa</p>
-                                    </div>
-                                    <div class="VenueCardBody_BodyEnd story">
-                                        <div class="VenueCardBody_BodyBoxContainer article">
-                                            <div class="VenueCardBody_BodyContent record">50-60</div>
-                                            <div class="VenueCardBody_BodyContent loading">minut</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </mat-card>
-                        </a>
-                        <a class="DiscoveryVenueListItem_StyledLink" routerLink="/restaurantpage">
-                            <mat-card class="VenueCard_Root inverse">
-                                <div class="VenueCardHeader_Root flash">
-                                    <div class="BlurHashImage_Root badge media">
-                                        <canvas class="module"></canvas>
-                                        <div class="ImageWithTransition_Root notice default"></div>
-                                    </div>
-                                    <div class="VenueCardHeader_TagContainer aligned"></div>
-                                </div>
-                                <div class="VenueCard_Root flash">
-                                    <div class="VenueCardBody_BodyStart action">
-                                        <h3 aria-label="Domino's Pizza" class="VenueCardBody_Header pale">Guty Žilina</h3>
-                                        <p class="VenueCardBody_Description twisted">Moderná ázijská kuchyňa</p>
-                                    </div>
-                                    <div class="VenueCardBody_BodyEnd story">
-                                        <div class="VenueCardBody_BodyBoxContainer article">
-                                            <div class="VenueCardBody_BodyContent record">50-60</div>
-                                            <div class="VenueCardBody_BodyContent loading">minut</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </mat-card>
-                        </a>
-                        <a class="DiscoveryVenueListItem_StyledLink" routerLink="/restaurantpage">
-                            <mat-card class="VenueCard_Root inverse">
-                                <div class="VenueCardHeader_Root flash">
-                                    <div class="BlurHashImage_Root badge media">
-                                        <canvas class="module"></canvas>
-                                        <div class="ImageWithTransition_Root notice default"></div>
-                                    </div>
-                                    <div class="VenueCardHeader_TagContainer aligned"></div>
-                                </div>
-                                <div class="VenueCard_Root flash">
-                                    <div class="VenueCardBody_BodyStart action">
-                                        <h3 aria-label="Domino's Pizza" class="VenueCardBody_Header pale">Guty Žilina</h3>
-                                        <p class="VenueCardBody_Description twisted">Moderná ázijská kuchyňa</p>
-                                    </div>
-                                    <div class="VenueCardBody_BodyEnd story">
-                                        <div class="VenueCardBody_BodyBoxContainer article">
-                                            <div class="VenueCardBody_BodyContent record">50-60</div>
-                                            <div class="VenueCardBody_BodyContent loading">minut</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </mat-card>
-                        </a>
-                        <a class="DiscoveryVenueListItem_StyledLink" routerLink="/restaurantpage">
-                            <mat-card class="VenueCard_Root inverse">
-                                <div class="VenueCardHeader_Root flash">
-                                    <div class="BlurHashImage_Root badge media">
-                                        <canvas class="module"></canvas>
-                                        <div class="ImageWithTransition_Root notice default"></div>
-                                    </div>
-                                    <div class="VenueCardHeader_TagContainer aligned"></div>
-                                </div>
-                                <div class="VenueCard_Root flash">
-                                    <div class="VenueCardBody_BodyStart action">
-                                        <h3 aria-label="Domino's Pizza" class="VenueCardBody_Header pale">Guty Žilina</h3>
-                                        <p class="VenueCardBody_Description twisted">Moderná ázijská kuchyňa</p>
-                                    </div>
-                                    <div class="VenueCardBody_BodyEnd story">
-                                        <div class="VenueCardBody_BodyBoxContainer article">
-                                            <div class="VenueCardBody_BodyContent record">50-60</div>
-                                            <div class="VenueCardBody_BodyContent loading">minut</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </mat-card>
-                        </a>
-                        <a class="DiscoveryVenueListItem_StyledLink" routerLink="/restaurantpage">
-                            <mat-card class="VenueCard_Root inverse">
-                                <div class="VenueCardHeader_Root flash">
-                                    <div class="BlurHashImage_Root badge media">
-                                        <canvas class="module"></canvas>
-                                        <div class="ImageWithTransition_Root notice default"></div>
-                                    </div>
-                                    <div class="VenueCardHeader_TagContainer aligned"></div>
-                                </div>
-                                <div class="VenueCard_Root flash">
-                                    <div class="VenueCardBody_BodyStart action">
-                                        <h3 aria-label="Domino's Pizza" class="VenueCardBody_Header pale">Guty Žilina</h3>
-                                        <p class="VenueCardBody_Description twisted">Moderná ázijská kuchyňa</p>
-                                    </div>
-                                    <div class="VenueCardBody_BodyEnd story">
-                                        <div class="VenueCardBody_BodyBoxContainer article">
-                                            <div class="VenueCardBody_BodyContent record">50-60</div>
-                                            <div class="VenueCardBody_BodyContent loading">minut</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </mat-card>
-                        </a>
-                        <a class="DiscoveryVenueListItem_StyledLink" routerLink="/restaurantpage">
-                            <mat-card class="VenueCard_Root inverse">
-                                <div class="VenueCardHeader_Root flash">
-                                    <div class="BlurHashImage_Root badge media">
-                                        <canvas class="module"></canvas>
-                                        <div class="ImageWithTransition_Root notice default"></div>
-                                    </div>
-                                    <div class="VenueCardHeader_TagContainer aligned"></div>
-                                </div>
-                                <div class="VenueCard_Root flash">
-                                    <div class="VenueCardBody_BodyStart action">
-                                        <h3 aria-label="Domino's Pizza" class="VenueCardBody_Header pale">Guty Žilina</h3>
-                                        <p class="VenueCardBody_Description twisted">Moderná ázijská kuchyňa</p>
-                                    </div>
-                                    <div class="VenueCardBody_BodyEnd story">
-                                        <div class="VenueCardBody_BodyBoxContainer article">
-                                            <div class="VenueCardBody_BodyContent record">50-60</div>
-                                            <div class="VenueCardBody_BodyContent loading">minut</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </mat-card>
-                        </a>
-                        <a class="DiscoveryVenueListItem_StyledLink" routerLink="/restaurantpage">
-                            <mat-card class="VenueCard_Root inverse">
-                                <div class="VenueCardHeader_Root flash">
-                                    <div class="BlurHashImage_Root badge media">
-                                        <canvas class="module"></canvas>
-                                        <div class="ImageWithTransition_Root notice default"></div>
-                                    </div>
-                                    <div class="VenueCardHeader_TagContainer aligned"></div>
-                                </div>
-                                <div class="VenueCard_Root flash">
-                                    <div class="VenueCardBody_BodyStart action">
-                                        <h3 aria-label="Domino's Pizza" class="VenueCardBody_Header pale">Guty Žilina</h3>
-                                        <p class="VenueCardBody_Description twisted">Moderná ázijská kuchyňa</p>
-                                    </div>
-                                    <div class="VenueCardBody_BodyEnd story">
-                                        <div class="VenueCardBody_BodyBoxContainer article">
-                                            <div class="VenueCardBody_BodyContent record">50-60</div>
+                                            <div class="VenueCardBody_BodyContent record">{{ restaurant.deliveryTimeMinutes }}</div>
                                             <div class="VenueCardBody_BodyContent loading">minut</div>
                                         </div>
                                     </div>
