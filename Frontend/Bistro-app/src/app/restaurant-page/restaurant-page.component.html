@@ -17,7 +17,7 @@
                </div>
                <div class="card__text">
                   <div class="text__content">
-                     <b>ahoj</b>
+                     <b>{{ food.price }}</b>
                   </div>
                </div>
             </div>
@@ -75,12 +75,13 @@
          </div>
       </div>
    </section>
-   <div class="VenueSideInfo-module__venueInformation___GimMp">
+   <div *ngFor="let restaurant of restaurants$ |async" class="VenueSideInfo-module__venueInformation___GimMp">
       <h2 class="jcpkhT">
          <span>Informácie o reštaurácii</span>
       </h2>
       <h3 class="kqsQLn">
          <span>Adresa</span>
+         <p>{{ restaurant.address }}</p>
       </h3>
       <div class="VenueSideInfo-module__venueInformation___GimMp VenueSideInfo-module__venueAddress___W71Q7" ><!--*ngFor="let restaurant of restaurants$"-->>
          <div class="VenueSideInfo-module__venueInformation___GimMp VenueSideInfo-module__primary___xK8q"><!--{{restaurant.address}}--></div>
@@ -105,7 +106,7 @@
                                  <p class="CombinedHours__DayInfoWrapper-sc-189qmtd-2 eQWovX">
                                     <span class="CombinedHours__Day-sc-189qmtd-0 hlpSFE">Pondelok-So</span>
                                     <span>
-                                       <span class="CombinedHours__HoursItem-sc-189qmtd-3 dAMkUi">10.30–21.00</span>
+                                       <span class="CombinedHours__HoursItem-sc-189qmtd-3 dAMkUi">{{ restaurant.openingTime }}</span>
                                     </span>
                                  </p>
                               </div>

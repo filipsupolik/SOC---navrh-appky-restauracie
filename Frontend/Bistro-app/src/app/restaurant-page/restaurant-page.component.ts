@@ -23,12 +23,12 @@ export class RestaurantPageComponent implements OnInit {
 
   
   closeModal:string | undefined;
-  restaurants$: Observable<Restaurant> = EMPTY;
+  restaurants$: Observable<Restaurant[]> = EMPTY;
   menu$: Observable<Food[]> = EMPTY;
 
   ngOnInit(): void {
     const id = +(this.route.snapshot.paramMap.get('id') ?? 1);
-    this.restaurants$ = this.restaurantService.getRestaurantInfo();
+    this.restaurants$ = this.restaurantService.getRestaurantInfo(id);
     this.menu$ = this.foodService.getMenu(id);
   }
   

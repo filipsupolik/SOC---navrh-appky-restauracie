@@ -3,4 +3,5 @@ export interface Food {
     foodName: string;
     category: string;
     restaurantId: number;
+    price: number;
 }
