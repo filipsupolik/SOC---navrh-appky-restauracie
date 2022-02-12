@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
-
+*{
+    all:unset;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
 .box {
     width: 350px;
     height: 460px;

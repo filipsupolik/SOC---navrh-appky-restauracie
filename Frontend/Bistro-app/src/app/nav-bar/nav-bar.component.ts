@@ -25,7 +25,7 @@ export class NavBarComponent implements OnInit {
     private modalService: NgbModal,
     private authService: AuthService,
     private http: HttpClient,
-    private router: Router,) { }
+    private readonly router: Router) { }
 
   triggerModal(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((res) => {
@@ -50,6 +50,7 @@ export class NavBarComponent implements OnInit {
     if (this.loginGroup.valid) {
       const username = this.loginGroup.value.username;
       const password = this.loginGroup.value.password;
+      this.modalService.dismissAll();
       this.authService.login(username, password)
         .subscribe(() => this.router.navigateByUrl('/leagues'));
     }
@@ -61,6 +62,23 @@ export class NavBarComponent implements OnInit {
       console.log("test");
 
     })
+  }
+
+  registerGroup = new FormGroup({
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+  })
+
+  register(): void {
+    if (this.registerGroup.valid) {
+      const username = this.registerGroup.value.username;
+      const password = this.registerGroup.value.username;
+      this.authService.register(username, password)
+        .subscribe(() => {
+          this.authService.login(username, password)
+            .subscribe(() => this.router.navigateByUrl('/main-page'));
+        });
+    }
   }
 
   ngOnInit(): void {

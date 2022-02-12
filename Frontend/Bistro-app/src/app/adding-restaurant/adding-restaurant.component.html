@@ -79,15 +79,17 @@
                   </div>
                   <div class="field padding-bottom--24">
                     <div class="grid--50-50">
-                      <mat-label for="Category">Category</mat-label>
-                      <mat-form-field>
-                      <mat-select>
-                        <mat-option>
-
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
+                      <label>Category</label>
                     </div>
+                    <mat-form-field class="dropdown" appearance="outline">
+                      <mat-label></mat-label>
+                      <mat-select>
+                        <mat-option value="CATEGORY-VALUE">Hello!</mat-option>
+                        <!--<mat-option *ngFor="let category of categories">
+                          {{category.}}
+                        </mat-option> -->
+                      </mat-select>
+                  </mat-form-field>
                   </div>
                 <div class="field padding-bottom--24">
                   <button type="button" class="btn btn-success" (click)="createRestaurant()">Add restaurant</button><br>
