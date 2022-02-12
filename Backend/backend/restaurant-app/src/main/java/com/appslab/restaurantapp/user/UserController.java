@@ -1,7 +1,7 @@
 package com.appslab.restaurantapp.user;
 
 import com.appslab.restaurantapp.exception.GenericException;
-import com.appslab.restaurantapp.securityOLD.UserDetailsServiceImpl;
+import com.appslab.restaurantapp.security.UserDetailsServiceImpl;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 

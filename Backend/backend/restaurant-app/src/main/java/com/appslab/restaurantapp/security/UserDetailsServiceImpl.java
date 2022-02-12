@@ -1,4 +1,4 @@
-package com.appslab.restaurantapp.securityOLD;
+package com.appslab.restaurantapp.security;
 
 import com.appslab.restaurantapp.user.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
