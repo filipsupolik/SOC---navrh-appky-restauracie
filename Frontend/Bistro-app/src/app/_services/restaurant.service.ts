@@ -18,8 +18,8 @@ export class RestaurantService {
     return this.httpClient.get<Restaurant[]>(`http://localhost:8080/getRestaurantsByCategory?category=${category}`);
   }
 
-  getRestaurantInfo(restaurantId: number): Observable<Restaurant[]> {
-    return this.httpClient.get<Restaurant[]>(`http://localhost:8080/getMenu?restaurantId=${restaurantId}`);
+  getRestaurantInfo(restaurantId: number): Observable<Restaurant> {
+    return this.httpClient.get<Restaurant>(`http://localhost:8080/getRestaurantInfo?restaurantId=${restaurantId}`);
   }
 
   createRestaurant(restaurant: Restaurant) {

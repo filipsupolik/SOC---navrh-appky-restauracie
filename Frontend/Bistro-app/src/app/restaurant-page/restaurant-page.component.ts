@@ -23,7 +23,7 @@ export class RestaurantPageComponent implements OnInit {
 
   
   closeModal:string | undefined;
-  restaurants$: Observable<Restaurant[]> = EMPTY;
+  restaurants$: Observable<Restaurant> = EMPTY;
   menu$: Observable<Food[]> = EMPTY;
 
   ngOnInit(): void {

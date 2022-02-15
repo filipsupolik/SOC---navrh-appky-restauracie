@@ -32,7 +32,7 @@ public class RestaurantController {
     }
 
     @GetMapping(value = "/getRestaurantInfo")
-    public Restaurant getRestaurantInfo(@RequestParam Long restaurantId){
+    public Restaurant getRestaurantInfo(@RequestParam long restaurantId){
         return restaurantService.getRestaurantInfo(restaurantId);
     }
 }
