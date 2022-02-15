@@ -61,7 +61,7 @@
                       <label for="Delivery">Delivery Time (min)</label>
                     </div>
                     <input 
-                      formControlName="opening"
+                      formControlName="deliveryTime"
                       [ngClass]="{ 'is-invalid': submitted && r.opening.errors}"
                       >
                   </div>
@@ -69,13 +69,15 @@
                     <div class="grid--50-50">
                       <label for="opening">Opening time (AM - PM)</label>
                     </div>
-                    <input name="opening">
+                    <input 
+                      formControlName="opening">
                   </div>
                   <div class="field padding-bottom--24">
                     <div class="grid--50-50">
                       <label for="address">Address</label>
                     </div>
-                    <input name="address">
+                    <input 
+                      formControlName="address">
                   </div>
                   <div class="field padding-bottom--24">
                     <div class="grid--50-50">

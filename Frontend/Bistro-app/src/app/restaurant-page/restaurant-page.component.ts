@@ -28,7 +28,7 @@ export class RestaurantPageComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +(this.route.snapshot.paramMap.get('id') ?? 1);
-    this.restaurants$ = this.restaurantService.getRestaurantInfo();
+    this.restaurants$ = this.restaurantService.getRestaurantInfo(id);
     this.menu$ = this.foodService.getMenu(id);
   }
   
