@@ -1,3 +1,6 @@
+img{
+    margin-inline: auto !important;
+}
 .card-span {
     border: 0;
 }
@@ -18,4 +21,34 @@ svg:not(:root).svg-inline--fa {
 }
 .fs-3 {
     padding: block;
+}
+
+#card {
+  width:200px;
+  height:300px;
+  background-position:center;
+  background-size:cover;
+  border-radius:100px;
+  position:relative;
+}
+#card-body_center{
+    width: max-content;
+    height: auto;
+}
+#card-body {
+  position:absolute;
+  content:"";
+  width:max-content;
+  height:max-content;
+  bottom:0;
+  left:50%;
+  background-color:rgb(204, 163, 0);
+  padding:0.75rem 1.25rem;
+  border-radius:20px;
+  color:white;
+  transform: translate(-50%,75%);
+}
+.godplease{
+    display: grid;
+    place-items: center;
 }

@@ -13,4 +13,12 @@ export class FoodService {
   getMenu(restaurantId: number): Observable<Food[]> {
     return this.httpClient.get<Food[]>(`http://localhost:8080/getMenu?restaurantId=${restaurantId}`);
   }
+
+  getCategories(): Observable<String[]> {
+    return this.httpClient.get<String[]>(`http://localhost:8080/getCategories`);
+  }
+
+  addFood(food: Food) {
+    return this.httpClient.post(`http://localhost:8080/addFood`, food);
+  }
 }

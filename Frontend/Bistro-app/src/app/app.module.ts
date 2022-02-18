@@ -26,6 +26,7 @@ import { SandwichesComponent } from './sandwiches/sandwiches.component';
 import { BreakfastComponent } from './breakfast/breakfast.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddingRestaurantComponent } from './adding-restaurant/adding-restaurant.component';
+import { AddFoodComponent } from './add-food/add-food.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AddingRestaurantComponent } from './adding-restaurant/adding-restaurant
     BreakfastComponent,
     ProfileComponent,
     AddingRestaurantComponent,
+    AddFoodComponent,
   ],
   imports: [
     BrowserModule,

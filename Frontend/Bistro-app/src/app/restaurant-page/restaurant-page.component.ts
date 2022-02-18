@@ -21,7 +21,6 @@ export class RestaurantPageComponent implements OnInit {
     private route: ActivatedRoute,
     ) { }
 
-  
   closeModal:string | undefined;
   restaurants$: Observable<Restaurant> = EMPTY;
   menu$: Observable<Food[]> = EMPTY;

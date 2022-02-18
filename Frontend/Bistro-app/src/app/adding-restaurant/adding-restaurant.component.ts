@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { EMPTY, Observable } from 'rxjs';
 import { Restaurant } from '../restaurant.model';
+import { FoodService } from '../_services/food.service';
 import { RestaurantService } from '../_services/restaurant.service';
 
 @Component({
@@ -13,12 +14,15 @@ export class AddingRestaurantComponent implements OnInit {
 
   form!: FormGroup;
   submitted = false;
+  //categories$: Observable<String[]> = EMPTY;
 
   constructor(
     private formBuilder: FormBuilder,
-    private restaurantService: RestaurantService) { }
+    private restaurantService: RestaurantService,
+    private foodService: FoodService) { }
 
   ngOnInit(): void {
+    //this.categories$ = this.foodService.getCategories();
     this.form = this.formBuilder.group(
       {
         restaurantName: [
@@ -63,6 +67,12 @@ export class AddingRestaurantComponent implements OnInit {
             Validators.maxLength(10),
             Validators.pattern('[a-zA-Z0-9]')
           ]
+        ],
+        categories: [
+            '',
+            [
+              Validators.required
+            ]
         ],
       }
     )
