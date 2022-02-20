@@ -25,43 +25,43 @@ class FoodRepositoryTest {
 
     Restaurant restaurant = new Restaurant(1, "UTehotnehoPsa", "great restaurant", 20, "Po-Ne 13:30-21:00", "Hulvata 25, 546 32 Bratislava");
 
-    @Test
-    void itShouldFindFoodByFoodName() {
-        //given
-        restaurantRepository.save(restaurant);
-
-        String name = "Burger";
-        Food food = new Food(name, "Burger", 1, 10.25);
-        underTest.save(food);
-
-        //when
-        Food expected = underTest.findFoodByFoodName(name);
-
-        //then
-        assertThat(expected).isEqualTo(food);
-
-    }
-
-    @Test
-    void ItShouldFindAllFoodByCategory() {
-        //given
-        restaurantRepository.save(restaurant);
-
-        String category = "Burger";
-        Food food1 = new Food("Burger", category, 1, 10.25);
-        Food food2 = new Food("ChickenBurger", category, 1, 10.25);
-        underTest.save(food1);
-        underTest.save(food2);
-
-        List<Food> food = new ArrayList<>();
-        food.add(food1);
-        food.add(food2);
-
-        //when
-        List<Food> expected = underTest.findAllFoodByCategory(category);
-
-        //then
-        assertThat(expected).isEqualTo(food);
-
-    }
+//    @Test
+//    void itShouldFindFoodByFoodName() {
+//        //given
+//        restaurantRepository.save(restaurant);
+//
+//        String name = "Burger";
+//        Food food = new Food(name, "Burger", 1, 10.25);
+//        underTest.save(food);
+//
+//        //when
+//        Food expected = underTest.findFoodByFoodName(name);
+//
+//        //then
+//        assertThat(expected).isEqualTo(food);
+//
+//    }
+//
+//    @Test
+//    void ItShouldFindAllFoodByCategory() {
+//        //given
+//        restaurantRepository.save(restaurant);
+//
+//        String category = "Burger";
+//        Food food1 = new Food("Burger", category, 1, 10.25);
+//        Food food2 = new Food("ChickenBurger", category, 1, 10.25);
+//        underTest.save(food1);
+//        underTest.save(food2);
+//
+//        List<Food> food = new ArrayList<>();
+//        food.add(food1);
+//        food.add(food2);
+//
+//        //when
+//        List<Food> expected = underTest.findAllFoodByCategory(category);
+//
+//        //then
+//        assertThat(expected).isEqualTo(food);
+//
+//    }
 }

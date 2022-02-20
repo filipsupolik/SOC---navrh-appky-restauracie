@@ -1,5 +1,6 @@
 package com.appslab.restaurantapp.food;
 
+import com.appslab.restaurantapp.category.Category;
 import com.appslab.restaurantapp.order.Order;
 import com.appslab.restaurantapp.restaurant.Restaurant;
 import com.appslab.restaurantapp.user.User;
@@ -19,7 +20,6 @@ public class Food {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
     private String foodName;
-    private String category;
     private double price;
 
     @ManyToOne
@@ -30,15 +30,23 @@ public class Food {
     @Column(name = "restaurant_id")
     private long restaurantId;
 
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name="category_id", nullable=false, insertable = false, updatable = false)
+    private Category category;
+
+    @Column(name = "category_id")
+    private long categoryId;
+
     @OneToMany(mappedBy="orderedFood")
     private Set<Order> orders;
 
     public Food() {
     }
 
-    public Food(String foodName, String category, long restaurantId, double price) {
+    public Food(String foodName, long categoryId ,long restaurantId, double price) {
         this.foodName = foodName;
-        this.category = category;
+        this.categoryId = categoryId;
         this.restaurantId = restaurantId;
         this.price = price;
     }
@@ -67,19 +75,19 @@ public class Food {
         this.restaurantId = restaurantId;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public double getPrice() {
         return price;
     }
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
     }
 }
