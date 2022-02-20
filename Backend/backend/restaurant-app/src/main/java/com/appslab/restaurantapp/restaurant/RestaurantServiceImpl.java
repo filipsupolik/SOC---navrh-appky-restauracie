@@ -45,7 +45,7 @@ public class RestaurantServiceImpl implements RestaurantService{
         for (int i=0;i<foods.size();i++){
             restaurants.add(restaurantRepository.findById(foods.get(i).getRestaurantId()).get());
         }
-        return null;
+        return restaurants;
     }
 
     @Override
