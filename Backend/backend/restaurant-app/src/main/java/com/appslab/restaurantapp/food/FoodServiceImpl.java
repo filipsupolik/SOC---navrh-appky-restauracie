@@ -20,8 +20,6 @@ public class FoodServiceImpl implements FoodService{
     UserRepository userRepository;
 
 
-    List<String> categories = Arrays.asList(new String[] {"Pizza", "Burger", "Noodles", "Sandwiches", "Breakfast", "Steak"});
-
     public FoodServiceImpl(FoodRepository foodRepository, RestaurantRepository restaurantRepository, UserRepository userRepository) {
         this.foodRepository = foodRepository;
         this.restaurantRepository = restaurantRepository;
@@ -33,12 +31,7 @@ public class FoodServiceImpl implements FoodService{
         Restaurant restaurant = restaurantRepository.findRestaurantById(food.getRestaurantId());
         User user = userRepository.findUserById(restaurant.getAdminId());
         if(userRepository.findByUsername(principal.getName()).get().getId()==user.getId()){
-            if(categories.contains(food.getCategory())==true){
-                foodRepository.save(food);
-            }
-            else {
-                throw new GenericException("Food's category is not correct");
-            }
+            foodRepository.save(food);
         }
         else{
             throw new GenericException("You are not authorised to edit this restaurant");
@@ -68,10 +61,6 @@ public class FoodServiceImpl implements FoodService{
         return foodRepository.findAllFoodByRestaurantId(restaurantId);
     }
 
-    @Override
-    public List<String> getCategories() {
-        return categories;
-    }
 
 
 }
