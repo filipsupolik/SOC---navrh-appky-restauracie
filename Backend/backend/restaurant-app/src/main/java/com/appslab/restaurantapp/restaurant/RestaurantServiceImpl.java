@@ -1,9 +1,12 @@
 package com.appslab.restaurantapp.restaurant;
 
+import com.appslab.restaurantapp.category.Category;
+import com.appslab.restaurantapp.category.CategoryRepository;
 import com.appslab.restaurantapp.exception.GenericException;
 import com.appslab.restaurantapp.food.Food;
 import com.appslab.restaurantapp.food.FoodRepository;
 import com.appslab.restaurantapp.user.UserRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,17 +16,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class RestaurantServiceImpl implements RestaurantService{
 
     RestaurantRepository restaurantRepository;
     FoodRepository foodRepository;
     UserRepository userRepository;
+    CategoryRepository categoryRepository;
 
-    public RestaurantServiceImpl(RestaurantRepository restaurantRepository, FoodRepository foodRepository, UserRepository userRepository) {
-        this.restaurantRepository = restaurantRepository;
-        this.foodRepository = foodRepository;
-        this.userRepository = userRepository;
-    }
 
     @Override
     public void createRestaurant(Restaurant restaurant, Principal principal) throws GenericException {
@@ -38,13 +38,14 @@ public class RestaurantServiceImpl implements RestaurantService{
 
     @Override
     public List<Restaurant> getRestaurantsByCategory(String category) {
-        List<Food> foods = foodRepository.findAllFoodByCategory(category);
+        Optional<Category> category1 = categoryRepository.findCategoryByName(category);
+        List<Food> foods = foodRepository.findAllFoodByCategoryId(category1.get().getId());
         List<Restaurant> restaurants = new ArrayList<>();
 
         for (int i=0;i<foods.size();i++){
             restaurants.add(restaurantRepository.findById(foods.get(i).getRestaurantId()).get());
         }
-        return restaurants;
+        return null;
     }
 
     @Override
