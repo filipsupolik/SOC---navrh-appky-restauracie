@@ -11,9 +11,11 @@ import { BurgerRestaurantsComponent } from './Burger-restaurants/burger-restaura
 import { NoodlesRestaurantsComponent } from './noodles-restaurants/noodles-restaurants.component';
 import { SandwichesComponent } from './sandwiches/sandwiches.component';
 import { BreakfastComponent } from './breakfast/breakfast.component';
+import { SteakComponent } from './steak/steak.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddingRestaurantComponent } from './adding-restaurant/adding-restaurant.component';
 import { AddFoodComponent } from './add-food/add-food.component';
+import { CartComponent } from './cart/cart.component';  
 
 const routes: Routes = [
   {path: '',component: MainPageComponent},
@@ -27,7 +29,9 @@ const routes: Routes = [
   {path: 'restaurantpage/:id', component: RestaurantPageComponent},
   {path: 'breakfast', component: BreakfastComponent},
   {path: 'adding_restaurant', component: AddingRestaurantComponent},
-  {path: 'adding_food', component: AddFoodComponent}
+  {path: 'steak', component: SteakComponent},
+  {path: 'adding_food', component: AddFoodComponent},
+  {path: 'shopping_cart', component: CartComponent}
 ];
 
 @NgModule({

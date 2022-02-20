@@ -69,9 +69,9 @@
                     <div class="grid--50-50">
                       <label>Category</label>
                     </div>
-                    <mat-form-field class="dropdown" appearance="outline" formControlName="categories">
-                      <mat-select>
-                          <mat-option *ngFor="let category of categories" [value]="category.value">{{ category.text }}</mat-option>
+                    <mat-form-field class="dropdown" appearance="outline">
+                      <mat-select formControlName="category">
+                          <mat-option *ngFor="let category of categories$|async" ngDefaultControl formControlName="category" [value]="category.id">{{category.name}}</mat-option>
                       </mat-select>
                     </mat-form-field>
                   </div>

@@ -41,7 +41,7 @@ export class AddingRestaurantComponent implements OnInit {
             Validators.pattern('[a-zA-Z ]*'),
           ]
         ],
-        deliveryTime: [
+        deliveryTimeMinutes: [
           '',
           [
             Validators.required,
@@ -50,7 +50,7 @@ export class AddingRestaurantComponent implements OnInit {
             Validators.pattern('[0-9]*'),
           ]
         ],
-        opening: [
+        openingTime: [
           '',
           [
             Validators.required,
@@ -82,9 +82,9 @@ export class AddingRestaurantComponent implements OnInit {
     const restaurant = {
       restaurantName: this.form.controls.restaurantName.value,
       address: this.form.controls.address.value,
-      opening: this.form.controls.opening.value,
+      openingTime: this.form.controls.openingTime.value,
       description: this.form.controls.description.value,
-      deliveryTime: this.form.controls.deliveryTime.value,
+      deliveryTimeMinutes: this.form.controls.deliveryTimeMinutes.value,
     }
     this.restaurantService.createRestaurant(restaurant as unknown as Restaurant).subscribe();
   }

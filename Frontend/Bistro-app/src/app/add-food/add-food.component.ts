@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { EMPTY, Observable } from 'rxjs';
+import { CATEGORY } from '../category';
 import { Food } from '../food.model';
 import { Restaurant } from '../restaurant.model';
 import { FoodService } from '../_services/food.service';
@@ -12,26 +14,19 @@ import { FoodService } from '../_services/food.service';
 })
 export class AddFoodComponent implements OnInit {
 
+  categories$: Observable<CATEGORY[]> = EMPTY;  
   form!: FormGroup;
   submitted = false;
-  //categories$: Observable<String[]> = EMPTY;
 
   constructor(
     private formBuilder: FormBuilder,
-    private foodService: FoodService) { }
-
-    categories = [
-      {value: 'Pizza', text: 'Pizza'},
-      {value: 'Burger', text: 'Burger'},
-      {value: 'Noodles', text: 'Noodles'},
-      {value: 'Sandwich', text: 'Sandwich'},
-      {value: 'Breakfast', text: 'Breakfast'},
-      {value: 'Steak', text: 'Steak'},
-
-    ]
+    private foodService: FoodService,
+    private route: ActivatedRoute,
+    ) { }
 
   ngOnInit(): void {
-    //this.categories$ = this.foodService.getCategories();
+    const id = +(this.route.snapshot.paramMap.get('categoryId') ?? 1);
+    this.categories$ = this.foodService.getAllCategories();
     this.form = this.formBuilder.group(
       {
         foodName: [
@@ -59,8 +54,8 @@ export class AddFoodComponent implements OnInit {
             Validators.pattern('[0-9]*'),
           ]
         ],
-        categories: [
-            '',
+        category: [
+            '2',
             [
               Validators.required
             ]
@@ -74,9 +69,9 @@ export class AddFoodComponent implements OnInit {
       foodName: this.form.controls.foodName.value,
       price: this.form.controls.price.value,
       restaurantId: this.form.controls.restaurantId.value,
-      categories: this.form.controls.categories.value,
+      categoryId: this.form.controls.category.value,
     }
-    this.foodService.addFood(food as unknown as Food).subscribe();
+    this.foodService.addFood(food as Food).subscribe();
   }
 
   get r(): { [key:string]: AbstractControl} {

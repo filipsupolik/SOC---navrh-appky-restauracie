@@ -61,7 +61,8 @@
                       <label for="Delivery">Delivery Time (min)</label>
                     </div>
                     <input 
-                      formControlName="deliveryTime"
+                      type="number"
+                      formControlName="deliveryTimeMinutes"
                       [ngClass]="{ 'is-invalid': submitted && r.opening.errors}"
                       >
                   </div>
@@ -70,7 +71,7 @@
                       <label for="opening">Opening time (AM - PM)</label>
                     </div>
                     <input 
-                      formControlName="opening">
+                      formControlName="openingTime">
                   </div>
                   <div class="field padding-bottom--24">
                     <div class="grid--50-50">
@@ -80,7 +81,7 @@
                       formControlName="address">
                   </div>
                 <div class="field padding-bottom--24">
-                  <button type="button" class="btn-add" (click)="createRestaurant()">Add restaurant</button><br>
+                  <button type="button" class="btn-add" (click)="createRestaurant()" routerLink="/adding_food">Add restaurant</button><br>
                   <button type="reset" (click)="onReset()" class="btn-reset">
                     Reset
                   </button>
