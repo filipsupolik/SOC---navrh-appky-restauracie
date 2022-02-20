@@ -241,18 +241,19 @@
     margin-left: 30%;
     margin-top: 0;
     padding: 5%;
-    background-color: rgba(52, 255, 1, 0.288);
-    color: rgb(255, 138, 5);
+    background-color: #5469d4;
+    color: #e3e8ee;
     border-radius: 10px;
     border-color: white;
   }
 
   .btn-add:hover {
-    background-color: #036303;
+    background-color: #7fd3ed;
+    color: #ffffff;
   }
 
   .btn-add:active {
-    background-color: #057c05;
+    background-color: #a0d8e9;
   }
 
   .btn-reset {

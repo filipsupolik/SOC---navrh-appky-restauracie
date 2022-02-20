@@ -1,10 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EMPTY, Observable } from 'rxjs';
+import { CATEGORY } from '../category';
 import { Food } from '../food.model';
+import { Order } from '../order.module';
+import { OrderComponent } from '../order/order.component';
 import { Restaurant } from '../restaurant.model';
 import { FoodService } from '../_services/food.service';
+import { OrderService } from '../_services/order.service';
 import { RestaurantService } from '../_services/restaurant.service';
 
 @Component({
@@ -18,9 +24,12 @@ export class RestaurantPageComponent implements OnInit {
     private modalService: NgbModal,
     private restaurantService: RestaurantService,
     private foodService: FoodService,
+    private orderService: OrderService,
     private route: ActivatedRoute,
+    public _snackBar: MatSnackBar
     ) { }
 
+  durationInSeconds = 5;
   closeModal:string | undefined;
   restaurants$: Observable<Restaurant> = EMPTY;
   menu$: Observable<Food[]> = EMPTY;
@@ -47,6 +56,12 @@ export class RestaurantPageComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  openSnackBar() {
+    this._snackBar.openFromComponent(OrderComponent, {
+      duration: this.durationInSeconds * 1000,
+    });
   }
 
 }
