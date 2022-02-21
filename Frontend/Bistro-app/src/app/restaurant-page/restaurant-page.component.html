@@ -3,13 +3,7 @@
     <div class="Venue-module_menu pale">
    <section>
       <div>
-         <button *ngFor="let food of menu$ | async" (click)="triggerModal(modalData)">
-            <div class="main__card__padding">
-               <div class="card__title">
-                  <div class="title__content">
-                     <img src="assets\img\gallery\Pizza_Images\Pizza_peperoni.jpg">
-                  </div>
-               </div>
+            <div class="main__card__padding" *ngFor="let food of menu$ | async">
                <div class="card__photo">
                   <div class="photo__content">
                      <b>{{ food.foodName }}</b>
@@ -21,7 +15,6 @@
                   </div>
                </div>
             </div>
-         </button>
       </div>
    </section>
    <div *ngIf="restaurants$|async as restaurant" class="VenueSideInfo-module__venueInformation___GimMp">
@@ -32,14 +25,6 @@
          <span>Adresa</span>
          <p>{{ restaurant.address}}</p>
       </h3>
-      <div class="VenueSideInfo-module__venueInformation___GimMp VenueSideInfo-module__venueAddress___W71Q7" >>
-         <div class="VenueSideInfo-module__venueInformation___GimMp VenueSideInfo-module__primary___xK8q"></div>
-         <a class="VenueSideInfo-module__venueInfoLink___jX82l" target="_blank" rel="noopener noreferrer" href="https://maps.google.com/?q=49.226500880579536,18.745835243386043">
-            <span>
-               <span>Prezrieť si mapu</span>
-            </span>
-         </a>
-      </div>
       <div class="flash">
          <h3 class="kqsQLn">
             <span>Otváracia doba</span>
@@ -67,13 +52,6 @@
                                     </span>
                                  </p>
                               </div>
-                              <div class="row">
-                                 <div class="col-sm-12">
-                                     <button routerLink='/adding_food' class="Adding_button">
-                                         <mat-icon aria-hidden="false" aria-label="Adding restaurant icon">add_circle</mat-icon>
-                                     </button>
-                                 </div>
-                               </div>
                            </div>
                         </div>
                      </div>
@@ -84,75 +62,5 @@
       </div>
    </div>
 </div>
-   <div class="aVFrF" style="opacity: 1;"></div>
-   <ng-template #modalData let-modal>
-   <div class="ciMvrd">
-      <div class="laHlZA">
-         <aside class="laHlZA kmBAaf">
-            <div class="dFpgVE garyHo">
-               <button type="button" aria-label="Close" class="gqQOZK" (click)="modal.close('Close')">
-                  <svg viewBox="0 0 24 24">
-                     <path d="M2.44 19.44a1.5 1.5 0 002.121 2.121l7.262-7.26a.25.25 0 01.354 0l7.262 7.262a1.5 1.5 0 102.122-2.12l-7.26-7.266a.25.25 0 010-.354l7.262-7.262a1.5 1.5 0 00-2.124-2.12L12.177 9.7a.25.25 0 01-.354 0L4.561 2.44A1.5 1.5 0 002.44 4.56L9.7 11.823a.25.25 0 010 .354L2.44 19.44z"></path>
-                  </svg>
-               </button>
-            </div>
-               <div class="cCWOkP">
-                  <header class="bkSVEh">
-                     <div>
-                        <div class="joYQDh"></div>
-                     </div>
-                  </header>
-                  <div class="cUsmwT ps">
-                     <div class="light">
-                        <div class="entry">
-                           <img src="assets/img/gallery/Pizza_Images/Pizza_peperoni.jpg">
-                        </div>
-                     </div>
-                     <div *ngFor="let food of menu$ |async">
-                        <div class="hQwdzY">
-                           <div class="cZOFIZ">
-                              <h1 class="dHHvDw">{{ food.foodName }}</h1>
-                              <div class="jvUBPH">
-                                 <div class="koOESE">
-                                    <div class="bkunPl">
-                                          <div class="bkunPl">
-                                             <span class="fFRjEd">{{ food.price }}</span>
-                                          </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <p></p>
-                           </div>
-                        </div>
-                     </div>
-                     <footer>
-                        <div class="ProductViewFooter__ContentWrapper-sc-xe19rn-0 elwDda">
-                           <div class="ProductViewFooter__PaddedItem-sc-xe19rn-1 fsahNw">
-                              <div class="Snackbar__Root-sc-1odr5s4-0 jFyoyf">
-                                 <div aria-live="assertive"></div>
-                                 <div class="ProductViewFooter__FooterItemWrapper-sc-xe19rn-2 iGibFB">
-                                    <div class="ProductViewFooter__QuantityWrapper-sc-xe19rn-3 gkvIwU">
-                                       <button role="button" type="submit" form="product-option-form" data-test-id="product-modal.submit" class="Button__Root-sc-a3fg5q-2 dfBAzc ProductViewFooter__FooterButton-sc-xe19rn-4 lklFHZ" (click)="openSnackBar()">
-                                          <div class="Button__BG-sc-a3fg5q-1 dqtaej"></div>
-                                             <div class="Button__SpinnerContainer-sc-a3fg5q-4 hrUzBx"></div>
-                                                <div class="Button__Content-sc-a3fg5q-3 kFJzop" *ngFor="let food of menu$|async">
-                                                   <div class="ProductViewFooter__SubmitButtonContent-sc-xe19rn-5 gvaZLo">
-                                                      <span data-localization-key="product-modal.submit.add">Pridať do objednávky</span>
-                                                      <span data-test-id="product-modal.total-price" class="ProductViewFooter__Price-sc-xe19rn-6 zMeiD">{{food.price}}&nbsp;€</span>
-                                                   </div>
-                                                </div>
-                                       </button>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </footer>
-                  </div>
-               </div>
-               </aside>
-            </div>
-         </div>
-      </ng-template>
    </body>
 </html>
