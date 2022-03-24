@@ -259,19 +259,20 @@
   .btn-reset {
     padding: 10px;
     float: right;
-    text-decoration: line-through;
+    text-decoration: underline;
     background: none;
     border-radius: 10px;
-    border-color: #fff;
+    outline: none;
+    border: none;
   }
 
   .btn-reset:hover {
     text-decoration: none;
-    background-color: rgba(255, 0, 0, 0.680);
+    background-color: #7fd3ed;
   }
 
   .btn-reset:active {
     text-decoration: none;
-    background-color: rgba(255, 0, 0, 0.781);
+    background-color: #7fd3ed;
   }
 

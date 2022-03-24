@@ -56,21 +56,12 @@
                     formControlName="price"
                     [ngClass]="{ 'is-invalid': submitted && r.price.errors}">
                 </div>
-                <div class="field padding-bottom--24">
-                    <div class="grid--50-50">
-                      <label for="Delivery">Id of restaurant</label>
-                    </div>
-                    <input 
-                      formControlName="restaurantId"
-                      [ngClass]="{ 'is-invalid': submitted && r.opening.errors}"
-                      >
-                  </div>
                   <div class="field padding-bottom--24">
                     <div class="grid--50-50">
                       <label>Category</label>
                     </div>
                     <mat-form-field class="dropdown" appearance="outline">
-                      <mat-select formControlName="category">
+                      <mat-select FormControlName="category">
                           <mat-option *ngFor="let category of categories$|async" ngDefaultControl formControlName="category" [value]="category.id">{{category.name}}</mat-option>
                       </mat-select>
                     </mat-form-field>
