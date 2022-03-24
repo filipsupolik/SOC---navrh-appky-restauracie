@@ -10,8 +10,6 @@ import { SearchRestaurantComponent } from './searching_restaurants/search-restau
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 
 import { AuthInterceptor } from './_helpers/auth.interceptor';
 import { SearchFoodComponent } from './search-food/search-food.component';
@@ -36,8 +34,6 @@ import { SteakComponent } from './steak/steak.component';
     AppComponent,
     NavBarComponent,
     SearchRestaurantComponent,
-    LoginComponent,
-    RegisterComponent,
     SearchFoodComponent,
     MainPageComponent,
     PizzaRestaurantsComponent,
