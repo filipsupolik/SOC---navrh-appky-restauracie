@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface RestaurantRepository extends CrudRepository<Restaurant, Long> {
     Restaurant findRestaurantById(Long restaurantId);
     Optional<Restaurant> findByRestaurantName(String restaurantName);
+    Optional<Restaurant> findByAdminId(Long adminId);
 }
