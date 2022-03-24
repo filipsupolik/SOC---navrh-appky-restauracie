@@ -17,8 +17,8 @@ public class OrderController {
     }
 
     @PostMapping(value = "/addOrder")
-    public void addOrder(@RequestBody Order order) {
-        orderService.addOrder(order);
+    public void addOrder(@RequestParam long orderedFoodId) {
+        orderService.addOrder(orderedFoodId);
     }
 
     @PostMapping(value = "/changeStateOfOrder")

@@ -44,10 +44,9 @@ public class Food {
     public Food() {
     }
 
-    public Food(String foodName, long categoryId ,long restaurantId, double price) {
+    public Food(String foodName, long categoryId, double price) {
         this.foodName = foodName;
         this.categoryId = categoryId;
-        this.restaurantId = restaurantId;
         this.price = price;
     }
 

@@ -46,10 +46,15 @@ public class Order {
     public Order() {
     }
 
-    public Order(long restaurantAdminId, long orderedFoodId, long customerId) {
-        this.restaurantAdminId = restaurantAdminId;
+//    public Order(long restaurantAdminId, long orderedFoodId, long customerId) {
+//        this.restaurantAdminId = restaurantAdminId;
+//        this.orderedFoodId = orderedFoodId;
+//        this.customerId = customerId;
+//    }
+
+
+    public Order(long orderedFoodId) {
         this.orderedFoodId = orderedFoodId;
-        this.customerId = customerId;
     }
 
     public long getId() {
