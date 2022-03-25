@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+/**@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
 *{
     all:unset;
@@ -32,7 +32,7 @@
     height: 500;
     font-size: 16px;
     padding: 40px 40px;
-    /*background-color: #ff8800;*/
+    background-color: #ff8800;
     background: rgb(2,0,36);
 background: linear-gradient(337deg, rgba(2,0,36,1) 0%, rgba(9,9,121,0.9475140397956058) 15%, rgba(0,212,255,1) 100%);
 
@@ -236,4 +236,102 @@ div.container_login{
     padding: 0.75rem 1.25rem;
     font-size: 1.125rem;
     color: #fff;
+}**/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
 }
+
+.search {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  bottom: 5;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: auto;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.searchBar {
+    background: rgb(2,0,36);
+    background: linear-gradient(337deg, rgba(2,0,36,1) 0%, rgba(9,9,121,0.95) 15%, rgba(0,212,255,1) 100%);
+}
+
+.menu-bar {
+	border-radius: 25px;
+	height: fit-content;
+	display: inline-flex;
+	background-color: rgba(0, 0, 0, .4);
+	-webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);  
+	align-items: center;
+	padding: 0 10px;
+	margin: 50px 0 50px 50px;
+    
+	li {
+		list-style: none;
+		color: white;
+		font-family: sans-serif;
+		font-weight: bold;
+		padding: 12px 16px;
+		margin: 0 8px;
+		position: relative;
+		cursor: pointer;
+		white-space: nowrap;
+		&::before {
+			content: " ";
+			position: absolute;
+			top: 0;
+			left:0;
+			height:100%;
+			width: 100%;
+			z-index:-1;
+			transition: .2s;
+			border-radius: 25px;
+		}
+			&:hover {
+				&::before {
+					background: linear-gradient(to bottom, #e8edec, #d2d1d3);
+						box-shadow: 0px 3px 20px 0px black;
+						transform: scale(1.2);
+				}
+				color: black;
+		}
+	}
+}
+
