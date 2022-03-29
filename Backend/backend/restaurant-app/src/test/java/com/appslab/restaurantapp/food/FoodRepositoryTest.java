@@ -23,7 +23,7 @@ class FoodRepositoryTest {
     @Autowired
     private RestaurantRepository restaurantRepository;
 
-    Restaurant restaurant = new Restaurant(1, "UTehotnehoPsa", "great restaurant", 20, "Po-Ne 13:30-21:00", "Hulvata 25, 546 32 Bratislava");
+//    Restaurant restaurant = new Restaurant(1, "UTehotnehoPsa", "great restaurant", 20, "Po-Ne 13:30-21:00", "Hulvata 25, 546 32 Bratislava");
 
 //    @Test
 //    void itShouldFindFoodByFoodName() {

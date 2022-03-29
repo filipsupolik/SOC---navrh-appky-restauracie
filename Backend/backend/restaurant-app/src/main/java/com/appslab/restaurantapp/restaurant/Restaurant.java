@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import java.time.DayOfWeek;
+import java.time.LocalTime;
 import java.util.Set;
 import java.security.Principal;
 
@@ -21,7 +23,10 @@ public class Restaurant {
     private String restaurantName;
     private String description;
     private int deliveryTimeMinutes;
-    private String openingTime;
+    private DayOfWeek openingDay;
+    private DayOfWeek closingDay;
+    private LocalTime openingTime;
+    private LocalTime closingTime;
     private String address;
 
 
@@ -38,20 +43,26 @@ public class Restaurant {
     public Restaurant() {
     }
 
-    public Restaurant(long id, String restaurantName, String description, int deliveryTime, String openingTime, String address) {       //constructor for tests
+    public Restaurant(long id, String restaurantName, String description, int deliveryTimeMinutes, DayOfWeek openingDay, DayOfWeek closingDay, LocalTime openingTime, LocalTime closingTime, String address) {
         this.id = id;
         this.restaurantName = restaurantName;
         this.description = description;
-        this.deliveryTimeMinutes = deliveryTime;
+        this.deliveryTimeMinutes = deliveryTimeMinutes;
+        this.openingDay = openingDay;
+        this.closingDay = closingDay;
         this.openingTime = openingTime;
+        this.closingTime = closingTime;
         this.address = address;
     }
 
-    public Restaurant(String restaurantName, String description, int deliveryTime, String openingTime, String address, Long adminId) {
+    public Restaurant(String restaurantName, String description, int deliveryTimeMinutes, DayOfWeek openingDay, DayOfWeek closingDay, LocalTime openingTime, LocalTime closingTime, String address, long adminId) {
         this.restaurantName = restaurantName;
         this.description = description;
-        this.deliveryTimeMinutes = deliveryTime;
+        this.deliveryTimeMinutes = deliveryTimeMinutes;
+        this.openingDay = openingDay;
+        this.closingDay = closingDay;
         this.openingTime = openingTime;
+        this.closingTime = closingTime;
         this.address = address;
         this.adminId = adminId;
     }
@@ -88,12 +99,36 @@ public class Restaurant {
         this.deliveryTimeMinutes = deliveryTimeMinutes;
     }
 
-    public String getOpeningTime() {
+    public DayOfWeek getOpeningDay() {
+        return openingDay;
+    }
+
+    public void setOpeningDay(DayOfWeek openingDay) {
+        this.openingDay = openingDay;
+    }
+
+    public DayOfWeek getClosingDay() {
+        return closingDay;
+    }
+
+    public void setClosingDay(DayOfWeek closingDay) {
+        this.closingDay = closingDay;
+    }
+
+    public LocalTime getOpeningTime() {
         return openingTime;
     }
 
-    public void setOpeningTime(String openingTime) {
+    public void setOpeningTime(LocalTime openingTime) {
         this.openingTime = openingTime;
+    }
+
+    public LocalTime getClosingTime() {
+        return closingTime;
+    }
+
+    public void setClosingTime(LocalTime closingTime) {
+        this.closingTime = closingTime;
     }
 
     public String getAddress() {
