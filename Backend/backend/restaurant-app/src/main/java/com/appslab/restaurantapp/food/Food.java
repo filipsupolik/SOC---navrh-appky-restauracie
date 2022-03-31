@@ -21,6 +21,7 @@ public class Food {
     private long id;
     private String foodName;
     private double price;
+    private String description;
 
     @ManyToOne
     @JsonIgnore
@@ -44,10 +45,11 @@ public class Food {
     public Food() {
     }
 
-    public Food(String foodName, long categoryId, double price) {
+    public Food(String foodName, long categoryId, double price, String description) {
         this.foodName = foodName;
         this.categoryId = categoryId;
         this.price = price;
+        this.description = description;
     }
 
     public long getId() {
@@ -88,5 +90,13 @@ public class Food {
 
     public void setCategoryId(long categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
