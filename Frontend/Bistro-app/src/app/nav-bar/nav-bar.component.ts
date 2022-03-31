@@ -52,7 +52,6 @@ export class NavBarComponent implements OnInit {
       const password = this.loginGroup.value.password;
       this.modalService.dismissAll();
       this.authService.login(username, password)
-        .subscribe(() => this.router.navigateByUrl('/leagues'));
     }
   }
 
@@ -76,8 +75,8 @@ export class NavBarComponent implements OnInit {
       this.authService.register(username, password)
         .subscribe(() => {
           this.authService.login(username, password)
-            .subscribe(() => this.router.navigateByUrl('/main-page'));
         });
+      this.modalService.dismissAll();
     }
   }
 
