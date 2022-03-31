@@ -22,7 +22,6 @@ public class Restaurant {
     private long id;
     private String restaurantName;
     private String description;
-    private int deliveryTimeMinutes;
     private DayOfWeek openingDay;
     private DayOfWeek closingDay;
     private LocalTime openingTime;
@@ -43,11 +42,10 @@ public class Restaurant {
     public Restaurant() {
     }
 
-    public Restaurant(long id, String restaurantName, String description, int deliveryTimeMinutes, DayOfWeek openingDay, DayOfWeek closingDay, LocalTime openingTime, LocalTime closingTime, String address) {
+    public Restaurant(long id, String restaurantName, String description, DayOfWeek openingDay, DayOfWeek closingDay, LocalTime openingTime, LocalTime closingTime, String address) {
         this.id = id;
         this.restaurantName = restaurantName;
         this.description = description;
-        this.deliveryTimeMinutes = deliveryTimeMinutes;
         this.openingDay = openingDay;
         this.closingDay = closingDay;
         this.openingTime = openingTime;
@@ -55,10 +53,9 @@ public class Restaurant {
         this.address = address;
     }
 
-    public Restaurant(String restaurantName, String description, int deliveryTimeMinutes, DayOfWeek openingDay, DayOfWeek closingDay, LocalTime openingTime, LocalTime closingTime, String address, long adminId) {
+    public Restaurant(String restaurantName, String description, DayOfWeek openingDay, DayOfWeek closingDay, LocalTime openingTime, LocalTime closingTime, String address, long adminId) {
         this.restaurantName = restaurantName;
         this.description = description;
-        this.deliveryTimeMinutes = deliveryTimeMinutes;
         this.openingDay = openingDay;
         this.closingDay = closingDay;
         this.openingTime = openingTime;
@@ -89,14 +86,6 @@ public class Restaurant {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public int getDeliveryTimeMinutes() {
-        return deliveryTimeMinutes;
-    }
-
-    public void setDeliveryTimeMinutes(int deliveryTimeMinutes) {
-        this.deliveryTimeMinutes = deliveryTimeMinutes;
     }
 
     public DayOfWeek getOpeningDay() {
