@@ -1,5 +1,6 @@
 package com.appslab.restaurantapp.order;
 
+import com.appslab.restaurantapp.dto.OrderDTO;
 import com.appslab.restaurantapp.food.Food;
 import com.appslab.restaurantapp.food.FoodRepository;
 import com.appslab.restaurantapp.restaurant.RestaurantRepository;
@@ -12,6 +13,7 @@ import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -45,7 +47,14 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> getOrdersByAdminId(long adminId) {
-        return orderRepository.findOrdersByRestaurantAdminId(adminId);
+    public List<OrderDTO> getOrdersByAdminId(long adminId) {
+        List<Order> orders = orderRepository.findOrdersByRestaurantAdminId(adminId);
+        List<OrderDTO> orderDTOS = new ArrayList<>();
+        for(int i = 0;i<orders.size();i++) {
+
+            OrderDTO orderDTO = new OrderDTO(orders.get(i).getId(), orders.get(i).isCompleted(), orders.get(i).getPrice(), orders.get(i).getAddress(), orders.get(i).getRestaurantAdminId(), orders.get(i).getOrderedFoodId(), orders.get(i).getCustomerId());
+            orderDTOS.add(orderDTO);
+        }
+        return orderDTOS;
     }
 }

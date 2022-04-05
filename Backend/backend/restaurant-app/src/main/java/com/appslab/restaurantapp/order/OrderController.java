@@ -1,5 +1,6 @@
 package com.appslab.restaurantapp.order;
 
+import com.appslab.restaurantapp.dto.OrderDTO;
 import com.appslab.restaurantapp.exception.GenericException;
 import com.appslab.restaurantapp.food.Food;
 import org.aspectj.weaver.ast.Or;
@@ -27,7 +28,7 @@ public class OrderController {
     }
 
     @GetMapping(value = "/getOrdersByAdminId")
-    public List<Order> getOrdersByAdminId(@RequestParam long adminId){
+    public List<OrderDTO> getOrdersByAdminId(@RequestParam long adminId){
         return orderService.getOrdersByAdminId(adminId);
     }
 }
