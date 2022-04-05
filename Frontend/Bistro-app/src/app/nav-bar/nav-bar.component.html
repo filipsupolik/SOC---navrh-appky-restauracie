@@ -1,13 +1,3 @@
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
-          <ng-template #loggedIn>
-            <div>
-              <button class="btn btn-white shadow-warning text-warning">
-                <a routerLink="/profile"><p class="nav-link">Profile</p></a>
-              </button>
-            </div>
-          </ng-template>
-    </nav>
-
 <div class="searchBar">
   <div class="search-Input">
     <ul class="menu-bar">
@@ -45,7 +35,7 @@
     
     
           <div class="login-btn">
-            <button class="btn" [disabled]="!registerGroup.valid" (click)="test()">Register</button>
+            <button class="btn" [disabled]="!registerGroup.valid" (click)="register()">Register</button>
           </div>
         </mat-form>
       </div>
@@ -67,7 +57,7 @@
     
     
           <div class="login-btn">
-            <button routerLink="main-page" class="btn" (click)="test()">Login</button>
+            <button  class="btn">Login</button>
           </div>
         </form>
       </div>

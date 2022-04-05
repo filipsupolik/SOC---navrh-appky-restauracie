@@ -25,6 +25,8 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<any> {
+    console.log("register");
+    
     const info = btoa(`${username}:${password}`);
     const token = `Basic ${info}`;
     const options = {
