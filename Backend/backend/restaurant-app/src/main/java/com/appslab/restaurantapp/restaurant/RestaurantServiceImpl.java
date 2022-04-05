@@ -27,13 +27,18 @@ public class RestaurantServiceImpl implements RestaurantService{
 
     @Override
     public void createRestaurant(Restaurant restaurant, Principal principal) throws GenericException {
-        if(restaurantRepository.findByRestaurantName(restaurant.getRestaurantName()).isPresent()){
-            throw new GenericException("Restaurant name is already taken");
+        if (userRepository.findByUsername(principal.getName()).get().getAdminOfRestaurants().isEmpty()||userRepository.findByUsername(principal.getName()).get().getId()==1){
+            if(restaurantRepository.findByRestaurantName(restaurant.getRestaurantName()).isPresent()){
+                throw new GenericException("Restaurant name is already taken");
+            }
+            else{
+                restaurant.setAdminId(userRepository.findByUsername(principal.getName()).get().getId());
+                restaurantRepository.save(restaurant);
+            }
         }
-        else{
-        restaurant.setAdminId(userRepository.findByUsername(principal.getName()).get().getId());
-        restaurantRepository.save(restaurant);
-        }
+        else
+            throw new GenericException("Only 1 restaurant per user!");
+
     }
 
     @Override
