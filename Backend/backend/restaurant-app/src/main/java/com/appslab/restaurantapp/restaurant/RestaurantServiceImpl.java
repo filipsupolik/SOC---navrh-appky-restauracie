@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
+import java.time.DayOfWeek;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -61,6 +63,23 @@ public class RestaurantServiceImpl implements RestaurantService{
     @Override
     public Restaurant getRestaurantInfo(Long restaurantId) {
         return restaurantRepository.findRestaurantById(restaurantId);
+    }
+
+    @Override
+    public List<Restaurant> getRestaurantsByTime(LocalTime time) {
+        List<Restaurant> allRestaurants = (List<Restaurant>) restaurantRepository.findAll();
+        List<Restaurant> filteredRestaurants = new ArrayList<>();
+
+        for (int i = 0; i < allRestaurants.size(); i++){
+            Restaurant restaurant = allRestaurants.get(i);
+            if(time.isAfter(restaurant.getOpeningTime())&&time.isBefore(restaurant.getClosingTime())){
+                filteredRestaurants.add(restaurant);
+            }
+
+        }
+
+
+        return filteredRestaurants;
     }
 
 

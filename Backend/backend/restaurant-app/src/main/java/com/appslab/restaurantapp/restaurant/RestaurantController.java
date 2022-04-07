@@ -4,6 +4,7 @@ import com.appslab.restaurantapp.exception.GenericException;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,5 +35,10 @@ public class RestaurantController {
     @GetMapping(value = "/getRestaurantInfo")
     public Restaurant getRestaurantInfo(@RequestParam long restaurantId){
         return restaurantService.getRestaurantInfo(restaurantId);
+    }
+
+    @GetMapping(value = "/getRestaurantsByTime")
+    public List<Restaurant> getRestaurantsByTime(@RequestParam LocalTime time){
+        return restaurantService.getRestaurantsByTime(time);
     }
 }
