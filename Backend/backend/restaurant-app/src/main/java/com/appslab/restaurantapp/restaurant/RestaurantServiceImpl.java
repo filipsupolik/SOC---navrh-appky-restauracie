@@ -69,7 +69,6 @@ public class RestaurantServiceImpl implements RestaurantService{
     public List<Restaurant> getRestaurantsByTime(LocalTime time) {
         List<Restaurant> allRestaurants = (List<Restaurant>) restaurantRepository.findAll();
         List<Restaurant> filteredRestaurants = new ArrayList<>();
-
         for (int i = 0; i < allRestaurants.size(); i++){
             Restaurant restaurant = allRestaurants.get(i);
             if(time.isAfter(restaurant.getOpeningTime())&&time.isBefore(restaurant.getClosingTime())){
