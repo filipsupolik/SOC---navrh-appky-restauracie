@@ -13,22 +13,22 @@ import { AuthService } from '../_services/auth.service';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-  
+
   closeModal: string | undefined;
-  loginGroup = new FormGroup ({
+  loginGroup = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
   user: User | null = null;
 
-  constructor (
+  constructor(
     private modalService: NgbModal,
     private authService: AuthService,
     private http: HttpClient,
     private readonly router: Router) { }
 
   triggerModal(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((res) => {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((res) => {
       this.closeModal = `Closed with: ${res}`;
     }, (res) => {
       this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
@@ -36,14 +36,14 @@ export class NavBarComponent implements OnInit {
   }
 
   private getDismissReason(reason: any): string {
-    if(reason === ModalDismissReasons.ESC) {
+    if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
       return 'by clicking on a backdrop';
     } else {
       return `with: ${reason}`;
     }
-      
+
   }
 
   login(): void {
@@ -57,7 +57,7 @@ export class NavBarComponent implements OnInit {
   }
 
   test(): void {
-    this.http.get('http://localhost:8080/getRestaurantsByCategory?category=Burger').subscribe(data => {
+    this.http.get('http://localhost:8080/login').subscribe(data => {
       console.log(data);
       console.log("test");
 
@@ -86,5 +86,5 @@ export class NavBarComponent implements OnInit {
       .asObservable()
       .subscribe(user => this.user = user);
   }
- 
+
 }
