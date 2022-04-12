@@ -51,9 +51,8 @@ export class NavBarComponent implements OnInit {
       const username = this.loginGroup.value.username;
       const password = this.loginGroup.value.password;
       this.modalService.dismissAll();
-      console.log("login");
-      
-      this.authService.login(username, password).subscribe();
+      this.authService.login(username, password)
+        .subscribe(() => this.router.navigateByUrl('/leagues'));
     }
   }
 
@@ -68,7 +67,6 @@ export class NavBarComponent implements OnInit {
   registerGroup = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
-    address: new FormControl
   })
 
   register(): void {
@@ -78,8 +76,8 @@ export class NavBarComponent implements OnInit {
       this.authService.register(username, password)
         .subscribe(() => {
           this.authService.login(username, password)
+            .subscribe(() => this.router.navigateByUrl('/main-page'));
         });
-      this.modalService.dismissAll();
     }
   }
 
