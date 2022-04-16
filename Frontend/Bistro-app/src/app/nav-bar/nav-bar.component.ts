@@ -67,13 +67,17 @@ export class NavBarComponent implements OnInit {
   registerGroup = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
+    email_address: new FormControl('', Validators.required),
+    user_home_address: new FormControl('', Validators.required)
   })
 
   register(): void {
     if (this.registerGroup.valid) {
       const username = this.registerGroup.value.username;
-      const password = this.registerGroup.value.username;
-      this.authService.register(username, password)
+      const password = this.registerGroup.value.password;
+      const email_address = this.registerGroup.value.email_address;
+      const user_home_address = this.registerGroup.value.user_home_address;
+      this.authService.register(username, password, email_address, user_home_address)
         .subscribe(() => {
           this.authService.login(username, password)
             .subscribe(() => this.router.navigateByUrl('/main-page'));

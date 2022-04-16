@@ -1,5 +1,5 @@
 img{
-    margin-inline: auto !important;
+    margin-inline: auto;
 }
 .card-span {
     border: 0;
@@ -42,7 +42,7 @@ svg:not(:root).svg-inline--fa {
   height:max-content;
   bottom:0;
   left:50%;
-  background-color:rgb(204, 163, 0);
+  background-color:#2AB7CA;
   padding:0.75rem 1.25rem;
   border-radius:20px;
   color:white;

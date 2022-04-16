@@ -41,8 +41,8 @@ export class AuthService {
     );
   }
 
-  register(username: string, password: string): Observable<any> {
-    const user = {username, password};
+  register(username: string, password: string, email_address: string, user_home_address: string): Observable<any> {
+    const user = {username, password, email_address, user_home_address};
     return this.http.post(`${"http://localhost:8080/register"}`, user);
   }
 

@@ -28,6 +28,7 @@ import { AddFoodComponent } from './add-food/add-food.component';
 import { CartComponent } from './cart/cart.component';
 import { OrderComponent } from './order/order.component';
 import { SteakComponent } from './steak/steak.component';
+import { AllRestaurntsComponent } from './all-restaurnts/all-restaurnts.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { SteakComponent } from './steak/steak.component';
     CartComponent,
     OrderComponent,
     SteakComponent,
+    AllRestaurntsComponent,
   ],
   imports: [
     BrowserModule,
