@@ -18,6 +18,7 @@ public class Order {
     private boolean completed;
     private double price;
     private String address;
+    private boolean ordered;
 
 
     @ManyToOne
@@ -43,14 +44,9 @@ public class Order {
     @Column(name = "customerId")
     private long customerId;
 
+
     public Order() {
     }
-
-//    public Order(long restaurantAdminId, long orderedFoodId, long customerId) {
-//        this.restaurantAdminId = restaurantAdminId;
-//        this.orderedFoodId = orderedFoodId;
-//        this.customerId = customerId;
-//    }
 
 
     public Order(long orderedFoodId) {
@@ -135,5 +131,13 @@ public class Order {
 
     public void setCustomer(User customer) {
         this.customer = customer;
+    }
+
+    public boolean isOrdered() {
+        return ordered;
+    }
+
+    public void setOrdered(boolean ordered) {
+        this.ordered = ordered;
     }
 }

@@ -8,5 +8,7 @@ import java.util.List;
 public interface OrderService {
     void addOrder(long orderedFoodId);
     void changeStateOfOrder(long orderId, boolean completed);
+    void sendFoodOrder();
     List<OrderDTO> getOrdersByAdminId(long adminId);
+    List<OrderDTO> getAllUsersOrders();
 }
