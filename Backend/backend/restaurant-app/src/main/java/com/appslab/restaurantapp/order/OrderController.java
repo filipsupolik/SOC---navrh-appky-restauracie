@@ -27,8 +27,18 @@ public class OrderController {
         orderService.changeStateOfOrder(orderId, completed);
     }
 
+    @PostMapping(value = "/sendFoodOrder")
+    public void sendFoodOrder(){
+        orderService.sendFoodOrder();
+    }
+
     @GetMapping(value = "/getOrdersByAdminId")
     public List<OrderDTO> getOrdersByAdminId(@RequestParam long adminId){
         return orderService.getOrdersByAdminId(adminId);
+    }
+
+    @GetMapping(value = "/getAllUsersOrders")
+    public List<OrderDTO> getAllUsersOrders(){
+        return orderService.getAllUsersOrders();
     }
 }

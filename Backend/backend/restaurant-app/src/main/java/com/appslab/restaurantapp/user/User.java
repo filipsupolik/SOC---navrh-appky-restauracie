@@ -30,7 +30,6 @@ public class User {
     @OneToMany(mappedBy="customer")
     private Set<Order> orders2;
 
-
     public User() {
     }
 

@@ -36,6 +36,7 @@ public class OrderServiceImpl implements OrderService {
         order.setPrice(foodRepository.findFoodById(order.getOrderedFoodId()).getPrice());
         order.setAddress(userRepository.findUserById(order.getCustomerId()).getAddress());
         order.setCompleted(false);
+        order.setOrdered(false);
         orderRepository.save(order);
     }
 
@@ -47,14 +48,43 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public void sendFoodOrder() {
+        List<OrderDTO> allOrders = getAllUsersOrders();
+        for(int i=0; i<allOrders.size();i++){
+            Order order = orderRepository.findOrderById(allOrders.get(i).getId());
+            order.setOrdered(true);
+            orderRepository.save(order);
+        }
+    }
+
+
+
+    @Override
     public List<OrderDTO> getOrdersByAdminId(long adminId) {
         List<Order> orders = orderRepository.findOrdersByRestaurantAdminId(adminId);
         List<OrderDTO> orderDTOS = new ArrayList<>();
         for(int i = 0;i<orders.size();i++) {
 
-            OrderDTO orderDTO = new OrderDTO(orders.get(i).getId(), orders.get(i).isCompleted(), orders.get(i).getPrice(), orders.get(i).getAddress(), orders.get(i).getRestaurantAdminId(), orders.get(i).getOrderedFoodId(), orders.get(i).getCustomerId());
+            OrderDTO orderDTO = new OrderDTO(orders.get(i).getId(), orders.get(i).isCompleted(), orders.get(i).getPrice(), orders.get(i).getAddress(), orders.get(i).getRestaurantAdminId(), orders.get(i).getOrderedFoodId(), orders.get(i).getCustomerId(), orders.get(i).isOrdered());
+            if(orderDTO.isOrdered()){
+                orderDTOS.add(orderDTO);
+            }
+
+        }
+        return orderDTOS;
+    }
+
+    @Override
+    public List<OrderDTO> getAllUsersOrders() {
+        List<Order> orders = orderRepository.findOrdersByCustomerId(userService.getCurrentUser().getId());
+        List<OrderDTO> orderDTOS = new ArrayList<>();
+        for(int i = 0;i<orders.size();i++) {
+
+            OrderDTO orderDTO = new OrderDTO(orders.get(i).getId(), orders.get(i).isCompleted(), orders.get(i).getPrice(), orders.get(i).getAddress(), orders.get(i).getRestaurantAdminId(), orders.get(i).getOrderedFoodId(), orders.get(i).getCustomerId(), orders.get(i).isOrdered());
             orderDTOS.add(orderDTO);
         }
         return orderDTOS;
     }
+
+
 }
