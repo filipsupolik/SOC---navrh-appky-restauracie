@@ -16,4 +16,5 @@ public interface RestaurantService {
     Optional<Restaurant> getRestaurantById(long id);
     Restaurant getRestaurantInfo(Long restaurantName);
     List<Restaurant> getRestaurantsByTime(LocalTime time);
+    List<Restaurant> getRestaurantsByRegion(Restaurant.Region region);
 }
