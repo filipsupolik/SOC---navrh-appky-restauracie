@@ -41,4 +41,9 @@ public class RestaurantController {
     public List<Restaurant> getRestaurantsByTime(@RequestParam LocalTime time){
         return restaurantService.getRestaurantsByTime(time);
     }
+
+    @GetMapping(value = "/getRestaurantsByRegion")
+    public List<Restaurant> getRestaurantsByRegion(@RequestParam Restaurant.Region region){
+        return restaurantService.getRestaurantsByRegion(region);
+    }
 }

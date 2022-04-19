@@ -81,5 +81,10 @@ public class RestaurantServiceImpl implements RestaurantService{
         return filteredRestaurants;
     }
 
+    @Override
+    public List<Restaurant> getRestaurantsByRegion(Restaurant.Region region) {
+        return restaurantRepository.findByRegion(region);
+    }
+
 
 }
