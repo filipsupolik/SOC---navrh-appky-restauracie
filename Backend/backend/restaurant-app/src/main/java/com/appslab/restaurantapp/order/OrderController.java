@@ -1,12 +1,8 @@
 package com.appslab.restaurantapp.order;
 
 import com.appslab.restaurantapp.dto.OrderDTO;
-import com.appslab.restaurantapp.exception.GenericException;
-import com.appslab.restaurantapp.food.Food;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -23,8 +19,8 @@ public class OrderController {
     }
 
     @PostMapping(value = "/changeStateOfOrder")
-    public void changeStateOfOrder(@RequestParam long orderId, @RequestParam boolean completed){
-        orderService.changeStateOfOrder(orderId, completed);
+    public void changeStateOfOrder(@RequestParam long orderId){
+        orderService.changeStateOfOrder(orderId);
     }
 
     @PostMapping(value = "/sendFoodOrder")
@@ -32,9 +28,9 @@ public class OrderController {
         orderService.sendFoodOrder();
     }
 
-    @GetMapping(value = "/getOrdersByAdminId")
-    public List<OrderDTO> getOrdersByAdminId(@RequestParam long adminId){
-        return orderService.getOrdersByAdminId(adminId);
+    @GetMapping(value = "/getRestaurantsOrders")
+    public List<OrderDTO> getRestaurantsOrders(){
+        return orderService.getRestaurantsOrders();
     }
 
     @GetMapping(value = "/getAllUsersOrders")

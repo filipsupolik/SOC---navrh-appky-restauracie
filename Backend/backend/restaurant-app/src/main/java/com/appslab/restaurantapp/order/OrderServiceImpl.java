@@ -41,9 +41,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void changeStateOfOrder(long orderId, boolean completed) {
+    public void changeStateOfOrder(long orderId) {
         Order order = orderRepository.findOrderById(orderId);
-        order.setCompleted(completed);
+        order.setCompleted(true);
         orderRepository.save(order);
     }
 
@@ -60,8 +60,8 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
-    public List<OrderDTO> getOrdersByAdminId(long adminId) {
-        List<Order> orders = orderRepository.findOrdersByRestaurantAdminId(adminId);
+    public List<OrderDTO> getRestaurantsOrders() {
+        List<Order> orders = orderRepository.findOrdersByRestaurantAdminId(userService.getCurrentUser().getId());
         List<OrderDTO> orderDTOS = new ArrayList<>();
         for(int i = 0;i<orders.size();i++) {
 
