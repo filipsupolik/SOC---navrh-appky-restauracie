@@ -40,6 +40,7 @@ public class Food {
 
     @OneToMany(mappedBy="orderedFood")
     private Set<Order> orders;
+    private String description;
 
     public Food() {
     }
@@ -96,5 +97,13 @@ public class Food {
 
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
