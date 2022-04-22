@@ -46,4 +46,9 @@ public class RestaurantController {
     public List<Restaurant> getRestaurantsByRegion(@RequestParam Restaurant.Region region){
         return restaurantService.getRestaurantsByRegion(region);
     }
+
+    @GetMapping(value = "/getAllRestaurants")
+    public List<Restaurant> getAllRestaurants(){
+        return restaurantService.getAllRestaurants();
+    }
 }
