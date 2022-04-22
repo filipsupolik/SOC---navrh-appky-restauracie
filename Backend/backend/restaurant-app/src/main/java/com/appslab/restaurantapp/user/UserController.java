@@ -5,6 +5,7 @@ import com.appslab.restaurantapp.security.UserDetailsServiceImpl;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 public class UserController {
 
@@ -19,8 +20,12 @@ public class UserController {
     }
 
     @PostMapping(value = "/register")
-    public void createUser(@RequestBody User user)throws GenericException {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+    public void createUser(@RequestBody RegistrationDto registrationDto) throws GenericException {
+        User user = new User();
+        user.setUsername(registrationDto.getUsername());
+        user.setPassword(this.passwordEncoder.encode(registrationDto.getPassword()));
+        user.setEmail(registrationDto.getEmail());
+        user.setAddress(registrationDto.getAddress());
         userService.createUser(user);
     }
 

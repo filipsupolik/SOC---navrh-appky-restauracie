@@ -21,7 +21,6 @@ public class Food {
     private long id;
     private String foodName;
     private double price;
-    private String description;
 
     @ManyToOne
     @JsonIgnore
@@ -41,15 +40,15 @@ public class Food {
 
     @OneToMany(mappedBy="orderedFood")
     private Set<Order> orders;
+    private String description;
 
     public Food() {
     }
 
-    public Food(String foodName, long categoryId, double price, String description) {
+    public Food(String foodName, long categoryId, double price) {
         this.foodName = foodName;
         this.categoryId = categoryId;
         this.price = price;
-        this.description = description;
     }
 
     public long getId() {
@@ -90,6 +89,14 @@ public class Food {
 
     public void setCategoryId(long categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
     public String getDescription() {

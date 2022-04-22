@@ -11,7 +11,6 @@ const AUTH_API = 'http://localhost:8080/api/auth/';
 })
 export class AuthService {
   token: string | undefined ;
-  isLogged: boolean = false;
   user$ = new BehaviorSubject<User | null>(null);
 
   constructor(private readonly http: HttpClient) { }
@@ -25,13 +24,15 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<any> {
+    console.log("register");
+    
     const info = btoa(`${username}:${password}`);
     const token = `Basic ${info}`;
     const options = {
-      headers:new HttpHeaders({
+      headers: {
         Authorization: token,
         'X-Request-With' : 'XMLHttpRequest'
-      }),
+      },
     };
     return this.http.get<User>('http://localhost:8080/login', options).pipe(
       tap(() => this.token = token),
@@ -39,12 +40,13 @@ export class AuthService {
     );
   }
 
-  register(username: string, password: string): Observable<any> {
-    const user = {username, password};
+  register(username: string, password: string, email_address: string, user_home_address: string): Observable<any> {
+    const user = {username, password, email: email_address, address: user_home_address};
     return this.http.post(`${"http://localhost:8080/register"}`, user);
   }
 
   logout() {
-    this.token = null!
+    this.token = null!;
+    this.user$.next(null);
   }
 }

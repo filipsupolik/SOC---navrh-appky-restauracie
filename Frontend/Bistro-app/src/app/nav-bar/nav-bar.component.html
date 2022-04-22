@@ -1,80 +1,15 @@
-    <!--<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
-      <div class="nav_container"><a style="margin-left: 2rem;" class="navbar-brand d-inline-flex"><img class="d-inline-block" src="assets/img/gallery/logo.svg" alt="logo" /><span class="text-1000 fs-3 fw-bold ms-2 text-gradient">OurBistro</span></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse border-top border-lg-0 my-2 mt-lg-0" id="navbarSupportedContent">
-          <div class="mx-auto pt-5 pt-lg-0 d-block d-lg-none d-xl-block">
-          </div>
-          <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0" *ngIf="!user; else loggedIn">
-            <div>
-            <button class="btn btn-white shadow-warning text-warning" (click)="triggerModal(loginData)">
-              <p class="nav-link">Login</p>
-              <svg class="svg-inline--fa fa-user fa-w-14 me-2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path>
-              </svg>
-            </button>
-          </div>
-          <div>
-            <button class="btn btn-white shadow-warning text-warning" (click)="triggerModal(registerData)">
-              <span class="nav-link">Registration</span>
-              <svg class="svg-inline--fa fa-user fa-w-14 me-2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path>
-              </svg>
-            </button>
-          </div>
-          </form>
-          <ng-template #loggedIn>
-            <div>
-              <button class="btn btn-white shadow-warning text-warning">
-                <a routerLink="/profile"><p class="nav-link">Profile</p></a>
-              </button>
-            </div>
-          </ng-template>
-        </div>
-      </div>
-    </nav>-->
-
-<div class="searchBar">
-  <div class="search-Input">
-    <ul class="menu-bar">
-      <button class="btn btn-white shadow-warning text-warning" (click)="triggerModal(loginData)"><li>Sign In</li></button>
-      <button class="btn btn-white shadow-warning text-warning" (click)="triggerModal(registerData)"><li>Sign Up</li></button>
-      <ng-template>
-        <li>TV Shows</li>
-        <li>Sports</li>
-        <li>Kids</li>
-        <li>Library</li>
-      </ng-template>
-    </ul>	
+<form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0" *ngIf="!user; else loggedIn">
+  <div>
+    <button class="btn btn-white shadow-warning text-warning" (click)="triggerModal(loginData)">
+      <p class="nav-link">Login</p>
+    </button>
   </div>
-  <div class="wrap">
-    <div class="search">
-       <input type="text" class="searchTerm" placeholder="What are you looking for?">
-       <button type="submit" class="searchButton">
-         <i class="fa fa-search"></i>
-      </button>
-    </div>
- </div>
-
-<ng-template #registerData let-modal>
-  <div class="container">
-    <div class="pre-box">
-      <div class="box">
-        <h1>Sign Up</h1>
-        <mat-form name="form" [formGroup]="registerGroup" (ngSubmit)="register()" novalidate>
-          <div class="user">
-            <input type="text" id="username" placeholder="User name" formControlName="username" required minlength="3" maxlength="20" autocomplete="false"/>
-            <input type="email" name="email" id="email" placeholder="Email Address" autocomplete="false"/>
-            <input type="password" id="password" placeholder="Password" formControlName="password" required minlength="6" autocomplete="false" autocomplete="false"/>
-            <input type="text" name="address" id="address" placeholder="Address" autocomplete="false"/>  
-          </div>
-    
-    
-          <div class="login-btn">
-            <button class="btn" [disabled]="!registerGroup.valid" (click)="test()">Register</button>
-          </div>
-        </mat-form>
-      </div>
-    </div>
+  <div>
+    <button class="btn btn-white shadow-warning text-warning" (click)="triggerModal(registerData)">
+      <span class="nav-link">Registration</span>
+    </button>
   </div>
-</ng-template>
+</form>
 
 <ng-template #loginData let-modal class="modal_contents">
   <div class="container_login">
@@ -83,12 +18,13 @@
         <h1>Login</h1>
         <form name="form" [formGroup]="loginGroup" (ngSubmit)="login()" novalidate>
           <div class="user">
-            <input type="text" formControlName = "username" id="username" placeholder="User name" required/><br>
-            <input type="password" id="password" placeholder="Password" formControlName = "password" required minlength="6"/>
+            <input type="text" formControlName="username" id="username" placeholder="User name" required /><br>
+            <input type="password" id="password" placeholder="Password" formControlName="password" required
+              minlength="6" />
           </div>
-    
-    
-    
+
+
+
           <div class="login-btn">
             <button routerLink="main-page" class="btn" (click)="test()">Login</button>
           </div>
@@ -96,4 +32,42 @@
       </div>
     </div>
   </div>
+</ng-template>
+
+<ng-template #registerData let-modal>
+  <div class="container">
+    <div class="pre-box">
+      <div class="box">
+        <h1>Sign Up</h1>
+        <mat-form name="form" [formGroup]="registerGroup" (ngSubmit)="register()" novalidate>
+          <div class="user">
+            <input type="text" id="username" placeholder="User name" formControlName="username" required minlength="3"
+              maxlength="20" />
+            <input type="email" name="email" id="email" placeholder="Email Address" />
+            <input type="password" id="password" placeholder="Password" formControlName="password" required
+              minlength="6" />
+            <input type="text" name="address" id="address" placeholder="Address" />
+          </div>
+
+
+          <div class="login-btn">
+            <button class="btn" [disabled]="!registerGroup.valid">Register</button>
+          </div>
+        </mat-form>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #loggedIn>
+  <nav class="navbar">
+    <label for="toggler"><i class="ri-menu-line"></i></label>
+    <div class="meu">
+      <ul class="list">
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/profile">My profile</a></li>
+        <li><a routerLink="/shopping_cart">My orders</a></li>
+      </ul>
+    </div>
+  </nav>
 </ng-template>

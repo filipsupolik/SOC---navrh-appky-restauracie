@@ -41,4 +41,12 @@ public class Category {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Set<Food> getFood() {
+        return food;
+    }
+
+    public void setFood(Set<Food> food) {
+        this.food = food;
+    }
 }

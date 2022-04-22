@@ -7,22 +7,23 @@ import com.appslab.restaurantapp.food.Food;
 import com.appslab.restaurantapp.food.FoodRepository;
 import com.appslab.restaurantapp.user.UserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 @AllArgsConstructor
 public class RestaurantServiceImpl implements RestaurantService{
 
     RestaurantRepository restaurantRepository;
-    FoodRepository foodRepository;
     UserRepository userRepository;
     CategoryRepository categoryRepository;
 
@@ -44,15 +45,14 @@ public class RestaurantServiceImpl implements RestaurantService{
     }
 
     @Override
-    public List<Restaurant> getRestaurantsByCategory(String category) {
-        Optional<Category> category1 = categoryRepository.findCategoryByName(category);
-        List<Food> foods = foodRepository.findAllFoodByCategoryId(category1.get().getId());
-        List<Restaurant> restaurants = new ArrayList<>();
-
-        for (int i=0;i<foods.size();i++){
-            restaurants.add(restaurantRepository.findById(foods.get(i).getRestaurantId()).get());
-        }
-        return restaurants;
+    public List<Restaurant> getRestaurantsByCategory(String categoryName) {
+        return this.categoryRepository.findCategoryByName(categoryName)
+                .map(Category::getFood)
+                .map(Collection::stream)
+                .map(foodStream -> foodStream.map(Food::getRestaurant))
+                .map(Stream::distinct)
+                .map(foodStream -> foodStream.collect(Collectors.toList()))
+                .orElse(new ArrayList<>());
     }
 
     @Override
