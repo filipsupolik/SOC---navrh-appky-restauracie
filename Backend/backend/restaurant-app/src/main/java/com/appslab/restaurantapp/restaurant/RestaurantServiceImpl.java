@@ -86,5 +86,12 @@ public class RestaurantServiceImpl implements RestaurantService{
         return restaurantRepository.findByRegion(region);
     }
 
+    @Override
+    public List<Restaurant> getAllRestaurants() {
+        List<Restaurant> restaurants = new ArrayList<>();
+        restaurantRepository.findAll().forEach(restaurants::add);
+        return restaurants;
+    }
+
 
 }
