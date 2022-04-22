@@ -22,8 +22,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
             .authorizeRequests()
             .antMatchers("/login", "/register", "/getRestaurantsByCategory").permitAll()
             .anyRequest().authenticated()
-            .and() //Logout Form configuration
-            .logout().permitAll()
             .and().httpBasic();
     }
 
@@ -33,7 +31,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:8080")
+                        .allowedOrigins("http://localhost:4200")
                         .allowedMethods("*")
                         .allowCredentials(true);
             }

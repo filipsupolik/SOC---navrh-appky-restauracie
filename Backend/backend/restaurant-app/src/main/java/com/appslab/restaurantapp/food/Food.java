@@ -89,4 +89,12 @@ public class Food {
     public void setCategoryId(long categoryId) {
         this.categoryId = categoryId;
     }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
 }
