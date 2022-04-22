@@ -97,12 +97,4 @@ public class Food {
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
     }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
