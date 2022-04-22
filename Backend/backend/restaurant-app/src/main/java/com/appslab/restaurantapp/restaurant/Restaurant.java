@@ -17,6 +17,17 @@ import java.security.Principal;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class Restaurant {
 
+    enum Region {
+        BRATISLAVSKÝ,
+        TRNAVSKÝ,
+        TRENČIANSKY,
+        NITRIANSKY,
+        ŽILINSKÝ,
+        BANSKOBYSTRICKÝ,
+        PREŠOVSKÝ,
+        KOŠICKÝ
+    }
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
@@ -27,6 +38,8 @@ public class Restaurant {
     private LocalTime openingTime;
     private LocalTime closingTime;
     private String address;
+    private Region region;
+
 
 
     @OneToMany(mappedBy="restaurant")
@@ -42,7 +55,7 @@ public class Restaurant {
     public Restaurant() {
     }
 
-    public Restaurant(long id, String restaurantName, String description, DayOfWeek openingDay, DayOfWeek closingDay, LocalTime openingTime, LocalTime closingTime, String address) {
+    public Restaurant(long id, String restaurantName, String description, DayOfWeek openingDay, DayOfWeek closingDay, LocalTime openingTime, LocalTime closingTime, String address, Region region) {
         this.id = id;
         this.restaurantName = restaurantName;
         this.description = description;
@@ -51,9 +64,10 @@ public class Restaurant {
         this.openingTime = openingTime;
         this.closingTime = closingTime;
         this.address = address;
+        this.region = region;
     }
 
-    public Restaurant(String restaurantName, String description, DayOfWeek openingDay, DayOfWeek closingDay, LocalTime openingTime, LocalTime closingTime, String address, long adminId) {
+    public Restaurant(String restaurantName, String description, DayOfWeek openingDay, DayOfWeek closingDay, LocalTime openingTime, LocalTime closingTime, String address, long adminId, Region region) {
         this.restaurantName = restaurantName;
         this.description = description;
         this.openingDay = openingDay;
@@ -62,6 +76,8 @@ public class Restaurant {
         this.closingTime = closingTime;
         this.address = address;
         this.adminId = adminId;
+        this.region = region;
+
     }
 
     public long getId() {
@@ -134,5 +150,13 @@ public class Restaurant {
 
     public void setAdminId(long adminId) {
         this.adminId = adminId;
+    }
+
+    public Region getRegion() {
+        return region;
+    }
+
+    public void setRegion(Region region) {
+        this.region = region;
     }
 }

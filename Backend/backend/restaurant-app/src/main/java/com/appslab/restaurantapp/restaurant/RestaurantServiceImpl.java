@@ -10,6 +10,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
+import java.time.DayOfWeek;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -28,13 +30,18 @@ public class RestaurantServiceImpl implements RestaurantService{
 
     @Override
     public void createRestaurant(Restaurant restaurant, Principal principal) throws GenericException {
-        if(restaurantRepository.findByRestaurantName(restaurant.getRestaurantName()).isPresent()){
-            throw new GenericException("Restaurant name is already taken");
+        if (userRepository.findByUsername(principal.getName()).get().getAdminOfRestaurants().isEmpty()||userRepository.findByUsername(principal.getName()).get().getId()==1){
+            if(restaurantRepository.findByRestaurantName(restaurant.getRestaurantName()).isPresent()){
+                throw new GenericException("Restaurant name is already taken");
+            }
+            else{
+                restaurant.setAdminId(userRepository.findByUsername(principal.getName()).get().getId());
+                restaurantRepository.save(restaurant);
+            }
         }
-        else{
-        restaurant.setAdminId(userRepository.findByUsername(principal.getName()).get().getId());
-        restaurantRepository.save(restaurant);
-        }
+        else
+            throw new GenericException("Only 1 restaurant per user!");
+
     }
 
     @Override
@@ -57,5 +64,27 @@ public class RestaurantServiceImpl implements RestaurantService{
     public Restaurant getRestaurantInfo(Long restaurantId) {
         return restaurantRepository.findRestaurantById(restaurantId);
     }
+
+    @Override
+    public List<Restaurant> getRestaurantsByTime(LocalTime time) {
+        List<Restaurant> allRestaurants = (List<Restaurant>) restaurantRepository.findAll();
+        List<Restaurant> filteredRestaurants = new ArrayList<>();
+        for (int i = 0; i < allRestaurants.size(); i++){
+            Restaurant restaurant = allRestaurants.get(i);
+            if(time.isAfter(restaurant.getOpeningTime())&&time.isBefore(restaurant.getClosingTime())){
+                filteredRestaurants.add(restaurant);
+            }
+
+        }
+
+
+        return filteredRestaurants;
+    }
+
+    @Override
+    public List<Restaurant> getRestaurantsByRegion(Restaurant.Region region) {
+        return restaurantRepository.findByRegion(region);
+    }
+
 
 }

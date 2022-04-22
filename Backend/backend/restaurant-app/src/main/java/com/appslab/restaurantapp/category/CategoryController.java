@@ -1,11 +1,8 @@
 package com.appslab.restaurantapp.category;
 
-import com.appslab.restaurantapp.exception.GenericException;
-import com.appslab.restaurantapp.food.Food;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
