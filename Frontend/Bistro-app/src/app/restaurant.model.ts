@@ -4,8 +4,10 @@ export interface Restaurant {
     id: number;
     restaurantName: string;
     description: string;
-    deliveryTimeMinutes: number;
+    openingDay: string;
+    closingDay: string;
     openingTime: string;
+    closingTime: string;
     address: string;
     food: Food[];
 }

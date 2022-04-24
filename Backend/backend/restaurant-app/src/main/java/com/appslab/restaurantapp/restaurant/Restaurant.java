@@ -18,14 +18,14 @@ import java.security.Principal;
 public class Restaurant {
 
     enum Region {
-        BRATISLAVSKÝ,
-        TRNAVSKÝ,
+        BRATISLAVSKY,
+        TRNAVSKY,
         TRENČIANSKY,
         NITRIANSKY,
-        ŽILINSKÝ,
-        BANSKOBYSTRICKÝ,
-        PREŠOVSKÝ,
-        KOŠICKÝ
+        ZILINSKY,
+        BANSKOBYSTRICKY,
+        PRESOVSKY,
+        KOSICKY
     }
 
     @Id
