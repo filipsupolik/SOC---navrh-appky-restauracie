@@ -43,4 +43,9 @@ public class OrderController {
         orderService.deleteOrder(orderId);
     }
 
+    @GetMapping(value = "/getOrdersForShoppingCart")
+    public List<OrderDTO> getOrdersForShoppingCart(){
+        return orderService.getOrdersForShoppingCart();
+    }
+
 }
