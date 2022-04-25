@@ -86,5 +86,10 @@ public class OrderServiceImpl implements OrderService {
         return orderDTOS;
     }
 
+    @Override
+    public void deleteOrder(long orderId) {
+        orderRepository.deleteById(orderId);
+    }
+
 
 }
