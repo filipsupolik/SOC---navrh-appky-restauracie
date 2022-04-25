@@ -37,4 +37,10 @@ public class OrderController {
     public List<OrderDTO> getAllUsersOrders(){
         return orderService.getAllUsersOrders();
     }
+
+    @PostMapping(value = "/deleteOrder")
+    public void deleteOrder(@RequestParam long orderId) {
+        orderService.deleteOrder(orderId);
+    }
+
 }
