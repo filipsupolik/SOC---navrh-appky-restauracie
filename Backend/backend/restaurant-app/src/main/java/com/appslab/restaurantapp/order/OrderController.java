@@ -33,6 +33,11 @@ public class OrderController {
         return orderService.getRestaurantsOrders();
     }
 
+    @GetMapping(value = "/getRestaurantsIncompleteOrders")
+    public List<OrderDTO> getRestaurantsIncompleteOrders(){
+        return orderService.getRestaurantsIncompleteOrders();
+    }
+
     @GetMapping(value = "/getAllUsersOrders")
     public List<OrderDTO> getAllUsersOrders(){
         return orderService.getAllUsersOrders();
