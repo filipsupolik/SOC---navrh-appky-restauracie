@@ -22,6 +22,11 @@ public class RestaurantController {
         restaurantService.createRestaurant(restaurant, principal);
     }
 
+    @GetMapping("/restaurant")
+    public List<Restaurant> getRestaurants() {
+        return this.restaurantService.getRestaurants();
+    }
+
     @GetMapping("/restaurant/{id}")
     public Optional<Restaurant> getRestaurantById(@PathVariable long id) {
         return this.restaurantService.getRestaurantById(id);

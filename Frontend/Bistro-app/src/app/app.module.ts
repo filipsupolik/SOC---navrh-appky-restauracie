@@ -29,6 +29,7 @@ import { CartComponent } from './cart/cart.component';
 import { OrderComponent } from './order/order.component';
 import { SteakComponent } from './steak/steak.component';
 import { AllRestaurntsComponent } from './all-restaurnts/all-restaurnts.component';
+import { RegionRestaurantsComponent } from './region-restaurants/region-restaurants.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { AllRestaurntsComponent } from './all-restaurnts/all-restaurnts.componen
     OrderComponent,
     SteakComponent,
     AllRestaurntsComponent,
+    RegionRestaurantsComponent,
   ],
   imports: [
     BrowserModule,

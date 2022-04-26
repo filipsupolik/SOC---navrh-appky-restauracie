@@ -86,5 +86,9 @@ public class RestaurantServiceImpl implements RestaurantService{
         return restaurantRepository.findByRegion(region);
     }
 
+    @Override
+    public List<Restaurant> getRestaurants() {
+        return this.restaurantRepository.findAll();
+    }
 
 }

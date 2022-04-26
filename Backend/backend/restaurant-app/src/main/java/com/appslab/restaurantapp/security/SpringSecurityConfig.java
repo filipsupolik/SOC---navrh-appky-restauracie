@@ -1,6 +1,7 @@
 package com.appslab.restaurantapp.security;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -18,7 +19,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
     {
         http.cors().and().csrf().disable()
             .authorizeRequests()
-            .antMatchers("/login", "/register", "/getRestaurantsByCategory").permitAll()
+            .antMatchers("/login", "/register", "/getRestaurantsByCategory", "/getRestaurantsByRegion").permitAll()
+            .antMatchers(HttpMethod.GET, "/restaurant", "/getMenu", "/getRestaurantInfo").permitAll()
             .anyRequest().authenticated()
             .and() //Logout Form configuration
             .logout().permitAll()

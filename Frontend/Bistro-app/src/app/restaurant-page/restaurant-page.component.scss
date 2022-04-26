@@ -115,6 +115,16 @@ img {
     display: grid;
     place-items: center;
   }
+  .card_order {
+    max-width: auto;
+    border-radius: 1.5rem;
+    display: grid;
+    place-items: center;
+    background-color: cornsilk;
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+  }
 
  .pale {
      display: flex;

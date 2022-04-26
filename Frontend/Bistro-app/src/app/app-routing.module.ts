@@ -13,6 +13,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AddingRestaurantComponent } from './adding-restaurant/adding-restaurant.component';
 import { AddFoodComponent } from './add-food/add-food.component';
 import { CartComponent } from './cart/cart.component';  
+import { RegionRestaurantsComponent } from './region-restaurants/region-restaurants.component';
 
 const routes: Routes = [
   {path: '',component: MainPageComponent},
@@ -26,7 +27,9 @@ const routes: Routes = [
   {path: 'adding_restaurant', component: AddingRestaurantComponent},
   {path: 'steak', component: SteakComponent},
   {path: 'adding_food', component: AddFoodComponent},
-  {path: 'shopping_cart', component: CartComponent}
+  {path: 'shopping_cart', component: CartComponent},
+  {path: 'restaurants', component: RegionRestaurantsComponent},
+  {path: 'restaurants/:region', component: RegionRestaurantsComponent}
 ];
 
 @NgModule({
