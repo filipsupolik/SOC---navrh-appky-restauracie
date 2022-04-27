@@ -41,16 +41,32 @@ export class AddingRestaurantComponent implements OnInit {
             Validators.pattern('[a-zA-Z ]*'),
           ]
         ],
-        deliveryTimeMinutes: [
+        openingDay: [
           '',
           [
             Validators.required,
             Validators.minLength(1),
             Validators.maxLength(4),
-            Validators.pattern('[0-9]*'),
+          ]
+        ],
+        closingDay: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(1),
+            Validators.maxLength(4),
           ]
         ],
         openingTime: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(1),
+            Validators.maxLength(10),
+            Validators.pattern('[a-zA-Z0-9]'),
+          ]
+        ],
+        closingTime: [
           '',
           [
             Validators.required,
@@ -67,6 +83,17 @@ export class AddingRestaurantComponent implements OnInit {
             Validators.maxLength(10),
             Validators.pattern('[a-zA-Z0-9]')
           ]
+          
+        ],
+        region: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(1),
+            Validators.maxLength(10),
+            Validators.pattern('[a-zA-Z0-9]')
+          ]
+          
         ],
         categories: [
             '',
@@ -81,10 +108,13 @@ export class AddingRestaurantComponent implements OnInit {
   createRestaurant(): void {
     const restaurant = {
       restaurantName: this.form.controls.restaurantName.value,
-      address: this.form.controls.address.value,
-      openingTime: this.form.controls.openingTime.value,
       description: this.form.controls.description.value,
-      deliveryTimeMinutes: this.form.controls.deliveryTimeMinutes.value,
+      openingDay: this.form.controls.openingDay.value,
+      closingDay: this.form.controls.closingDay.value,
+      openingTime: this.form.controls.openingTime.value,
+      closingTime: this.form.controls.closingTime.value,
+      region: this.form.controls.region.value,
+      address: this.form.controls.address.value,
     }
     this.restaurantService.createRestaurant(restaurant as unknown as Restaurant).subscribe();
   }

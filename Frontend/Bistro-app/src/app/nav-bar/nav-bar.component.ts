@@ -73,10 +73,9 @@ export class NavBarComponent implements OnInit {
 
   register(): void {
     if (this.registerGroup.valid) {
-      const username = this.registerGroup.value.username;
-      const password = this.registerGroup.value.password;
-      const email_address = this.registerGroup.value.email_address;
-      const user_home_address = this.registerGroup.value.user_home_address;
+      const { username, password, email_address, user_home_address } = this.registerGroup.value;
+      this.modalService.dismissAll();
+
       this.authService.register(username, password, email_address, user_home_address)
         .subscribe(() => {
           this.authService.login(username, password)

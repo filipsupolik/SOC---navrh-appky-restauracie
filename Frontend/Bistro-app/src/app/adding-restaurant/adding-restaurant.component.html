@@ -58,12 +58,20 @@
                 </div>
                 <div class="field padding-bottom--24">
                     <div class="grid--50-50">
-                      <label for="Delivery">Delivery Time (min)</label>
+                      <label for="Delivery">Open</label>
                     </div>
                     <input 
-                      type="number"
-                      formControlName="deliveryTimeMinutes"
-                      [ngClass]="{ 'is-invalid': submitted && r.opening.errors}"
+                      type="datetime"
+                      formControlName="openingDay"
+                      >
+                  </div>
+                  <div class="field padding-bottom--24">
+                    <div class="grid--50-50">
+                      <label for="Delivery">Close</label>
+                    </div>
+                    <input 
+                      type="datetime"
+                      formControlName="closingDay"
                       >
                   </div>
                   <div class="field padding-bottom--24">
@@ -80,7 +88,14 @@
                     </div>
                     <input 
                     type="time"
-                    formControlName="openingTime">
+                    formControlName="closingTime">
+                  </div>
+                  <div class="field padding-bottom--24">
+                    <div class="grid--50-50">
+                      <label for="address">Region of restaurant</label>
+                    </div>
+                    <input 
+                      formControlName="region">
                   </div>
                   <div class="field padding-bottom--24">
                     <div class="grid--50-50">

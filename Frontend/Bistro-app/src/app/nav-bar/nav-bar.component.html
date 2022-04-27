@@ -1,15 +1,9 @@
-<form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0" *ngIf="!user; else loggedIn">
-  <div>
-    <button class="btn btn-white shadow-warning text-warning" (click)="triggerModal(loginData)">
-      <p class="nav-link">Login</p>
-    </button>
-  </div>
-  <div>
-    <button class="btn btn-white shadow-warning text-warning" (click)="triggerModal(registerData)">
-      <span class="nav-link">Registration</span>
-    </button>
-  </div>
-</form>
+<nav *ngIf="!user; else loggedIn">
+  <ul>
+    <li><button (click)="triggerModal(loginData)">Sign In</button></li>
+    <li><button (click)="triggerModal(registerData)">Sign Up</button></li>
+  </ul>
+</nav>
 
 <ng-template #loginData let-modal class="modal_contents">
   <div class="container_login">
@@ -39,35 +33,34 @@
     <div class="pre-box">
       <div class="box">
         <h1>Sign Up</h1>
-        <mat-form name="form" [formGroup]="registerGroup" (ngSubmit)="register()" novalidate>
+        <form name="form" [formGroup]="registerGroup" (ngSubmit)="register()" novalidate>
           <div class="user">
             <input type="text" id="username" placeholder="User name" formControlName="username" required minlength="3"
               maxlength="20" />
-            <input type="email" name="email" id="email" placeholder="Email Address" />
+            <input type="email" name="email" id="email" placeholder="Email Address" formControlName="email_address" />
             <input type="password" id="password" placeholder="Password" formControlName="password" required
               minlength="6" />
-            <input type="text" name="address" id="address" placeholder="Address" />
+            <input type="text" name="address" id="address" placeholder="Address" formControlName="user_home_address" />
           </div>
 
 
           <div class="login-btn">
             <button class="btn" [disabled]="!registerGroup.valid">Register</button>
           </div>
-        </mat-form>
+        </form>
       </div>
     </div>
   </div>
 </ng-template>
 
 <ng-template #loggedIn>
-  <nav class="navbar">
-    <label for="toggler"><i class="ri-menu-line"></i></label>
-    <div class="meu">
-      <ul class="list">
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/profile">My profile</a></li>
-        <li><a routerLink="/shopping_cart">My orders</a></li>
-      </ul>
-    </div>
+  <nav>
+    <ul>
+      <li><a routerLink="/">home</a></li>
+      <li><a routerLink="/profile">Profile</a></li>
+      <li><a routerLink="/adding_restaurant">Add restaurant</a></li>
+      <li><a routerLink="/adding_food">Add food</a></li>
+      <li><a [routerLink]="['/shopping_cart']" class="button fancy-button"><i class="material-icons">shopping_cart</i>Checkout</a></li>
+    </ul>
   </nav>
 </ng-template>

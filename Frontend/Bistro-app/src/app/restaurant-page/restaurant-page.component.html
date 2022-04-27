@@ -1,8 +1,9 @@
 <html lang="en">
+
 <body>
-    <div class="Venue-module_menu pale">
-   <section>
-      <div>
+   <div class="Venue-module_menu pale">
+      <section>
+         <div>
             <div class="main__card__padding" *ngFor="let food of menu$ | async">
                <div class="card__photo">
                   <div class="photo__content">
@@ -16,46 +17,54 @@
                </div>
                <div class="card_title">
                   <div class="title_content">
-                     <b><img src="assets/img/gallery/Pizza_Images/burger.jpg" alt="Burger"></b>
+                     <b><img src="assets/img/icons/Fast-food-icon.png" alt="Burger"></b>
+                  </div>
+               </div>
+               <div class="card_order">
+                  <div class="order_content">
+                     <button class="order_button" (click)="addToCart(food)">Buy</button>
                   </div>
                </div>
             </div>
-      </div>
-   </section>
-   <div *ngIf="restaurants$|async as restaurant" class="VenueSideInfo-module__venueInformation___GimMp">
-      <h2 class="jcpkhT">
-         <span>Informácie o reštaurácii</span>
-      </h2>
-      <h3 class="kqsQLn">
-         <span>Adresa</span>
-         <p>{{ restaurant.address}}</p>
-      </h3>
-      <div class="flash">
+         </div>
+      </section>
+      <div *ngIf="restaurants$|async as restaurant" class="VenueSideInfo-module__venueInformation___GimMp">
+         <h2 class="jcpkhT">
+            <span>Informácie o reštaurácii</span>
+         </h2>
          <h3 class="kqsQLn">
-            <span>Otváracia doba</span>
+            <span>Adresa</span>
+            <p>{{ restaurant.address}}</p>
          </h3>
-         <div class="Tabs-module__root___BlE6W VenueSideInfo-module__tabs___BP5Ux">
-            <div>
-               <div class="TabHeaders-module__tabHeaders___BCI8U">
-                  <div class="Tabs-module__content___nhLRI">
-                     <div class="Tabs-module__tabTrack___BkpHY">
-                        <div class="Tabs-module__tab___vwbE2" id="tabpanel1">
-                           <div class="VenueSideInfo-module__tabsPanel___kZI6x">
-                              <div class="CombinedHours__Root-sc-189qmtd-1 hxIwHD">
-                                 <p class="CombinedHours__DayInfoWrapper-sc-189qmtd-2 eQWovX">
-                                    <span class="CombinedHours__Day-sc-189qmtd-0 hlpSFE">Pondelok-So</span>
-                                    <span>
-                                       <span class="CombinedHours__HoursItem-sc-189qmtd-3 dAMkUi">{{ restaurant.openingTime }}</span>
-                                    </span>
-                                 </p>
-                              </div>
-                              <div class="CombinedHours__Root-sc-189qmtd-1 hxIwHD">
-                                 <p class="CombinedHours__DayInfoWrapper-sc-189qmtd-2 eQWovX">
-                                    <span class="CombinedHours__Day-sc-189qmtd-0 hlpSFE">Ne</span>
-                                    <span>
-                                       <span class="CombinedHours__HoursItem-sc-189qmtd-3 dAMkUi">{{ restaurant.openingTime }}</span>
-                                    </span>
-                                 </p>
+         <div class="flash">
+            <h3 class="kqsQLn">
+               <span>Otváracia doba</span>
+            </h3>
+            <div class="Tabs-module__root___BlE6W VenueSideInfo-module__tabs___BP5Ux">
+               <div>
+                  <div class="TabHeaders-module__tabHeaders___BCI8U">
+                     <div class="Tabs-module__content___nhLRI">
+                        <div class="Tabs-module__tabTrack___BkpHY">
+                           <div class="Tabs-module__tab___vwbE2" id="tabpanel1">
+                              <div class="VenueSideInfo-module__tabsPanel___kZI6x">
+                                 <div class="CombinedHours__Root-sc-189qmtd-1 hxIwHD">
+                                    <p class="CombinedHours__DayInfoWrapper-sc-189qmtd-2 eQWovX">
+                                       <span class="CombinedHours__Day-sc-189qmtd-0 hlpSFE">Pondelok-So</span>
+                                       <span>
+                                          <span class="CombinedHours__HoursItem-sc-189qmtd-3 dAMkUi">{{
+                                             restaurant.openingTime }}</span>
+                                       </span>
+                                    </p>
+                                 </div>
+                                 <div class="CombinedHours__Root-sc-189qmtd-1 hxIwHD">
+                                    <p class="CombinedHours__DayInfoWrapper-sc-189qmtd-2 eQWovX">
+                                       <span class="CombinedHours__Day-sc-189qmtd-0 hlpSFE">Ne</span>
+                                       <span>
+                                          <span class="CombinedHours__HoursItem-sc-189qmtd-3 dAMkUi">{{
+                                             restaurant.openingTime }}</span>
+                                       </span>
+                                    </p>
+                                 </div>
                               </div>
                            </div>
                         </div>
@@ -66,6 +75,6 @@
          </div>
       </div>
    </div>
-</div>
-   </body>
+</body>
+
 </html>

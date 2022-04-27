@@ -84,8 +84,8 @@ img {
   }
   .card__title {
     grid-area: photo;
-    max-width: 100%;
-    max-height: 100%;
+    max-width: auto;
+    max-height: auto;
     border-radius: 1.5rem;
     display: grid;
     place-items: center;
@@ -98,7 +98,7 @@ img {
   }
   .card__photo {
     grid-area: title;
-    max-width: 100%;
+    max-width: auto;
     border-radius: 1.5rem;
     display: grid;
     place-items: center;
@@ -110,10 +110,20 @@ img {
   .card__text {
     grid-area: content;
     background-color: cornsilk;
-    max-width: 100%;
+    max-width: auto;
     border-radius: 1.5rem;
     display: grid;
     place-items: center;
+  }
+  .card_order {
+    max-width: auto;
+    border-radius: 1.5rem;
+    display: grid;
+    place-items: center;
+    background-color: cornsilk;
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
   }
 
  .pale {

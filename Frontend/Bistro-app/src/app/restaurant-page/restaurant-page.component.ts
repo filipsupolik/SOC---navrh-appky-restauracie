@@ -9,6 +9,7 @@ import { Food } from '../food.model';
 import { Order } from '../order.module';
 import { OrderComponent } from '../order/order.component';
 import { Restaurant } from '../restaurant.model';
+import { CartService } from '../_services/cart.service';
 import { FoodService } from '../_services/food.service';
 import { OrderService } from '../_services/order.service';
 import { RestaurantService } from '../_services/restaurant.service';
@@ -26,6 +27,7 @@ export class RestaurantPageComponent implements OnInit {
     private foodService: FoodService,
     private orderService: OrderService,
     private route: ActivatedRoute,
+    private cartService: CartService,
     public _snackBar: MatSnackBar
     ) { }
 
@@ -38,6 +40,10 @@ export class RestaurantPageComponent implements OnInit {
     const id = +(this.route.snapshot.paramMap.get('id') ?? 1);
     this.restaurants$ = this.restaurantService.getRestaurantInfo(id);
     this.menu$ = this.foodService.getMenu(id);
+  }
+
+  addToCart(food: Food): void {
+    this.cartService.addItem(food);
   }
   
   triggerModal(content: any) {
