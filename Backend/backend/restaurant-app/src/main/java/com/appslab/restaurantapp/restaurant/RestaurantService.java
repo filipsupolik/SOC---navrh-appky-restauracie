@@ -18,5 +18,6 @@ public interface RestaurantService {
     List<Restaurant> getRestaurantsByTime(LocalTime time);
     List<Restaurant> getRestaurantsByRegion(Restaurant.Region region);
     List<Restaurant> getAllRestaurants();
+    Restaurant getCurrentUsersRestaurant();
 
 }

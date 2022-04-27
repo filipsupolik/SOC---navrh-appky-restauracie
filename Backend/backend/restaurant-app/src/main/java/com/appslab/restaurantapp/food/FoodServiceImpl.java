@@ -62,6 +62,10 @@ public class FoodServiceImpl implements FoodService{
         return foodRepository.findAllFoodByRestaurantId(restaurantId);
     }
 
+    @Override
+    public List<Food> getCurrentUsersRestaurantMenu() {
+        return getMenu(userService.getCurrentUser().getAdminOfRestaurant().getId());
+    }
 
 
 }

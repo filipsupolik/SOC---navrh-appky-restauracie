@@ -46,7 +46,7 @@ public class Restaurant {
     @OneToMany(mappedBy="restaurant")
     private Set<Food> food;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name="adminId", nullable=false, insertable = false, updatable = false)
     private User adminUser;
 

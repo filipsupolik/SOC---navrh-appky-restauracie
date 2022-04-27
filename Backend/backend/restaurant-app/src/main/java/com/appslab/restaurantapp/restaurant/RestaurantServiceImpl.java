@@ -6,6 +6,7 @@ import com.appslab.restaurantapp.exception.GenericException;
 import com.appslab.restaurantapp.food.Food;
 import com.appslab.restaurantapp.food.FoodRepository;
 import com.appslab.restaurantapp.user.UserRepository;
+import com.appslab.restaurantapp.user.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -26,11 +27,12 @@ public class RestaurantServiceImpl implements RestaurantService{
     RestaurantRepository restaurantRepository;
     UserRepository userRepository;
     CategoryRepository categoryRepository;
+    UserService userService;
 
 
     @Override
     public void createRestaurant(Restaurant restaurant, Principal principal) throws GenericException {
-        if (userRepository.findByUsername(principal.getName()).get().getAdminOfRestaurants().isEmpty()||userRepository.findByUsername(principal.getName()).get().getId()==1){
+        if (restaurantRepository.findByAdminId(userService.getCurrentUser().getId()).isEmpty()||userRepository.findByUsername(principal.getName()).get().getId()==1){
             if(restaurantRepository.findByRestaurantName(restaurant.getRestaurantName()).isPresent()){
                 throw new GenericException("Restaurant name is already taken");
             }
@@ -91,6 +93,11 @@ public class RestaurantServiceImpl implements RestaurantService{
         List<Restaurant> restaurants = new ArrayList<>();
         restaurantRepository.findAll().forEach(restaurants::add);
         return restaurants;
+    }
+
+    @Override
+    public Restaurant getCurrentUsersRestaurant() {
+        return restaurantRepository.findRestaurantById(userService.getCurrentUser().getAdminOfRestaurant().getId());
     }
 
 }
