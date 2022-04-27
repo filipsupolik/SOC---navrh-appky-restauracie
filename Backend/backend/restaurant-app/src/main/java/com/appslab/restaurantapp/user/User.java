@@ -21,8 +21,8 @@ public class User {
     private String address;
 
 
-    @OneToMany(mappedBy="adminUser")
-    private Set<Restaurant> adminOfRestaurants;
+    @OneToOne(mappedBy="adminUser")
+    private Restaurant adminOfRestaurant;
 
     @OneToMany(mappedBy="userAdmin")
     private Set<Order> orders;
@@ -72,12 +72,12 @@ public class User {
         this.email = email;
     }
 
-    public Set<Restaurant> getAdminOfRestaurants() {
-        return adminOfRestaurants;
+    public Restaurant getAdminOfRestaurant() {
+        return adminOfRestaurant;
     }
 
-    public void setAdminOfRestaurants(Set<Restaurant> adminOfRestaurants) {
-        this.adminOfRestaurants = adminOfRestaurants;
+    public void setAdminOfRestaurant(Restaurant adminOfRestaurant) {
+        this.adminOfRestaurant = adminOfRestaurant;
     }
 
     public String getAddress() {

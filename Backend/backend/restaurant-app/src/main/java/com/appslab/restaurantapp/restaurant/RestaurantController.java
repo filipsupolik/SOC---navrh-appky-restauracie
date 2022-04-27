@@ -56,4 +56,9 @@ public class RestaurantController {
     public List<Restaurant> getAllRestaurants(){
         return restaurantService.getAllRestaurants();
     }
+
+    @GetMapping(value = "/getCurrentUsersRestaurant")
+    public Restaurant getCurrentUsersRestaurant(){
+        return restaurantService.getCurrentUsersRestaurant();
+    }
 }

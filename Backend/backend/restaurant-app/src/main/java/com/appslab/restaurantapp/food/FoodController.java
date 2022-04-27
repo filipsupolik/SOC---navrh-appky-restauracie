@@ -31,4 +31,8 @@ public class FoodController {
         return foodService.getMenu(restaurantId);
     }
 
+    @GetMapping(value = "/getCurrentUsersRestaurantMenu")
+    public List<Food> getCurrentUsersRestaurantMenu(){
+        return foodService.getCurrentUsersRestaurantMenu();
+    }
 }
