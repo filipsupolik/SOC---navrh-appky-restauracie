@@ -74,6 +74,22 @@ public class OrderServiceImpl implements OrderService {
         return orderDTOS;
     }
 
+    public List<OrderDTO> getRestaurantsIncompleteOrders() {
+        List<Order> orders = orderRepository.findOrdersByRestaurantAdminId(userService.getCurrentUser().getId());
+        List<OrderDTO> orderDTOS = new ArrayList<>();
+        for(int i = 0;i<orders.size();i++) {
+
+            OrderDTO orderDTO = new OrderDTO(orders.get(i).getId(), orders.get(i).isCompleted(), orders.get(i).getPrice(), orders.get(i).getAddress(), orders.get(i).getRestaurantAdminId(), orders.get(i).getOrderedFoodId(), orders.get(i).getCustomerId(), orders.get(i).isOrdered());
+            if(orderDTO.isOrdered()){
+                if (!orderDTO.isCompleted()) {
+                    orderDTOS.add(orderDTO);
+                }
+            }
+
+        }
+        return orderDTOS;
+    }
+
     @Override
     public List<OrderDTO> getAllUsersOrders() {
         List<Order> orders = orderRepository.findOrdersByCustomerId(userService.getCurrentUser().getId());
@@ -82,6 +98,25 @@ public class OrderServiceImpl implements OrderService {
 
             OrderDTO orderDTO = new OrderDTO(orders.get(i).getId(), orders.get(i).isCompleted(), orders.get(i).getPrice(), orders.get(i).getAddress(), orders.get(i).getRestaurantAdminId(), orders.get(i).getOrderedFoodId(), orders.get(i).getCustomerId(), orders.get(i).isOrdered());
             orderDTOS.add(orderDTO);
+        }
+        return orderDTOS;
+    }
+
+    @Override
+    public void deleteOrder(long orderId) {
+        orderRepository.deleteById(orderId);
+    }
+
+    @Override
+    public List<OrderDTO> getOrdersForShoppingCart() {
+        List<Order> orders = orderRepository.findOrdersByCustomerId(userService.getCurrentUser().getId());
+        List<OrderDTO> orderDTOS = new ArrayList<>();
+        for(int i = 0;i<orders.size();i++) {
+
+            OrderDTO orderDTO = new OrderDTO(orders.get(i).getId(), orders.get(i).isCompleted(), orders.get(i).getPrice(), orders.get(i).getAddress(), orders.get(i).getRestaurantAdminId(), orders.get(i).getOrderedFoodId(), orders.get(i).getCustomerId(), orders.get(i).isOrdered());
+            if (!orderDTO.isOrdered()){
+                orderDTOS.add(orderDTO);
+            }
         }
         return orderDTOS;
     }

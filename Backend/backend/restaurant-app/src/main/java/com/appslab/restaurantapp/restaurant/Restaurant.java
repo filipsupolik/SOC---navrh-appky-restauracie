@@ -28,6 +28,7 @@ public class Restaurant {
         KOSICKY
     }
 
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
