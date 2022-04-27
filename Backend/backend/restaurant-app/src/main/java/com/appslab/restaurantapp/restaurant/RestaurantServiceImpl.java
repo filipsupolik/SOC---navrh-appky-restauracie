@@ -71,7 +71,7 @@ public class RestaurantServiceImpl implements RestaurantService{
         List<Restaurant> filteredRestaurants = new ArrayList<>();
         for (int i = 0; i < allRestaurants.size(); i++){
             Restaurant restaurant = allRestaurants.get(i);
-            if(time.isAfter(restaurant.getOpeningTime())&&time.isBefore(restaurant.getClosingTime())){
+            if(time.isAfter(restaurant.getOpeningTime().minusMinutes(10))&&time.isBefore(restaurant.getClosingTime().minusMinutes(10))){
                 filteredRestaurants.add(restaurant);
             }
 
@@ -87,8 +87,10 @@ public class RestaurantServiceImpl implements RestaurantService{
     }
 
     @Override
-    public List<Restaurant> getRestaurants() {
-        return this.restaurantRepository.findAll();
+    public List<Restaurant> getAllRestaurants() {
+        List<Restaurant> restaurants = new ArrayList<>();
+        restaurantRepository.findAll().forEach(restaurants::add);
+        return restaurants;
     }
 
 }

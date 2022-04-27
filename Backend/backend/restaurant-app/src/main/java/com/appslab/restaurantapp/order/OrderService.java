@@ -10,5 +10,8 @@ public interface OrderService {
     void changeStateOfOrder(long orderId);
     void sendFoodOrder();
     List<OrderDTO> getRestaurantsOrders();
+    List<OrderDTO> getRestaurantsIncompleteOrders();
     List<OrderDTO> getAllUsersOrders();
+    void deleteOrder(long orderId);
+    List<OrderDTO> getOrdersForShoppingCart();
 }
