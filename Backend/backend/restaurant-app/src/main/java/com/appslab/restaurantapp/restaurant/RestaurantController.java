@@ -24,7 +24,7 @@ public class RestaurantController {
 
     @GetMapping("/restaurant")
     public List<Restaurant> getRestaurants() {
-        return this.restaurantService.getRestaurants();
+        return this.restaurantService.getAllRestaurants();
     }
 
     @GetMapping("/restaurant/{id}")
