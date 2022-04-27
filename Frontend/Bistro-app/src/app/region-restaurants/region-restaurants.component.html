@@ -1,3 +1,24 @@
-<div *ngFor="let restaurant of filteredRestaurants">
-    {{ restaurant.restaurantName }}
-</div>
+<div class="VenueVerticalList__Grid-sc-1g9lh7x-1 cgAIgb">
+    <div class="Carousel__ItemContainer-sc-tpksmz-2 fvOyG" *ngFor="let restaurants of filteredRestaurants">
+        <a class="DiscoveryLink-module__link___bg0bC" draggable="false" routerLink="/restaurantpage/{{restaurants.id}}">
+            <div class="ImageWithBlurHashTransition__Root-sc-58sbex-0 fvovGr VenueCard__Image-sc-m1skqj-1 gXqzMz">
+                <img src="assets/img/restaurants/street-foodie.jpg">
+            </div>
+            <div class="VenueCard__BodyStart-sc-m1skqj-9 fjLUaF">
+                <h3 aria-label=" Türkiye Döner Kebap"
+                    class="VenueCard__DenseTitle-sc-m1skqj-16 VenueCard__ResponsiveTitle-sc-m1skqj-17 fsebzz lmbrgp">
+                    {{restaurants.restaurantName}}
+                </h3>
+                <p class="VenueCard__Description-sc-m1skqj-18 VenueCard__DesktopDescription-sc-m1skqj-20 jMLiKr jDcidF">
+                    {{restaurants.description}}</p>
+            </div>
+            <div class="VenueCard__DenseBodyEnd-sc-m1skqj-10 VenueCard__ResponsiveBodyEnd-sc-m1skqj-11 kILtRQ cmZJss">
+                <div class="VenueCard__BodyBoxContainer-sc-m1skqj-12 hLBPrY">
+                    <div
+                        class="VenueCard__BodyContent-sc-m1skqj-13 VenueCard__BodyBoxFirstLine-sc-m1skqj-14 isjYhG eNzXPD">
+                        {{restaurants.openingTime}} - {{restaurants.closingTime}}</div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>    

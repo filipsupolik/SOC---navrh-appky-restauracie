@@ -18,7 +18,6 @@ import { PizzaRestaurantsComponent } from './Pizza_Restaurants/Pizza_Restaurants
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { RestaurantPageComponent } from './restaurant-page/restaurant-page.component';
-import { BurgerRestaurantsComponent } from './Burger-restaurants/burger-restaurants.component';
 import { NoodlesRestaurantsComponent } from './noodles-restaurants/noodles-restaurants.component';
 import { SandwichesComponent } from './sandwiches/sandwiches.component';
 import { BreakfastComponent } from './breakfast/breakfast.component';
@@ -40,7 +39,6 @@ import { RegionRestaurantsComponent } from './region-restaurants/region-restaura
     MainPageComponent,
     PizzaRestaurantsComponent,
     RestaurantPageComponent,
-    BurgerRestaurantsComponent,
     NoodlesRestaurantsComponent,
     SandwichesComponent,
     BreakfastComponent,

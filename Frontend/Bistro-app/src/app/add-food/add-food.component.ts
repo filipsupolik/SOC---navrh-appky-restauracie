@@ -54,6 +54,13 @@ export class AddFoodComponent implements OnInit {
             Validators.pattern('[0-9]*'),
           ]
         ],
+        description: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(1),
+          ]
+        ],
         category: [
             '2',
             [
