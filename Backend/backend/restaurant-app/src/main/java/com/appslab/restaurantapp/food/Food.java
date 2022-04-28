@@ -45,10 +45,11 @@ public class Food {
     public Food() {
     }
 
-    public Food(String foodName, long categoryId, double price) {
+    public Food(String foodName, long categoryId, double price, String description) {
         this.foodName = foodName;
         this.categoryId = categoryId;
         this.price = price;
+        this.description = description;
     }
 
     public long getId() {

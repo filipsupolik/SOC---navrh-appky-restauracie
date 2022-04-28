@@ -74,6 +74,7 @@ export class AddFoodComponent implements OnInit {
   addFood(): void {
     const food = {
       foodName: this.form.controls.foodName.value,
+      description: this.form.controls.description.value,
       price: this.form.controls.price.value,
       restaurantId: this.form.controls.restaurantId.value,
       categoryId: this.form.controls.category.value,

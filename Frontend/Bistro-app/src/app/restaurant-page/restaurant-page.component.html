@@ -20,6 +20,11 @@
                      <b><img src="assets/img/icons/Fast-food-icon.png" alt="Burger"></b>
                   </div>
                </div>
+               <div class="card__description">
+                  <div class="text__content">
+                     <b>{{ food.description }}</b>
+                  </div>
+               </div>
                <div class="card_order">
                   <div class="order_content">
                      <button class="order_button" (click)="addToCart(food)">Buy</button>
@@ -34,8 +39,12 @@
          </h2>
          <h3 class="kqsQLn">
             <span>Adresa</span>
-            <p>{{ restaurant.address}}</p>
          </h3>
+         <p>{{ restaurant.address}}</p>
+         <h3 class="kqsQLn">
+            <span>Popis</span>
+         </h3>
+         <p>{{restaurant.description}}</p>
          <div class="flash">
             <h3 class="kqsQLn">
                <span>Otváracia doba</span>
@@ -71,15 +80,6 @@
                      </div>
                   </div>
                </div>
-            </div>
-            <div>
-               <h3 class="kqsQln">
-                  <span>Popis</span>
-                  <p>{{restaurant.description}}</p>
-                  <button type="button" class="btn btn-default btn-sm">
-                     <span class="glyphicon glyphicon-edit"></span> Edit
-                   </button>
-               </h3>
             </div>
          </div>
       </div>
