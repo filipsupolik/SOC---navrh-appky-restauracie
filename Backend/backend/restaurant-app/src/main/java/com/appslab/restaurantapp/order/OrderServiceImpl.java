@@ -66,19 +66,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     public List<OrderDTO> getRestaurantsIncompleteOrders() {
-        List<Order> orders = orderRepository.findOrdersByRestaurantAdminId(userService.getCurrentUser().getId());
-        List<OrderDTO> orderDTOS = new ArrayList<>();
-        for(int i = 0;i<orders.size();i++) {
-
-            OrderDTO orderDTO = new OrderDTO(orders.get(i).getId(), orders.get(i).isCompleted(), orders.get(i).getPrice(), orders.get(i).getAddress(), orders.get(i).getRestaurantAdminId(), orders.get(i).getOrderedFoodId(), orders.get(i).getCustomerId(), orders.get(i).isOrdered());
-            if(orderDTO.isOrdered()){
-                if (!orderDTO.isCompleted()) {
-                    orderDTOS.add(orderDTO);
-                }
-            }
-
-        }
-        return orderDTOS;
+        return this.orderRepository.findOrdersByRestaurantAdminId(userService.getCurrentUser().getId()).stream()
+                .map(order -> new OrderDTO(order.getId(), order.isCompleted(), order.getPrice(), order.getAddress(), order.getRestaurantAdminId(), order.getOrderedFoodId(), order.getCustomerId(), order.isOrdered()))
+                .filter(OrderDTO::isOrdered)
+                .filter(orderDTO -> !orderDTO.isCompleted())
+                .collect(Collectors.toList());
     }
 
     @Override
