@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -92,14 +93,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<OrderDTO> getAllUsersOrders() {
-        List<Order> orders = orderRepository.findOrdersByCustomerId(userService.getCurrentUser().getId());
-        List<OrderDTO> orderDTOS = new ArrayList<>();
-        for(int i = 0;i<orders.size();i++) {
-
-            OrderDTO orderDTO = new OrderDTO(orders.get(i).getId(), orders.get(i).isCompleted(), orders.get(i).getPrice(), orders.get(i).getAddress(), orders.get(i).getRestaurantAdminId(), orders.get(i).getOrderedFoodId(), orders.get(i).getCustomerId(), orders.get(i).isOrdered());
-            orderDTOS.add(orderDTO);
-        }
-        return orderDTOS;
+        return this.orderRepository.findOrdersByCustomerId(userService.getCurrentUser().getId()).stream()
+                .map(order -> new OrderDTO(order.getId(), order.isCompleted(), order.getPrice(), order.getAddress(), order.getRestaurantAdminId(), order.getOrderedFoodId(), order.getCustomerId(), order.isOrdered()))
+                .collect(Collectors.toList());
     }
 
     @Override
