@@ -50,12 +50,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void sendFoodOrder() {
-        List<OrderDTO> allOrders = getAllUsersOrders();
-        for(int i=0; i<allOrders.size();i++){
-            Order order = orderRepository.findOrderById(allOrders.get(i).getId());
-            order.setOrdered(true);
-            orderRepository.save(order);
-        }
+        orderRepository.findOrdersByCustomerId(userService.getCurrentUser().getId()).stream()
+                .peek(order -> order.setOrdered(true))
+                .forEach(order -> orderRepository.save(order));
     }
 
 

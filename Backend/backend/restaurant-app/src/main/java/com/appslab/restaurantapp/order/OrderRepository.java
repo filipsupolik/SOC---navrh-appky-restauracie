@@ -1,5 +1,6 @@
 package com.appslab.restaurantapp.order;
 
+import com.appslab.restaurantapp.dto.OrderDTO;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
